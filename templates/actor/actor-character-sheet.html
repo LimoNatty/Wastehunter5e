@@ -90,7 +90,7 @@
         <div class="resource flex-group-center">
         <label for="Edge" class="resource-label" style="color:#03e8fc;">Edge</label>
         <div class="resource-content flexrow flex-center flex-between">
-        <input type="text" name="data.edge.value" value = "{{data.edge.value}} " style="width: 50px;color: #03e8fc;" data-dtype="Number"> </div> </div>
+        <input type="text" name="data.edge.value" value = "{{data.edge.value}}" style="width: 50px;color: #03e8fc;" data-dtype="Number"> </div> </div>
 
         <div class="resource flex-group-center">
           <label for="AP" class="resource-label willreset" style="color:#03e8fc;">Will Points:</label>
@@ -156,9 +156,9 @@
                   </div>
                   <h4 style="color:#03e8fc">{{item.name}}</h4>
               </div>
-              <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.sinnumber}}</div>
-              <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.listedname}}</div>
-              <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.listedemployment}}</div>
+              <div class="item-formula item-prop" style="color:#03e8fc">{{item.sinnumber}}</div>
+              <div class="item-formula item-prop" style="color:#03e8fc">{{item.listedname}}</div>
+              <div class="item-formula item-prop" style="color:#03e8fc">{{item.listedemployment}}</div>
               <div class="item-controls">
                   <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                   <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -190,8 +190,8 @@
                   </div>
                   <h4 style="color:#03e8fc">{{item.name}}</h4>
               </div>
-              <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.contacttype}}</div>
-              <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.relationship}}</div>
+              <div class="item-formula item-prop" style="color:#03e8fc">{{item.contacttype}}</div>
+              <div class="item-formula item-prop" style="color:#03e8fc">{{item.relationship}}</div>
               <div class="item-controls">
                   <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                   <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -222,8 +222,8 @@
                     </div>
                     <h4 style="color:#03e8fc">{{item.name}}</h4>
                 </div>
-                <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.vehiclehp}}</div>
-                <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.speedrating}}</div>
+                <div class="item-formula item-prop" style="color:#03e8fc">{{item.vehiclehp}}</div>
+                <div class="item-formula item-prop" style="color:#03e8fc">{{item.speedrating}}</div>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                     <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -253,8 +253,8 @@
                       </div>
                       <h4 style="color:#03e8fc">{{item.name}}</h4>
                   </div> 
-                  <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.size}}</div>
-                  <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.safehousetype}}</div>
+                  <div class="item-formula item-prop" style="color:#03e8fc">{{item.size}}</div>
+                  <div class="item-formula item-prop" style="color:#03e8fc">{{item.safehousetype}}</div>
                   <div class="item-controls">
                       <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                       <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -270,47 +270,47 @@
         
               <div class="resource flex-group-center">
                 <label for="Head" class="resource-label" style="color:#03e8fc;">Head</label>
-                <input type="text" name="data.head.value" value = "{{data.head.value}}" style="width: 150px;color: #03e8fc;"> </div>
+                <input type="text" name="data.head.value" value = "{{data.head.value}} " style="width: 150px;color: #03e8fc;"> </div>
         
               <div class="resource flex-group-center">
                 <label for="Glasses" class="resource-label" style="color:#03e8fc;">Glasses</label>
-                <input type="text" name="data.glasses.value" value = "{{data.glasses.value}}" style="width: 150px;color: #03e8fc;"> </div> 
+                <input type="text" name="data.glasses.value" value = "{{data.glasses.value}} " style="width: 150px;color: #03e8fc;"> </div> 
         
               <div class="resource flex-group-center">
                 <label for="Ears" class="resource-label" style="color:#03e8fc;">Ears</label>
-                <input type="text" name="data.ears.value" value = "{{data.ears.value}}" style="width: 150px;color: #03e8fc;"> </div> 
-      
-              <div class="resource flex-group-center">
-                <label for="Face" class="resource-label" style="color:#03e8fc;">Face</label>
-                <input type="text" name="data.face.value" value = "{{data.face.value}}" style="width: 150px;color: #03e8fc;"> </div> 
+                <input type="text" name="data.ears.value" value = "{{data.ears.value}} " style="width: 150px;color: #03e8fc;"> </div> 
         
-              <div class="resource flex-group-center">
-                <label for="Top" class="resource-label" style="color:#03e8fc;">Top</label>
-                <input type="text" name="data.top.value" value = "{{data.top.value}}" style="width: 150px;color: #03e8fc;"> </div> 
+                <div class="resource flex-group-center">
+                  <label for="Face" class="resource-label" style="color:#03e8fc;">Face</label>
+                  <input type="text" name="data.face.value" value = "{{data.face.value}} " style="width: 150px;color: #03e8fc;"> </div> 
         
-              <div class="resource flex-group-center">
-                <label for="Overtop" class="resource-label" style="color:#03e8fc;">Overtop</label>
-                <input type="text" name="data.overtop.value" value = "{{data.overtop.value}}" style="width: 150px;color: #03e8fc;"> </div> 
+                  <div class="resource flex-group-center">
+                    <label for="Top" class="resource-label" style="color:#03e8fc;">Top</label>
+                    <input type="text" name="data.top.value" value = "{{data.top.value}} " style="width: 150px;color: #03e8fc;"> </div> 
         
-              <div class="resource flex-group-center">
-                <label for="Arms" class="resource-label" style="color:#03e8fc;">Arms</label>
-                <input type="text" name="data.arms.value" value = "{{data.arms.value}}" style="width: 150px;color: #03e8fc;"> </div> 
-
-              <div class="resource flex-group-center">
-                <label for="Hands" class="resource-label" style="color:#03e8fc;">Hands</label>
-                <input type="text" name="data.Hands.value" value = "{{data.Hands.value}}" style="width: 150px;color: #03e8fc;"> </div>
+                    <div class="resource flex-group-center">
+                      <label for="Overtop" class="resource-label" style="color:#03e8fc;">Overtop</label>
+                      <input type="text" name="data.overtop.value" value = "{{data.overtop.value}} " style="width: 150px;color: #03e8fc;"> </div> 
         
-              <div class="resource flex-group-center">
-                <label for="Pants" class="resource-label" style="color:#03e8fc;">Pants</label>
-                <input type="text" name="data.pants.value" value = "{{data.pants.value}}" style="width: 150px;color: #03e8fc;"> </div>
-
-              <div class="resource flex-group-center">
-                <label for="Boots" class="resource-label" style="color:#03e8fc;">Boots</label>
-                <input type="text" name="data.boots.value" value = "{{data.boots.value}}" style="width: 150px;color: #03e8fc;"> </div>  <br>
+                      <div class="resource flex-group-center">
+                        <label for="Arms" class="resource-label" style="color:#03e8fc;">Arms</label>
+                        <input type="text" name="data.arms.value" value = "{{data.arms.value}} " style="width: 150px;color: #03e8fc;"> </div> 
         
-              <div class="resource flex-group-center">
-                <label for="Armor" class="resource-label" style="color:#03e8fc;">Total Armor Rating</label>
-                <input type="text" name="data.armor.value" value = "{{data.armor.value}}" style="width: 150px;color: #03e8fc;"> </div> 
+                        <div class="resource flex-group-center">
+                          <label for="Hands" class="resource-label" style="color:#03e8fc;">Hands</label>
+                          <input type="text" name="data.Hands.value" value = "{{data.Hands.value}} " style="width: 150px;color: #03e8fc;"> </div>
+        
+                          <div class="resource flex-group-center">
+                            <label for="Pants" class="resource-label" style="color:#03e8fc;">Pants</label>
+                            <input type="text" name="data.pants.value" value = "{{data.pants.value}} " style="width: 150px;color: #03e8fc;"> </div>
+        
+                            <div class="resource flex-group-center">
+                              <label for="Boots" class="resource-label" style="color:#03e8fc;">Boots</label>
+                              <input type="text" name="data.boots.value" value = "{{data.boots.value}} " style="width: 150px;color: #03e8fc;"> </div>  <br>
+        
+                              <div class="resource flex-group-center">
+                                <label for="Armor" class="resource-label" style="color:#03e8fc;">Total Armor Rating</label>
+                                <input type="text" name="data.armor.value" value = "{{data.armor.value}} " style="width: 150px;color: #03e8fc;"> </div> 
 
     </div>
 
@@ -500,8 +500,8 @@
         <h3 class = "resource-label"  style="color:#03e8fc;">Trade Skills:</h3><br>
     <p style="border:2px; border-style:solid; border-color:#8a2be2;">
         Driving:
-        <label for="data.skills.weights.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.STR.mod + @data.weights.mod" data-label="{{weights.label}}">{{ability.label}}</label><input type="number" name="data.skills.driving.value" value="{{data.skills.driving.value}}" style="width:30px;color: #03e8fc;" data-dtype="Number">
-        <span class="ability-mod drivingroll" data-roll="(@skills.driving.mod + 0.5*(@abilities.TEC.value) + 0.5*(@abilities.REA.value) + {{data.circumstancedice.value}} )d6x6cs>3" data-label="Driving">{{numberFormat data.skills.driving.value decimals=0 sign=true}}</span> <br>
+        <label for="data.skills.weights.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.STR.mod + @data.weights.mod" data-label="{{weights.label}}">{{ability.label}}</label><input type="number" name="data.skills.driving.mod" value="{{data.skills.driving.mod}}" style="width:30px;color: #03e8fc;" data-dtype="Number">
+        <span class="ability-mod drivingroll" data-roll="(@skills.driving.mod + (0.5*(@abilities.TEC.value) + 0.5*(@abilities.REA.value)) + {{data.circumstancedice.value}} )d6x6cs>3" data-label="Driving">{{numberFormat data.skills.driving.mod decimals=0 sign=true}}</span> <br>
         Sailing:
         <label for="data.skills.weights.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.STR.mod + @data.weights.mod" data-label="{{weights.label}}">{{ability.label}}</label><input type="number" name="data.skills.sailing.mod" value="{{data.skills.sailing.mod}}" style="width:30px;color: #03e8fc;" data-dtype="Number">
         <span class="ability-mod otherroll" data-roll="(@skills.sailing.mod + (@abilities.TEC.value) + {{data.circumstancedice.value}} )d6x6cs>3" data-label="Sailing">{{numberFormat data.skills.sailing.mod decimals=0 sign=true}}</span> <br>
@@ -802,8 +802,8 @@
                 <h4 style="color:#03e8fc">{{item.name}}</h4>
             </div>
 
-            <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.itemtype}}</div>
-            <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.condition}}</div>
+            <div class="item-formula item-prop" style="color:#03e8fc">{{item.itemtype}}</div>
+            <div class="item-formula item-prop" style="color:#03e8fc">{{item.condition}}</div>
             <div class="item-controls">
                 <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                 <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -832,7 +832,7 @@
                   </div>
                   <h4 style="color:#03e8fc">{{item.name}}</h4>
               </div>
-              <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.condition}}</div>
+              <div class="item-formula item-prop" style="color:#03e8fc">{{item.condition}}</div>
               <div class="item-controls">
                   <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                   <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -863,8 +863,8 @@
                     </div>
                     <h4 style="color:#03e8fc">{{item.name}}</h4>
                 </div>
-                <div class="item-formula item-prop otherroll" data-roll="{{item.data.formula}}" style="color:#03e8fc">{{item.data.formula}}</div>
-                <div class="item-formula item-prop otherroll" data-roll="{{item.data.formula2}}" style="color:#03e8fc">{{item.data.formula2}}</div>
+                <div class="item-formula item-prop otherroll" data-roll="{{item.formula}}" style="color:#03e8fc">{{item.formula}}</div>
+                <div class="item-formula item-prop otherroll" data-roll="{{item.formula2}}" style="color:#03e8fc">{{item.formula2}}</div>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                     <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
@@ -894,7 +894,7 @@
                     </div>
                     <h4 style="color:#03e8fc">{{item.name}}</h4>
                 </div>
-                <div class="item-formula item-prop" style="color:#03e8fc">{{item.data.currencyquantity}}</div>
+                <div class="item-formula item-prop" style="color:#03e8fc">{{item.currencyquantity}}</div>
                 <div class="item-controls">
                     <a class="item-control item-edit" title="Edit Item" style="color:#03e8fc"><i class="fas fa-edit"></i></a>
                     <a class="item-control item-delete" title="Delete Item" style="color:#03e8fc"><i class="fas fa-trash"></i></a>
