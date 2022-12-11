@@ -1,0 +1,59 @@
+{{!-- This template is a fallback for when items don't have more specific templates. --}}
+{{!-- Generally, you'll want to make more specific templates when possible. --}}
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" style="color:#03e8fc"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description" style="color:#03e8fc">Description</a>
+    <a class="item" data-tab="attributes" style="color:#03e8fc">Attributes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
+
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes" style="color:#03e8fc">
+      {{!-- As you add new fields, add them in here! --}}
+      {{inventorylength}}
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Item Type:</label>
+        <select name="data.itemtype" style="color: #03e8fc;">
+            {{#select data.itemtype}}
+            <option value="Shirt (Max 2)" style="font: Bios;color: #03e8fc; background: #1e2424">Shirt (Max 2)</option>
+            <option value="Pants (Max 1)" style="font: Bios;color: #03e8fc; background: #1e2424">Pants (Max 1)</option>
+            <option value="Arms (Max 2)" style="font: Bios;color: #03e8fc; background: #1e2424">Arms (Max 2)</option>
+            <option value="Legs (Max 2)" style="font: Bios;color: #03e8fc; background: #1e2424">Legs (Max 2)</option>
+            <option value="Hands (Max 4)" style="font: Bios;color: #03e8fc; background: #1e2424">Hands (Max 4)</option>
+            <option value="Boots (Max 1)" style="font: Bios;color: #03e8fc; background: #1e2424">Boots (Max 1)</option>
+            <option value="Head (Max 2)" style="font: Bios;color: #03e8fc; background: #1e2424">Head (Max 2)</option>
+        <option value="Eyes (Max 1)" style="font: Bios;color: #03e8fc; background: #1e2424">Eyes (Max 1)</option>
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Condition:</label>
+        <select name="data.condition" style="color: #03e8fc;">
+            {{#select data.condition}}
+            <option value="Flawless" style="font: Bios;color: #03e8fc; background: #1e2424">Flawless</option>
+            <option value="Good" style="font: Bios;color: #03e8fc; background: #1e2424">Good</option>
+            <option value="Used" style="font: Bios;color: #03e8fc; background: #1e2424">Used</option>
+            <option value="Worn" style="font: Bios;color: #03e8fc; background: #1e2424">Worn</option>
+            <option value="Broken" style="font: Bios;color: #03e8fc; background: #1e2424">Broken</option>
+            {{/select}}
+          </select>
+        </div>
+  </section>
+</form>

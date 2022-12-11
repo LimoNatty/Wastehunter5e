@@ -1,15 +1,15 @@
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" style="color:#03e8fc"/></h1>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description" style="color:#03e8fc">Description</a>
+    <a class="item" data-tab="attributes" style="color:#03e8fc">Attributes</a>
   </nav>
 
   {{!-- Sheet Body --}}
@@ -17,6 +17,7 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description">
+      
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
@@ -24,8 +25,18 @@
     <div class="tab attributes" data-group="primary" data-tab="attributes">
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource">
-        <label class="resource-label">Spell Level</label>
-        <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="Number"/>
+        <label style="color:#03e8fc">Mana Type:</label>
+        <input type="text" name="data.manatype.value" value="{{data.manatype.value}}" style="width: 100px;color: #03e8fc;"><br>
+        <label style="color:#03e8fc">AP Cost:</label>
+        <input type="text" name="data.APcost.value" value="{{data.APcost.value}}" style="width: 100px;color: #03e8fc;" data-dtype="Number"><br>
+        <label style="color:#03e8fc">Mana Cost:</label>
+        <input type="text" name="data.manacost.value" value="{{data.manacost.value}}" style="width: 100px;color: #03e8fc;" data-dtype="Number"><br>
+        <label class="resource-label" style="color:#03e8fc"> Tier</label>
+        <input type="text" name="data.spellLevel" value="{{data.spellLevel}}" data-dtype="Number" style="color:#03e8fc"/>
+        <label class="resource-label" style="color:#03e8fc">Attack Roll Formula</label>
+        <input type="text" name="data.formula2" value="{{data.formula2}}" data-dtype="String" style="color:#03e8fc"/>
+        <label class="resource-label" style="color:#03e8fc">Damage Roll Formula</label>
+        <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String" style="color:#03e8fc"/>
       </div>
     </div>
   </section>

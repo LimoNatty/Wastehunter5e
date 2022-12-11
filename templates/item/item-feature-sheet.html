@@ -1,28 +1,50 @@
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" style="color:#03e8fc"/></h1>
     </div>
   </header>
 
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">Description</a>
-    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="description" style="color:#03e8fc">Description</a>
+    <a class="item" data-tab="attributes" style="color:#03e8fc">Attributes</a>
   </nav>
 
   {{!-- Sheet Body --}}
   <section class="sheet-body">
 
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
+    <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
-    <div class="tab attributes" data-group="primary" data-tab="attributes">
+    <div class="tab attributes" data-group="primary" data-tab="attributes" style="color:#03e8fc">
       {{!-- As you add new fields, add them in here! --}}
+      <label class="resource-label" style="color:#03e8fc">AP Cost</label>
+      <input type="text" name="data.APcost.value" value="{{data.APcost.value}}" data-dtype="Number" style="color:#03e8fc"/>
+      
+      <label for="data.perktype" style="color:#03e8fc">Perk Type:</label>
+        <select name="data.perktype" style="color:#03e8fc">
+          {{#select data.perktype}}
+          <option value="Trait" style="color:#03e8fc;background: #1e2424">Trait</option>
+          <option value="Power Perk" style="color:#03e8fc;background: #1e2424">Power Perk</option>
+          <option value="Core Perk" style="color:#03e8fc;background: #1e2424">Core Perk</option>
+          <option value="Epic Perk" style="color:#03e8fc;background: #1e2424">Epic Perk</option>
+          <option value="Essence Perk" style="color:#03e8fc;background: #1e2424">Essence Perk</option>
+          {{/select}}
+        </select><br>
+
+        <div class="resource flex-group-center">
+          <label for="data.charges.value" class="resource-label" style="color:#03e8fc">Charges:</label>
+          <div class="resource-content flexrow flex-center flex-between">
+          <input type="text" name="data.charges.value" value="{{data.charges.value}}" data-dtype="Number" style="width:100px;color: #03e8fc;"/>
+          <span style="color:#03e8fc"> / </span>
+          <input type="text" name="data.charges.max" value="{{data.charges.max}}" data-dtype="Number"style="width:100px;color: #03e8fc;"/>
+          </div>
+        </div>
     </div>
   </section>
 

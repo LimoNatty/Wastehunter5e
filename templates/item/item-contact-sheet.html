@@ -1,0 +1,71 @@
+{{!-- This template is a fallback for when items don't have more specific templates. --}}
+{{!-- Generally, you'll want to make more specific templates when possible. --}}
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" style="color:#03e8fc"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description" style="color:#03e8fc">Description</a>
+    <a class="item" data-tab="attributes" style="color:#03e8fc">Attributes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes" style="color:#03e8fc">
+      {{!-- As you add new fields, add them in here! --}}
+      <div class="resource flex-group-center">
+      <label class="resource-label" style="color:#03e8fc">Pronouns:</label>
+        <input type="text" name="data.pronouns" value="{{data.pronouns}}" style="width:150px;color:#03e8fc"/> </div>
+        <div class="resource flex-group-center">
+          <label class="resource-label" style="color:#03e8fc">Metatype:</label>
+            <input type="text" name="data.metatype" value="{{data.metatype}}" style="width:150px;color:#03e8fc"/> </div>
+            <div class="resource flex-group-center">
+              <label class="resource-label" style="color:#03e8fc">Age:</label>
+                <input type="text" name="data.age" value="{{data.age}}" style="width:150px;color:#03e8fc"/> </div>
+                    <div class="resource flex-group-center">
+                      <label class="resource-label" style="color:#03e8fc">Favours:</label>
+                        <input type="text" name="data.favours" value="{{data.favours}}" style="width:150px;color:#03e8fc"/> </div>
+
+                        <div class="resource flex-group-center">
+                        <label for="data.contacttype" class="resource-label" style="color:#03e8fc;">Type:</label>
+        <select name="data.contacttype"style="color: #03e8fc;">
+          {{#select data.contacttype}}
+          <option value="Sector" style="font: Bios;color: #03e8fc; background: #1e2424;">Sector</option>
+          <option value="Friend" style="font: Bios;color: #03e8fc; background: #1e2424;">Friend</option>
+          <option value="Partner"  style="font: Bios;color: #03e8fc; background: #1e2424;">Partner</option>
+          <option value="Ripperdoc" style="font: Bios;color: #03e8fc; background: #1e2424;">Ripperdoc</option>
+          <option value="Driver" style="font: Bios;color: #03e8fc; background: #1e2424;">Driver</option>
+          <option value="Merc" style="font: Bios;color: #03e8fc; background: #1e2424;">Merc</option>
+          <option value="Cleaner"  style="font: Bios;color: #03e8fc; background: #1e2424;">Cleaner</option>
+          <option value="Dealer"  style="font: Bios;color: #03e8fc; background: #1e2424;">Dealer</option>
+          <option value="Fence"  style="font: Bios;color: #03e8fc; background: #1e2424;">Fence</option>
+          <option value="Infoguy"  style="font: Bios;color: #03e8fc; background: #1e2424;">Infoguy</option>
+          <option value="Police"  style="font: Bios;color: #03e8fc; background: #1e2424;">Police</option>
+          <option value="Matrix"  style="font: Bios;color: #03e8fc; background: #1e2424;">Matrix</option>
+          <option value="Mentor"  style="font: Bios;color: #03e8fc; background: #1e2424;">Mentor</option>
+          <option value="Tailor"  style="font: Bios;color: #03e8fc; background: #1e2424;">Tailor</option>
+          <option value="Scholar"  style="font: Bios;color: #03e8fc; background: #1e2424;">Scholar</option>
+          <option value="Corporate"  style="font: Bios;color: #03e8fc; background: #1e2424;">Corporate</option>
+          <option value="Criminal"  style="font: Bios;color: #03e8fc; background: #1e2424;">Criminal</option>
+          <option value="Fixer"  style="font: Bios;color: #03e8fc; background: #1e2424;">Fixer</option>
+          {{/select}}
+        </select> </div> 
+
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Relationship:</label>
+        <input type="text" name="data.relationship" value="{{data.relationship}}" style="width:150px;color:#03e8fc"/> </div></div>
+
+  </section>
+</form>

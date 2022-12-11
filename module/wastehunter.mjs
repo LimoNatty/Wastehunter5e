@@ -1,12 +1,14 @@
+sessionStorage.clear()
+
 // Import document classes.
-import { BoilerplateActor } from "./documents/actor.mjs";
-import { BoilerplateItem } from "./documents/item.mjs";
+import { WastehunterActor } from "./documents/actor.mjs";
+import { WastehunterItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { BoilerplateActorSheet } from "./sheets/actor-sheet.mjs";
-import { BoilerplateItemSheet } from "./sheets/item-sheet.mjs";
+import { WastehunterActorSheet } from "./sheets/actor-sheet.mjs";
+import { WastehunterItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
-import { BOILERPLATE } from "./helpers/config.mjs";
+import { WASTEHUNTER } from "./helpers/config.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -16,33 +18,33 @@ Hooks.once('init', async function() {
 
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.boilerplate = {
-    BoilerplateActor,
-    BoilerplateItem,
+  game.wastehunter = {
+    WastehunterActor,
+    WastehunterItem,
     rollItemMacro
   };
 
   // Add custom constants for configuration.
-  CONFIG.BOILERPLATE = BOILERPLATE;
+  CONFIG.WASTEHUNTER = WASTEHUNTER;
 
   /**
    * Set an initiative formula for the system
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "1d20 + @abilities.dex.mod",
+    formula: "(@resources.combatsequence.value)d6x6cs>3",
     decimals: 2
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = BoilerplateActor;
-  CONFIG.Item.documentClass = BoilerplateItem;
+  CONFIG.Actor.documentClass = WastehunterActor;
+  CONFIG.Item.documentClass = WastehunterItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("boilerplate", BoilerplateActorSheet, { makeDefault: true });
+  Actors.registerSheet("wastehunter", WastehunterActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("boilerplate", BoilerplateItemSheet, { makeDefault: true });
+  Items.registerSheet("wastehunter", WastehunterItemSheet, { makeDefault: true });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -77,6 +79,27 @@ Hooks.once("ready", async function() {
 });
 
 /* -------------------------------------------- */
+/*  COMBAT TURN NONSENSE                        */
+/* -------------------------------------------- */
+
+Hooks.on("combatStart", async function() {
+  console.log("COMBAT STARTING")
+  ui.notifications.warn("REMINDER - TOGGLE COMBAT SWITCH")
+  ui.notifications.warn("REMINDER - TOGGLE COMBAT SWITCH")
+  ui.notifications.warn("REMINDER - TOGGLE COMBAT SWITCH")
+});
+
+Hooks.on("combatRound", async function() {
+  console.log("COMBAT TURN PROGRESSED")
+  ui.notifications.warn("REMINDER - RESET AP")
+  ui.notifications.warn("REMINDER - RESET AP")
+  ui.notifications.warn("REMINDER - RESET AP")
+});
+
+  
+
+
+/* -------------------------------------------- */
 /*  Hotbar Macros                               */
 /* -------------------------------------------- */
 
@@ -93,15 +116,15 @@ async function createItemMacro(data, slot) {
   const item = data.data;
 
   // Create the macro command
-  const command = `game.boilerplate.rollItemMacro("${item.name}");`;
-  let macro = game.macros.entities.find(m => (m.name === item.name) && (m.command === command));
+  const command = `game.wastehunter.rollItemMacro("${item.name}");`;
+  let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
       name: item.name,
       type: "script",
       img: item.img,
       command: command,
-      flags: { "boilerplate.itemMacro": true }
+      flags: { "wastehunter.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);

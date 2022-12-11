@@ -2,7 +2,7 @@
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
  */
-export class BoilerplateItem extends Item {
+export class WastehunterItem extends Item {
   /**
    * Augment the basic Item data model with additional dynamic data.
    */
@@ -25,41 +25,52 @@ export class BoilerplateItem extends Item {
     return rollData;
   }
 
-  /**
-   * Handle clickable rolls.
-   * @param {Event} event   The originating click event
-   * @private
-   */
-  async roll() {
-    const item = this.data;
-
-    // Initialize chat data.
-    const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    const rollMode = game.settings.get('core', 'rollMode');
-    const label = `[${item.type}] ${item.name}`;
-
-    // If there's no roll data, send a chat message.
-    if (!this.data.data.formula) {
-      ChatMessage.create({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-        content: item.data.description ?? ''
-      });
+/**
+ * Handle clickable rolls.
+ * @param {Event} event   The originating click event
+ * @private
+ */
+ async roll(options = {}) {
+  const item = this.data;
+  
+  // Initialize chat data.
+  const speaker = ChatMessage.getSpeaker({ actor: this.actor });
+  const rollMode = game.settings.get('core', 'rollMode');
+  const label = `[${item.type}] ${item.name}`;
+  
+  // If there's no roll data, send a chat message.
+  if (!this.data.data.formula) {
+    ChatMessage.create({
+      speaker: speaker,
+      rollMode: rollMode,
+      flavor: label,
+      content: item.data.description ?? ''
+    });
+  }
+  // Otherwise, create a roll and send a chat message from it.
+  else {
+    // Retrieve roll data.
+    const rollData = this.getRollData();
+  
+    // Default to the item's formula.
+    let formula = rollData.item.formula;
+  
+    // If there's an alternate field passed in, try to retrieve it instead.
+    if (options?.roll) {
+      formula = getProperty(item.data, options.roll) ?? formula;
     }
-    // Otherwise, create a roll and send a chat message from it.
-    else {
-      // Retrieve roll data.
-      const rollData = this.getRollData();
+  
+    // Invoke the roll and submit it to chat.
+    const roll = new Roll(formula, rollData);
+    // If you need to store the value first, uncomment the next line.
+    let result = await roll.roll({async: true});
 
-      // Invoke the roll and submit it to chat.
-      const roll = new Roll(rollData.item.formula, rollData).roll();
-      roll.toMessage({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-      });
-      return roll;
-    }
+    roll.toMessage({
+      speaker: speaker,
+      rollMode: rollMode,
+      flavor: label,
+    });
+    return result;
+  }
   }
 }

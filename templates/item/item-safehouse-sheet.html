@@ -19,12 +19,35 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
+
       {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
     <div class="tab attributes" data-group="primary" data-tab="attributes" style="color:#03e8fc">
       {{!-- As you add new fields, add them in here! --}}
-    </div>
+      {{inventorylength}}
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Type:</label>
+        <select name="data.safehousetype" style="color: #03e8fc;">
+            {{#select data.safehousetype}}
+            <option value="Home" style="font: Bios;color: #03e8fc; background: #1e2424">Home</option>
+            <option value="Workplace" style="font: Bios;color: #03e8fc; background: #1e2424">Workplace</option>
+            <option value="Haven" style="font: Bios;color: #03e8fc; background: #1e2424">Haven</option>
+
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Size:</label>
+        <select name="data.size" style="color: #03e8fc;">
+            {{#select data.size}}
+            <option value="Small" style="font: Bios;color: #03e8fc; background: #1e2424">Small</option>
+            <option value="Medium" style="font: Bios;color: #03e8fc; background: #1e2424">Medium</option>
+            <option value="Large" style="font: Bios;color: #03e8fc; background: #1e2424">Large</option>
+            {{/select}}
+          </select>
+        </div>
   </section>
 </form>

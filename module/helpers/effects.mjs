@@ -1,7 +1,7 @@
 /**
  * Manage Active Effect instances through the Actor Sheet via effect control buttons.
  * @param {MouseEvent} event      The left-click event on the effect control
- * @param {Actor|Item} owner      The owning entity which manages this effect
+ * @param {Actor|Item} owner      The owning document which manages this effect
  */
  export function onManageActiveEffect(event, owner) {
   event.preventDefault();
@@ -16,6 +16,7 @@
         origin: owner.uuid,
         "duration.rounds": li.dataset.effectType === "temporary" ? 1 : undefined,
         disabled: li.dataset.effectType === "inactive"
+
       }]);
     case "edit":
       return effect.sheet.render(true);
@@ -23,6 +24,7 @@
       return effect.delete();
     case "toggle":
       return effect.update({disabled: !effect.data.disabled});
+
   }
 }
 

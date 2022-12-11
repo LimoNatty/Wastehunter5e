@@ -2,7 +2,7 @@
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class BoilerplateActor extends Actor {
+export class WastehunterActor extends Actor {
 
   /** @override */
   prepareData() {
@@ -31,7 +31,7 @@ export class BoilerplateActor extends Actor {
   prepareDerivedData() {
     const actorData = this.data;
     const data = actorData.data;
-    const flags = actorData.flags.boilerplate || {};
+    const flags = actorData.flags.wastehunter || {};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
@@ -50,9 +50,16 @@ export class BoilerplateActor extends Actor {
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+      ability.mod = ability.value - 6.0
     }
+    data.totalhealth.value = data.shield.value + data.stamina.value + data.luck.value + data.vitality.value,
+    data.totalhealth.max = data.shield.max + data.stamina.max + data.luck.max + data.vitality.max
+
+
+
+    data.resources.perkbonus.value = 2 + Math.floor((data.resources.ascension.value - 1)/5)
+    data.increment = Math.floor((data.resources.ascension.value - 1)/5)
+    
   }
 
   /**
@@ -64,6 +71,12 @@ export class BoilerplateActor extends Actor {
     // Make modifications to data here. For example:
     const data = actorData.data;
     data.xp = (data.cr * data.cr) * 100;
+
+    // Loop through ability scores, and add their modifiers to our sheet output.
+    for (let [key, ability] of Object.entries(data.abilities)) {
+      ability.mod = ability.value - 6.0
+    }
+
   }
 
   /**
@@ -99,6 +112,8 @@ export class BoilerplateActor extends Actor {
     }
   }
 
+
+  
   /**
    * Prepare NPC roll data.
    */

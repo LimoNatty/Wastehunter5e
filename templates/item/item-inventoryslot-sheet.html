@@ -1,0 +1,59 @@
+{{!-- This template is a fallback for when items don't have more specific templates. --}}
+{{!-- Generally, you'll want to make more specific templates when possible. --}}
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" style="color:#03e8fc"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description" style="color:#03e8fc">Description</a>
+    <a class="item" data-tab="attributes" style="color:#03e8fc">Attributes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
+
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes" style="color:#03e8fc">
+      {{!-- As you add new fields, add them in here! --}}
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Item Type:</label>
+        <select name="data.itemtype" style="color: #03e8fc;">
+            {{#select data.itemtype}}
+            <option value="Weapon" style="font: Bios;color: #03e8fc; background: #1e2424">Weapon</option>
+            <option value="Kit" style="font: Bios;color: #03e8fc; background: #1e2424">Kit</option>
+            <option value="Consumable" style="font: Bios;color: #03e8fc; background: #1e2424">Consumable</option>
+            <option value="Trinket" style="font: Bios;color: #03e8fc; background: #1e2424">Trinket</option>
+            <option value="Ammo" style="font: Bios;color: #03e8fc; background: #1e2424">Ammo</option>
+            <option value="Property" style="font: Bios;color: #03e8fc; background: #1e2424">Property</option>
+            <option value="Worn" style="font: Bios;color: #03e8fc; background: #1e2424">Worn</option>
+        <option value="Useful Item" style="font: Bios;color: #03e8fc; background: #1e2424">Useful Item</option>
+            {{/select}}
+          </select>
+
+        <div class="resource flex-group-center">
+        <label class="resource-label" style="color:#03e8fc">Condition:</label>
+        <select name="data.condition" style="color: #03e8fc;">
+            {{#select data.condition}}
+            <option value="Flawless" style="font: Bios;color: #03e8fc; background: #1e2424">Flawless</option>
+            <option value="Good" style="font: Bios;color: #03e8fc; background: #1e2424">Good</option>
+            <option value="Used" style="font: Bios;color: #03e8fc; background: #1e2424">Used</option>
+            <option value="Worn" style="font: Bios;color: #03e8fc; background: #1e2424">Worn</option>
+            <option value="Broken" style="font: Bios;color: #03e8fc; background: #1e2424">Broken</option>
+            {{/select}}
+          </select>
+    </div>
+    <label class="resource-label" style="color:#03e8fc">Quantity:</label>
+      <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" style="width:110px;color:#03e8fc"/>
+  </section>
+</form>

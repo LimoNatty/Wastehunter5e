@@ -1,33 +1,33 @@
 <ol class="items-list effects-list">
   {{#each effects as |section sid|}}
-    <li class="items-header flexrow" data-effect-type="{{section.type}}">
-      <h3 class="item-name effect-name flexrow">{{localize section.label}}</h3>
-      <div class="effect-source">Source</div>
-      <div class="effect-source">Duration</div>
+    <li class="items-header flexrow" data-effect-type="{{section.type}}" style="background-color:#1e2424">
+      <h3 class="item-name effect-name flexrow" style="color:#03e8fc;">{{localize section.label}}</h3>
+      <div class="effect-source" style="color:#03e8fc;">Source</div>
+      <div class="effect-source" style="color:#03e8fc;">Duration</div>
       <div class="item-controls effect-controls flexrow">
-        <a class="effect-control" data-action="create" title="{{localize 'BOILERPLATE.EffectCreate'}}">
-          <i class="fas fa-plus"></i> {{localize "BOILERPLATE.Add"}}
+        <a class="effect-control" data-action="create" title="{{localize 'WASTEHUNTER.EffectCreate'}}" style="color:#03e8fc;">
+          <i class="fas fa-plus"></i> {{localize "WASTEHUNTER.Add"}}
         </a>
       </div>
     </li>
 
     <ol class="item-list">
     {{#each section.effects as |effect|}}
-      <li class="item effect flexrow" data-effect-id="{{effect.id}}">
-        <div class="item-name effect-name flexrow">
+      <li class="item effect flexrow" data-effect-id="{{effect.id}}" style="color:#03e8fc">
+        <div class="item-name effect-name flexrow" style="color:#03e8fc">
           <img class="item-image" src="{{effect.data.icon}}"/>
-          <h4>{{effect.data.label}}</h4>
+          <h4 style="color:#03e8fc;">{{effect.data.label}}</h4>
         </div>
-        <div class="effect-source">{{effect.sourceName}}</div>
-        <div class="effect-duration">{{effect.duration.label}}</div>
+        <div class="effect-source" style="color:#03e8fc;">{{effect.sourceName}}</div>
+        <div class="effect-duration" style="color:#03e8fc;">{{effect.duration.label}}</div>
         <div class="item-controls effect-controls flexrow">
-          <a class="effect-control" data-action="toggle" title="{{localize 'BOILERPLATE.EffectToggle'}}">
+          <a class="effect-control" data-action="toggle" title="{{localize 'WASTEHUNTER.EffectToggle'}}" style="color:#03e8fc;">
             <i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
           </a>
-          <a class="effect-control" data-action="edit" title="{{localize 'BOILERPLATE.EffectEdit'}}">
+          <a class="effect-control" data-action="edit" title="{{localize 'WASTEHUNTER.EffectEdit'}}" style="color:#03e8fc;">
             <i class="fas fa-edit"></i>
           </a>
-          <a class="effect-control" data-action="delete" title="{{localize 'BOILERPLATE.EffectDelete'}}">
+          <a class="effect-control" data-action="delete" title="{{localize 'WASTEHUNTER.EffectDelete'}}" style="color:#03e8fc;">
             <i class="fas fa-trash"></i>
           </a>
         </div>
