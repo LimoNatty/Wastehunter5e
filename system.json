@@ -21,6 +21,9 @@
       "name": "Nat Guedes (she/they)"
     },
     {
+      "name": "Mia Merelo (she/her)"
+    },
+    {
       "name": "Resi Dent (she/they)"
     }
   ],
@@ -35,12 +38,12 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "gridDistance": 1,
+  "gridUnits": "Unit",
   "primaryTokenAttribute": "data.totalhealth",
   "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/LimoNatty/Wastehunter5e",
+  "manifest": "https://raw.githubusercontent.com/LimoNatty/Wastehunter5e/08x-best-practices/system.json",
+  "download": "https://github.com/LimoNatty/Wastehunter5e/archive/refs/heads/08x-best-practices.zip",
   "license": "LICENSE.txt"
 }
