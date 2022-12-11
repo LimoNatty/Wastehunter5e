@@ -10,19 +10,18 @@
   },
   "authors": [
     {
-      "name": "Dan Miller (he/him)",
-      "discord": "Praetoriae#1596"
+      "name": "Dan Miller (he/him)"
     },
     {
       "name": "Alis Ramona (she/it)",
       "url": "https://amrsetsunai.carrd.co/",
-      "email": "alis.k.ramona@gmail.com",
       "discord": "AMR_Setsunai#0064"
     },
     {
-      "name": "Nat Guedes (she/they)",
-      "email": "ngjuke5@gmail.com",
-      "discord": "LimoNat#6067"
+      "name": "Nat Guedes (she/they)"
+    },
+    {
+      "name": "Resi Dent (she/they)"
     }
   ],
   "esmodules": ["module/wastehunter.mjs"],
