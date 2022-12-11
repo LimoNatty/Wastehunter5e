@@ -2,10 +2,29 @@
   "name": "wastehunter",
   "title": "Wastehunter First Edition",
   "description": "The Wastehunter First Edition system for FoundryVTT!",
-  "version": "5.5.0.1",
-  "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "9",
-  "author": "Alis Ramona",
+  "version": "5.1.0.1",
+  "compatibility": {
+    "minimum": "9",
+    "verified": 9,
+    "maximum": 10
+  },
+  "authors": [
+    {
+      "name": "Dan Miller (he/him)",
+      "discord": "Praetoriae#1596"
+    },
+    {
+      "name": "Alis Ramona (she/it)",
+      "url": "https://amrsetsunai.carrd.co/",
+      "email": "alis.k.ramona@gmail.com",
+      "discord": "AMR_Setsunai#0064"
+    },
+    {
+      "name": "Nat Guedes (she/they)",
+      "email": "ngjuke5@gmail.com",
+      "discord": "LimoNat#6067"
+    }
+  ],
   "esmodules": ["module/wastehunter.mjs"],
   "styles": ["css/wastehunter.css"],
   "scripts": [],

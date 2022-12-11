@@ -1,4 +1,4 @@
-import {onManageActiveEffect, prepareActiveEffectCategories} from "../helpers/effects.mjs";
+import { onManageActiveEffect, prepareActiveEffectCategories } from "../helpers/effects.mjs";
 
 /**
  * Extend the basic ActorSheet with some very simple modifications
@@ -36,7 +36,7 @@ export class WastehunterActorSheet extends ActorSheet {
     const actorData = this.actor.toObject(false);
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = actorData.data;
+    context.data = actorData.system;
     context.flags = actorData.flags;
 
     // Prepare character data and items.
@@ -128,43 +128,43 @@ export class WastehunterActorSheet extends ActorSheet {
         }
       }
       // Append to contacts.
-      else if(i.type === 'contact') {
+      else if (i.type === 'contact') {
         contact.push(i);
       }
       // Appand to languages
-      else if(i.type === 'language') {
+      else if (i.type === 'language') {
         language.push(i)
       }
-      else if(i.type === 'inventoryslot') {
+      else if (i.type === 'inventoryslot') {
         inventoryslot.push(i)
       }
-      else if(i.type === 'currency') {
+      else if (i.type === 'currency') {
         currency.push(i)
       }
-      else if(i.type ==='clothes') {
+      else if (i.type === 'clothes') {
         clothes.push(i)
       }
-      else if(i.type ==='personalitems'){
+      else if (i.type === 'personalitems') {
         personalitems.push(i)
       }
-      else if(i.type === 'consumables'){
+      else if (i.type === 'consumables') {
         consumables.push(i)
       }
-      else if(i.type === 'vehicles'){
+      else if (i.type === 'vehicles') {
         vehicles.push(i)
       }
-      else if(i.type === 'safehouse'){
+      else if (i.type === 'safehouse') {
         safehouse.push(i)
       }
-      else if(i.type === 'decker'){
+      else if (i.type === 'decker') {
         decker.push(i)
       }
-      else if(i.type === 'sins'){
+      else if (i.type === 'sins') {
         sins.push(i)
       }
     }
 
-     //Assign and return
+    //Assign and return
     context.gear = gear;
     context.features = features;
     context.spells = spells;
@@ -180,7 +180,7 @@ export class WastehunterActorSheet extends ActorSheet {
     context.decker = decker;
     context.sins = sins;
 
-   }
+  }
 
   /* -------------------------------------------- */
 
@@ -236,7 +236,7 @@ export class WastehunterActorSheet extends ActorSheet {
 
     // Spell AP Management.
     html.find('.spellapmod').click(this._onClickSpellAP.bind(this));
-  
+
     // Reload Management.
     html.find('.reloadsys').click(this._onClickReloadsys.bind(this));
 
@@ -267,7 +267,7 @@ export class WastehunterActorSheet extends ActorSheet {
     html.find('.tauntsys').click(this._onClickTauntsys.bind(this));
 
     html.find('.itemtest').click(this._onClickitemtest.bind(this));
-    
+
     html.find('.magazinedrop').click(this._onClickMagazineDrop.bind(this));
 
     // Anything targetting related lmao
@@ -321,7 +321,7 @@ export class WastehunterActorSheet extends ActorSheet {
     }
   }
 
-  
+
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event
@@ -346,7 +346,7 @@ export class WastehunterActorSheet extends ActorSheet {
     delete itemData.data["type"];
 
     // Finally, create the item!
-    return await Item.create(itemData, {parent: this.actor});
+    return await Item.create(itemData, { parent: this.actor });
   }
 
   /**
@@ -368,9 +368,9 @@ export class WastehunterActorSheet extends ActorSheet {
 
         // Retrieve the roll prop.
         const roll = dataset.roll ?? null;
-        
+
         // Pass it in a new options object argument.
-        if (item) return item.roll({roll: roll});
+        if (item) return item.roll({ roll: roll });
       }
     }
 
@@ -385,17 +385,17 @@ export class WastehunterActorSheet extends ActorSheet {
       let roll = new Roll(dataset.roll, this.actor.getRollData());
 
 
-      if(actor.system.combatswitch.check == true){
-              // AP Reduction
-        console.log("AP Cost - ",item.system.APcost.value);
-        actor.update({"data.ap.value": actor.system.ap.value - item.system.APcost.value});
-      
+      if (actor.system.combatswitch.check == true) {
+        // AP Reduction
+        console.log("AP Cost - ", item.system.APcost.value);
+        actor.update({ "data.ap.value": actor.system.ap.value - item.system.APcost.value });
+
         // Checking if weapon is automatic and an 'item'
         console.log("Checking for Automatic");
-        console.log("Item Type -",item.type)
-        if(item.type == 'item'){
-          if(item.system.automatic.check == true){
-            item.update({"data.APcost.value": 2 });
+        console.log("Item Type -", item.type)
+        if (item.type == 'item') {
+          if (item.system.automatic.check == true) {
+            item.update({ "data.APcost.value": 2 });
           };
         }
       }
@@ -406,8 +406,8 @@ export class WastehunterActorSheet extends ActorSheet {
       console.log("ROLL TEST")
 
       console.log(roll)
-      console.log("Roll Total -",roll_total)
-      console.log("Critical Range -",item.system.criticalrange)
+      console.log("Roll Total -", roll_total)
+      console.log("Critical Range -", item.system.criticalrange)
 
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -429,7 +429,7 @@ export class WastehunterActorSheet extends ActorSheet {
 
     let roll = new Roll(dataset.roll, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -449,20 +449,20 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.TEC.value)
-    let roundedrea  = Math.floor(0.5*actor.system.REA.value)
+    let roundedtec = Math.floor(0.5 * actor.system.TEC.value)
+    let roundedrea = Math.floor(0.5 * actor.system.REA.value)
     console.log(roundedtec, roundedrea)
 
     let drivingskill = actor.system.skills.driving.value
     let circumstancedicevalue = actor.system.circumstancedice.value
 
     let rollformula = drivingskill + roundedtec + roundedrea + circumstancedicevalue
-    console.log("ROLL FORMULA",rollformula)
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -482,20 +482,20 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.TEC.value)
-    let roundedrea  = Math.floor(0.5*actor.system.INT.value)
+    let roundedtec = Math.floor(0.5 * actor.system.TEC.value)
+    let roundedrea = Math.floor(0.5 * actor.system.INT.value)
     console.log(roundedtec, roundedrea)
 
     let drivingskill = actor.system.skills.healing.mod
     let circumstancedicevalue = actor.system.circumstancedice.value
 
     let rollformula = drivingskill + roundedtec + roundedrea + circumstancedicevalue
-    console.log("ROLL FORMULA",rollformula)
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -506,7 +506,7 @@ export class WastehunterActorSheet extends ActorSheet {
 
   }
 
-  
+
   async _onTrickeryroll(event) {
     event.preventDefault();
     const element = event.currentTarget;
@@ -516,20 +516,20 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.TEC.value)
-    let roundedrea  = Math.floor(0.5*actor.system.QCK.value)
+    let roundedtec = Math.floor(0.5 * actor.system.TEC.value)
+    let roundedrea = Math.floor(0.5 * actor.system.QCK.value)
     console.log(roundedtec, roundedrea)
 
     let drivingskill = actor.system.skills.trickery.mod
     let circumstancedicevalue = actor.system.circumstancedice.value
 
     let rollformula = drivingskill + roundedtec + roundedrea + circumstancedicevalue
-    console.log("ROLL FORMULA",rollformula)
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -549,20 +549,20 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.TEC.value)
-    let roundedrea  = Math.floor(0.5*actor.system.SPI.value)
+    let roundedtec = Math.floor(0.5 * actor.system.TEC.value)
+    let roundedrea = Math.floor(0.5 * actor.system.SPI.value)
     console.log(roundedtec, roundedrea)
 
     let drivingskill = actor.system.skills.bushcraft.mod
     let circumstancedicevalue = actor.system.circumstancedice.value
 
     let rollformula = drivingskill + roundedtec + roundedrea + circumstancedicevalue
-    console.log("ROLL FORMULA",rollformula)
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -582,20 +582,20 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.INT.value)
-    let roundedrea  = Math.floor(0.5*actor.system.CLN.value)
+    let roundedtec = Math.floor(0.5 * actor.system.INT.value)
+    let roundedrea = Math.floor(0.5 * actor.system.CLN.value)
     console.log(roundedtec, roundedrea)
 
     let drivingskill = actor.system.skills.psychiatry.mod
     let circumstancedicevalue = actor.system.circumstancedice.value
 
     let rollformula = drivingskill + roundedtec + roundedrea + circumstancedicevalue
-    console.log("ROLL FORMULA",rollformula)
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -615,19 +615,19 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.SPI.value)
-    let roundedrea  = Math.floor(0.5*actor.system.CLN.value)
+    let roundedtec = Math.floor(0.5 * actor.system.SPI.value)
+    let roundedrea = Math.floor(0.5 * actor.system.CLN.value)
     console.log(roundedtec, roundedrea)
 
     let circumstancedicevalue = actor.system.circumstancedice.value
 
-    let rollformula =  roundedtec + roundedrea + circumstancedicevalue
-    console.log("ROLL FORMULA",rollformula)
+    let rollformula = roundedtec + roundedrea + circumstancedicevalue
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -647,20 +647,20 @@ export class WastehunterActorSheet extends ActorSheet {
     let label = dataset.label ? `[roll] ${dataset.label}` : '';
 
 
-    let roundedtec = Math.floor(0.5*actor.system.STR.value)
-    let roundedrea  = actor.system.CLN.value
+    let roundedtec = Math.floor(0.5 * actor.system.STR.value)
+    let roundedrea = actor.system.CLN.value
     console.log(roundedtec, roundedrea)
 
     let circumstancedicevalue = actor.system.circumstancedice.value
     let drivingskill = actor.system.skills.intimidation.mod
 
-    let rollformula =  roundedtec + roundedrea + circumstancedicevalue + drivingskill
-    console.log("ROLL FORMULA",rollformula)
+    let rollformula = roundedtec + roundedrea + circumstancedicevalue + drivingskill
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -671,582 +671,584 @@ export class WastehunterActorSheet extends ActorSheet {
 
   }
 
-_onClickAP(event) {
-  event.preventDefault()
-  console.log("AP Reduction Test");
-  const actor = this.actor;
-  console.log("ACTOR AP -",actor.system.ap.value);
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
+  _onClickAP(event) {
+    event.preventDefault()
+    console.log("AP Reduction Test");
+    const actor = this.actor;
+    console.log("ACTOR AP -", actor.system.ap.value);
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
 
-  if(actor.system.ap.value < 0){
-    ui.notifications.error("Negative AP Detected: Alis may now eat your dice."); 
-  }
-
-  console.log("AP COST -",item.system.APcost.value);
-  actor.update({"data.ap.value": actor.system.ap.value - item.system.APcost.value});
-
-  console.log("Checking for Automatic");
-  console.log("ITEM TYPE -",item.type)
-  if(item.type == 'item'){
-    if(item.system.automatic.check == true){
-      item.update({"data.APcost.value": 2 });
-    };
-  }
-
-}
-
-_onClickSpellAP(event) {
-  event.preventDefault()
-  console.log("Spell AP Reduction Test");
-  const actor = this.actor;
-  console.log("ACTOR AP -",actor.system.ap.value);
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
-
-  if(actor.system.ap.value < 0){
-    ui.notifications.error("Negative AP Detected: Alis may now eat your dice."); 
-  }
-
-  console.log("ITEM AP -",item.system.APcost.value);
-  if(actor.system.combatswitch.check == true){
-    actor.update({"data.ap.value": actor.system.ap.value - item.system.APcost.value});
-  }
-
-}
-
-
-_onClickCharge(event) {
-  event.preventDefault()
-  console.log("Test")
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
-  console.log("CHARGES -",item.system.charges.value)
-
-  if(item.type == 'item'){
-    if(item.system.melee.check == false){
-      item.update({"data.charges.value": item.system.charges.value - 1})
+    if (actor.system.ap.value < 0) {
+      ui.notifications.error("Negative AP Detected: Alis may now eat your dice.");
     }
-  }
 
-  if(item.type == 'feature' && item.system.charges.max > 0){
-      item.update({"data.charges.value": item.system.charges.value - 1})
-  }
+    console.log("AP COST -", item.system.APcost.value);
+    actor.update({ "data.ap.value": actor.system.ap.value - item.system.APcost.value });
 
-
-  if(item.system.charges.value == 2) {
-    ui.notifications.error("1 Charge Remaining")
-  }
-  if(item.system.charges.value == 1){
-    ui.notifications.error("No Charges Remaining")
-  }
-  /*if(item.system.charges.value == 0){
-    ui.notifications.error("Negative Charges Detected: Alis may now eat your dice.")
-  }*/
-}
-
-_onClickReloadsys(event) {
-  event.preventDefault()
-  console.log("Test")
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
-  console.log(item.system.charges.value)
-
-  const actor = this.actor;
-
-  if(item.type == 'item'){
-    if(item.system.melee.check == false) {
-      item.update({"data.charges.value": item.system.charges.max})
-      actor.update({"data.ap.value": 0})
+    console.log("Checking for Automatic");
+    console.log("ITEM TYPE -", item.type)
+    if (item.type == 'item') {
+      if (item.system.automatic.check == true) {
+        item.update({ "data.APcost.value": 2 });
+      };
     }
-  }
-  if(item.type == 'feature'){
-    item.update({"data.charges.value": item.system.charges.max})
+
   }
 
-}
+  _onClickSpellAP(event) {
+    event.preventDefault()
+    console.log("Spell AP Reduction Test");
+    const actor = this.actor;
+    console.log("ACTOR AP -", actor.system.ap.value);
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
 
-_onClickAPReset(event) {
-  event.preventDefault()
-  console.log("Resetting AP")
-  const actor = this.actor;
-  if(actor.system.ap.value < 0){
-    console.log("negative AP detected")
-    actor.update({"data.ap.value": actor.system.ap.max})
-  }
-  else{
-    actor.update({"data.ap.value": actor.system.ap.max + Math.ceil(actor.system.ap.value/2)});
-  }
+    if (actor.system.ap.value < 0) {
+      ui.notifications.error("Negative AP Detected: Alis may now eat your dice.");
+    }
 
-}
+    console.log("ITEM AP -", item.system.APcost.value);
+    if (actor.system.combatswitch.check == true) {
+      actor.update({ "data.ap.value": actor.system.ap.value - item.system.APcost.value });
+    }
 
-
-_onClickAutoR(event) {
-  event.preventDefault()
-  console.log("Automatic Reset Test")
-  const actor = this.actor;
-  console.log(actor.system.ap.value);
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
-
-  console.log(item.system.automatic.check)
-  if(item.system.automatic.check == true){
-    item.update({"data.APcost.value": 4})
-}
-
-}
-
-
-_onClickAutoR(event) {
-  event.preventDefault()
-  console.log("Automatic Reset Test")
-  const actor = this.actor;
-  console.log(actor.system.ap.value);
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
-
-  console.log(item.system.automatic.check)
-  if(item.system.automatic.check == true){
-    item.update({"data.APcost.value": 4})
-}
-
-}
-
-
-_onClickMana(event) {
-  event.preventDefault()
-  console.log("Mana Reduction Test");
-  const actor = this.actor;
-  console.log(actor.system.ap.value);
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
-
-  console.log("Reducing Mana");
-  console.log(item.system.manacost.value)
-  console.log(actor.system.mana1.value)
-  actor.update({"data.mana1.value": actor.system.mana1.value - item.system.manacost.value})
-}
-
-_onClickRestsys(event) {
-  event.preventDefault()
-  console.log("Rest Testing");
-  const actor = this.actor;
-  const element = event.currentTarget;
-
-  console.log("HP Resets")
-  actor.update({"data.stamina.value": actor.system.stamina.max})
-
-
-  console.log("Exhaustion & Hazard Reduction")
-  if (actor.system.exhaustion.value >=1){
-    actor.update({"data.exhaustion.value": actor.system.exhaustion.value - 1})
-  }
-  if (actor.system.bloodtoxin.value >=1){
-    actor.update({"data.bloodtoxin.value": actor.system.bloodtoxin.value - 1})
-  }
-  if (actor.system.intoxication.value == 1){
-    actor.update({"data.intoxication.value": actor.system.intoxication.value - 1})
-  }
-  if (actor.system.intoxication.value >= 2){
-    actor.update({"data.intoxication.value" : actor.system.intoxication.value - 2})
   }
 
-}
 
-_onClickRecoverysys(event) {
-  event.preventDefault()
-  console.log("Recovery Testing");
-  const actor = this.actor;
-  const element = event.currentTarget;
+  _onClickCharge(event) {
+    event.preventDefault()
+    console.log("Test")
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    console.log("CHARGES -", item.system.charges.value)
 
-  console.log("HP Resets")
-  actor.update({"data.stamina.value": actor.system.stamina.max})
+    if (item.type == 'item') {
+      if (item.system.melee.check == false) {
+        item.update({ "data.charges.value": item.system.charges.value - 1 })
+      }
+    }
 
-  actor.update({"data.mana1.value": actor.system.mana1.max})
+    if (item.type == 'feature' && item.system.charges.max > 0) {
+      item.update({ "data.charges.value": item.system.charges.value - 1 })
+    }
 
-  console.log("Exhaustion & Hazard Reduction")
-  actor.update({"data.exhaustion.value":0})
-  actor.update({"data.intoxication.value": 0})
-  actor.update({"data.bloodtoxin.value": actor.system.bloodtoxin.value - 3})
-}
 
-_onClickSneaksys(event) {
-  event.preventDefault()
-  console.log("Sneaking")
-  const actor = this.actor;
-  const sneakcost = Math.floor(actor.system.ap.max / 2)
+    if (item.system.charges.value == 2) {
+      ui.notifications.error("1 Charge Remaining")
+    }
+    if (item.system.charges.value == 1) {
+      ui.notifications.error("No Charges Remaining")
+    }
+    /*if(item.system.charges.value == 0){
+      ui.notifications.error("Negative Charges Detected: Alis may now eat your dice.")
+    }*/
+  }
 
-  actor.update({"data.ap.value": actor.system.ap.value - sneakcost})
+  _onClickReloadsys(event) {
+    event.preventDefault()
+    console.log("Test")
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    console.log(item.system.charges.value)
 
-  const element = event.currentTarget;
-  const dataset = element.dataset;
+    const actor = this.actor;
 
-  let label = dataset.label ? `[roll] ${dataset.label}` : '';
-  let roll = new Roll(dataset.roll, this.actor.getRollData());
+    if (item.type == 'item') {
+      if (item.system.melee.check == false) {
+        item.update({ "data.charges.value": item.system.charges.max })
+        actor.update({ "data.ap.value": 0 })
+      }
+    }
+    if (item.type == 'feature') {
+      item.update({ "data.charges.value": item.system.charges.max })
+    }
 
-  roll.toMessage({
-    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-    flavor: label,
-    rollMode: game.settings.get('core', 'rollMode'),
-  });
+  }
+
+  _onClickAPReset(event) {
+    event.preventDefault()
+    console.log("Resetting AP")
+    const actor = this.actor;
+    if (actor.system.ap.value < 0) {
+      console.log("negative AP detected")
+      actor.update({ "data.ap.value": actor.system.ap.max })
+    }
+    else {
+      actor.update({ "data.ap.value": actor.system.ap.max + Math.ceil(actor.system.ap.value / 2) });
+    }
+
+  }
+
+
+  _onClickAutoR(event) {
+    event.preventDefault()
+    console.log("Automatic Reset Test")
+    const actor = this.actor;
+    console.log(actor.system.ap.value);
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+
+    console.log(item.system.automatic.check)
+    if (item.system.automatic.check == true) {
+      item.update({ "data.APcost.value": 4 })
+    }
+
+  }
+
+
+  _onClickAutoR(event) {
+    event.preventDefault()
+    console.log("Automatic Reset Test")
+    const actor = this.actor;
+    console.log(actor.system.ap.value);
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+
+    console.log(item.system.automatic.check)
+    if (item.system.automatic.check == true) {
+      item.update({ "data.APcost.value": 4 })
+    }
+
+  }
+
+
+  _onClickMana(event) {
+    event.preventDefault()
+    console.log("Mana Reduction Test");
+    const actor = this.actor;
+    console.log(actor.system.ap.value);
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
+
+    console.log("Reducing Mana");
+    console.log(item.system.manacost.value)
+    console.log(actor.system.mana1.value)
+    actor.update({ "data.mana1.value": actor.system.mana1.value - item.system.manacost.value })
+  }
+
+  _onClickRestsys(event) {
+    event.preventDefault()
+    console.log("Rest Testing");
+    const actor = this.actor;
+    const element = event.currentTarget;
+
+    console.log("HP Resets")
+    actor.update({ "data.stamina.value": actor.system.stamina.max })
+
+
+    console.log("Exhaustion & Hazard Reduction")
+    if (actor.system.exhaustion.value >= 1) {
+      actor.update({ "data.exhaustion.value": actor.system.exhaustion.value - 1 })
+    }
+    if (actor.system.bloodtoxin.value >= 1) {
+      actor.update({ "data.bloodtoxin.value": actor.system.bloodtoxin.value - 1 })
+    }
+    if (actor.system.intoxication.value == 1) {
+      actor.update({ "data.intoxication.value": actor.system.intoxication.value - 1 })
+    }
+    if (actor.system.intoxication.value >= 2) {
+      actor.update({ "data.intoxication.value": actor.system.intoxication.value - 2 })
+    }
+
+  }
+
+  _onClickRecoverysys(event) {
+    event.preventDefault()
+    console.log("Recovery Testing");
+    const actor = this.actor;
+    const element = event.currentTarget;
+
+    console.log("HP Resets")
+    actor.update({ "data.stamina.value": actor.system.stamina.max })
+
+    actor.update({ "data.mana1.value": actor.system.mana1.max })
+
+    console.log("Exhaustion & Hazard Reduction")
+    actor.update({ "data.exhaustion.value": 0 })
+    actor.update({ "data.intoxication.value": 0 })
+    actor.update({ "data.bloodtoxin.value": actor.system.bloodtoxin.value - 3 })
+  }
+
+  _onClickSneaksys(event) {
+    event.preventDefault()
+    console.log("Sneaking")
+    const actor = this.actor;
+    const sneakcost = Math.floor(actor.system.ap.max / 2)
+
+    actor.update({ "data.ap.value": actor.system.ap.value - sneakcost })
+
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+
+    let label = dataset.label ? `[roll] ${dataset.label}` : '';
+    let roll = new Roll(dataset.roll, this.actor.getRollData());
+
+    roll.toMessage({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      flavor: label,
+      rollMode: game.settings.get('core', 'rollMode'),
+    });
     return roll;
 
-}
-
-_onClickRepositionsys(event) {
-  event.preventDefault()
-  console.log("Repositioning")
-  const actor = this.actor;
-
-  actor.update({"data.ap.value": actor.system.ap.value - 1})
-
-}
-
-_onClickMovesys(event) {
-  event.preventDefault()
-  console.log("Moving")
-  const actor = this.actor;
-  const movecost = Math.floor(actor.system.ap.max / 2)
-  actor.update({"data.ap.value": actor.system.ap.value - movecost })
-
-}
-
-_onClickSprintsys(event) {
-  event.preventDefault()
-  console.log("Sprinting")
-  const actor = this.actor;
-  const sprintcost = Math.floor((actor.system.ap.max / 4)*3)
-  actor.update({"data.ap.value": actor.system.ap.value - sprintcost})
-}
-
-_onClickWristwatch(event) {
-  event.preventDefault()
-  console.log("Checking Wristwatch")
-  const actor = this.actor;
-  actor.update({"data.ap.value": actor.system.ap.value - 4})
-}
-
-_onClickSimpleobject(event) {
-  event.preventDefault()
-  console.log("Using a simple object")
-  const actor = this.actor;
-  actor.update({"data.ap.value": actor.system.ap.value - 2})
-}
-
-_onClickComplexobject(event) {
-  event.preventDefault()
-  console.log("Using a complex object")
-  const actor = this.actor;
-  actor.update({"data.ap.value": 0 })
-}
-
-_onClickTargettingtest(event) {
-  event.preventDefault()
-  console.log("Targetting test")
-  const actor = this.actor;
-  if(canvas.tokens.controlled.length == 0 || canvas.tokens.controlled.length > 1){
-    ui.notifications.error("Please select a single token")
-    return ;
   }
-  let targetnpc = canvas.tokens.controlled[0].actor
 
-  //const itemId = element.closest('.item').dataset.itemId;
-  //const item = this.actor.items.get(itemId);
-  
-  console.log(targetnpc.system.dodgepercentile.percent)
-  targetdodge = targetnpc.system.dodgepercentie.percent
+  _onClickRepositionsys(event) {
+    event.preventDefault()
+    console.log("Repositioning")
+    const actor = this.actor;
 
-}
+    actor.update({ "data.ap.value": actor.system.ap.value - 1 })
 
-_onClickTauntsys(event) {
-  event.preventDefault()
-  console.log("Taunting")
-  const actor = this.actor;
-  return
+  }
 
-}
+  _onClickMovesys(event) {
+    event.preventDefault()
+    console.log("Moving")
+    const actor = this.actor;
+    const movecost = Math.floor(actor.system.ap.max / 2)
+    actor.update({ "data.ap.value": actor.system.ap.value - movecost })
 
-_onClickitemtest(event) {
-  event.preventDefault()
-  const actor = this.actor;
-  console.log("Features -",item)
+  }
 
-}
+  _onClickSprintsys(event) {
+    event.preventDefault()
+    console.log("Sprinting")
+    const actor = this.actor;
+    const sprintcost = Math.floor((actor.system.ap.max / 4) * 3)
+    actor.update({ "data.ap.value": actor.system.ap.value - sprintcost })
+  }
+
+  _onClickWristwatch(event) {
+    event.preventDefault()
+    console.log("Checking Wristwatch")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": actor.system.ap.value - 4 })
+  }
+
+  _onClickSimpleobject(event) {
+    event.preventDefault()
+    console.log("Using a simple object")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": actor.system.ap.value - 2 })
+  }
+
+  _onClickComplexobject(event) {
+    event.preventDefault()
+    console.log("Using a complex object")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": 0 })
+  }
+
+  _onClickTargettingtest(event) {
+    event.preventDefault()
+    console.log("Targetting test")
+    const actor = this.actor;
+    if (canvas.tokens.controlled.length == 0 || canvas.tokens.controlled.length > 1) {
+      ui.notifications.error("Please select a single token")
+      return;
+    }
+    let targetnpc = canvas.tokens.controlled[0].actor
+
+    //const itemId = element.closest('.item').dataset.itemId;
+    //const item = this.actor.items.get(itemId);
+
+    console.log(targetnpc.system.dodgepercentile.percent)
+    targetdodge = targetnpc.system.dodgepercentie.percent
+
+  }
+
+  _onClickTauntsys(event) {
+    event.preventDefault()
+    console.log("Taunting")
+    const actor = this.actor;
+    return
+
+  }
+
+  _onClickitemtest(event) {
+    event.preventDefault()
+    const actor = this.actor;
+    console.log("Features -", item)
+
+  }
 
 
 
-_onClickStaminaReset(event) {
-  event.preventDefault()
-  console.log("Resetting Stamina")
-  const actor = this.actor;
-  actor.update({"data.stamina.value": actor.system.stamina.max})
+  _onClickStaminaReset(event) {
+    event.preventDefault()
+    console.log("Resetting Stamina")
+    const actor = this.actor;
+    actor.update({ "data.stamina.value": actor.system.stamina.max })
 
-}
+  }
 
-_onClickVitalityReset(event) {
-  event.preventDefault()
-  console.log("Resetting Vitality")
-  const actor = this.actor;
-  actor.update({"data.vitality.value": actor.system.vitality.value + 1})
+  _onClickVitalityReset(event) {
+    event.preventDefault()
+    console.log("Resetting Vitality")
+    const actor = this.actor;
+    if (actor.system.vitality.value < actor.system.vitality.max) {
+      actor.update({ "data.vitality.value": actor.system.vitality.value + 1 })
+    }
+  }
 
-}
 
+  _onClickWillReset(event) {
+    event.preventDefault()
+    console.log("Resetting Will")
+    const actor = this.actor;
+    if (actor.system.willpoints.value < actor.system.willpoints.max) {
+      actor.update({ "data.willpoints.value": actor.system.willpoints.value + 1 })
+    }
+  }
 
-_onClickWillReset(event) {
-  event.preventDefault()
-  console.log("Resetting Will")
-  const actor = this.actor;
-  actor.update({"data.willpoints.value": actor.system.willpoints.value + 1})
+  _onClickMagazineDrop(event) {
+    event.preventDefault()
+    const actor = this.actor;
+    console.log("DROPPING MAGAZINE")
 
-}
+    const element = event.currentTarget;
+    const dataset = element.dataset;
+    const itemId = element.closest('.item').dataset.itemId;
+    const item = this.actor.items.get(itemId);
 
-_onClickMagazineDrop(event) {
-  event.preventDefault()
-  const actor = this.actor;
-  console.log("DROPPING MAGAZINE")
+    console.log("ITEM NAME -", item.name)
 
-  const element = event.currentTarget;
-  const dataset = element.dataset;
-  const itemId = element.closest('.item').dataset.itemId;
-  const item = this.actor.items.get(itemId);
+    if (item.name == "ES-MCR MK. IV") {
+      console.log("FOUND MCR")
+      let magazine = actor.items.find(i => i.name === "MCR Magazine");
 
-  console.log("ITEM NAME -",item.name)
+      if (magazine === null) return
 
-  if(item.name == "ES-MCR MK. IV"){
-    console.log("FOUND MCR")
-    let magazine = actor.items.find(i=> i.name==="MCR Magazine");
+      if (magazine.system.quantity < 1) {
 
-    if(magazine === null) return
-
-    if (magazine.system.quantity < 1) {
-
-      ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-  } else {
-      console.log("DROPPING MCR")
-      magazine.update({"data.quantity": magazine.system.quantity - 1})
-      console.log("COMPACT CARRY -",actor.system.compactcarry1.value)
-      actor.update({"data.compactcarry1.value": actor.system.compactcarry1.value - 1})
-      if(item.type == 'item'){
-        if(item.system.melee.check == false) {
-          item.update({"data.charges.value": item.system.charges.max})
-          actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING MCR")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("COMPACT CARRY -", actor.system.compactcarry1.value)
+        actor.update({ "data.compactcarry1.value": actor.system.compactcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
         }
       }
+
     }
 
-}
+    if (item.name == "MustangArms Scout-III") {
+      console.log("FOUND AP-RIFLE MAGAZINE")
+      let magazine = actor.items.find(i => i.name === "AP-Rifle Magazine");
 
-if(item.name == "MustangArms Scout-III"){
-  console.log("FOUND AP-RIFLE MAGAZINE")
-  let magazine = actor.items.find(i=> i.name==="AP-Rifle Magazine");
+      if (magazine === null) return
 
-  if(magazine === null) return
+      if (magazine.system.quantity < 1) {
 
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING AP-RIFLE")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("COMPACT CARRY -",actor.system.compactcarry1.value)
-    actor.update({"data.compactcarry1.value": actor.system.compactcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING AP-RIFLE")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("COMPACT CARRY -", actor.system.compactcarry1.value)
+        actor.update({ "data.compactcarry1.value": actor.system.compactcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
       }
+
     }
+
+    if (item.name == "CA-77") {
+      console.log("FOUND High Capacity Handgun Magazine")
+      let magazine = actor.items.find(i => i.name === "High Capacity Handgun Magazine");
+
+      if (magazine === null) return
+
+      if (magazine.system.quantity < 1) {
+
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING High Capacity Handgun Magazine")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("Small CARRY -", actor.system.smallcarry1.value)
+        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
+      }
+
+    }
+
+    if (item.name == "MustangArms Tri-B Heavy Cannon MK. II") {
+      console.log("FOUND Heavy Cannon Magazine")
+      let magazine = actor.items.find(i => i.name === "Heavy Cannon Magazine");
+
+      if (magazine === null) return
+
+      if (magazine.system.quantity < 1) {
+
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING Heavy Cannon Magazine")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("Medium  CARRY -", actor.system.mediumcarry1.value)
+        actor.update({ "data.mediumcarry1.value": actor.system.mediumcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
+      }
+
+    }
+
+    if (item.name == "Glock 22") {
+      console.log("FOUND Glock 22")
+      let magazine = actor.items.find(i => i.name === "Glock Magazine");
+
+      if (magazine === null) return
+
+      if (magazine.system.quantity < 1) {
+
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING Glock Magazine")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("Small CARRY -", actor.system.smallcarry1.value)
+        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
+      }
+
+    }
+
+    if (item.name == "Energy Pistol") {
+      console.log("FOUND Juicebox")
+      let magazine = actor.items.find(i => i.name === "Pistol Juicebox");
+
+      if (magazine === null) return
+
+      if (magazine.system.quantity < 1) {
+
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING Juicebox")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("Small CARRY -", actor.system.smallcarry1.value)
+        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
+      }
+
+    }
+
+    if (item.name == "Gearlock Shotgun") {
+      console.log("FOUND Shellcase")
+      let magazine = actor.items.find(i => i.name === "Shell Case");
+
+      if (magazine === null) return
+
+      if (magazine.system.quantity < 1) {
+
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING Shell Case")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("Small CARRY -", actor.system.smallcarry1.value)
+        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
+      }
+
+    }
+
+    if (item.name == "Gearlock Revolver") {
+      console.log("FOUND Cylinder")
+      let magazine = actor.items.find(i => i.name === "Spare Cylinder");
+
+      if (magazine === null) return
+
+      if (magazine.system.quantity < 1) {
+
+        ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
+      } else {
+        console.log("DROPPING Shell Case")
+        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        console.log("Small CARRY -", actor.system.smallcarry1.value)
+        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        if (item.type == 'item') {
+          if (item.system.melee.check == false) {
+            item.update({ "data.charges.value": item.system.charges.max })
+            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+          }
+        }
+      }
+
+    }
+
+
+
   }
 
-}
 
-if(item.name == "CA-77"){
-  console.log("FOUND High Capacity Handgun Magazine")
-  let magazine = actor.items.find(i=> i.name==="High Capacity Handgun Magazine");
-
-  if(magazine === null) return
-
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING High Capacity Handgun Magazine")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("Small CARRY -",actor.system.smallcarry1.value)
-    actor.update({"data.smallcarry1.value": actor.system.smallcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
-      }
-    }
+  _onClickCoupdetat(event) {
+    event.preventDefault()
+    console.log("Coup d'Etat")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": 0 })
   }
 
-}
+  _onClickDisarm(event) {
+    event.preventDefault()
+    console.log("Disarm")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": actor.system.ap.value - 3 })
 
-if(item.name == "MustangArms Tri-B Heavy Cannon MK. II"){
-  console.log("FOUND Heavy Cannon Magazine")
-  let magazine = actor.items.find(i=> i.name==="Heavy Cannon Magazine");
+    let quicknesstemp = actor.system.abilities.QCK.value
+    let palmingskill = actor.system.skills.palming.mod
+    let circumstancedicevalue = actor.system.circumstancedice.value
 
-  if(magazine === null) return
-
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING Heavy Cannon Magazine")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("Medium  CARRY -",actor.system.mediumcarry1.value)
-    actor.update({"data.mediumcarry1.value": actor.system.mediumcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
-      }
-    }
-  }
-
-}
-
-if(item.name == "Glock 22"){
-  console.log("FOUND Glock 22")
-  let magazine = actor.items.find(i=> i.name==="Glock Magazine");
-
-  if(magazine === null) return
-
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING Glock Magazine")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("Small CARRY -",actor.system.smallcarry1.value)
-    actor.update({"data.smallcarry1.value": actor.system.smallcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
-      }
-    }
-  }
-
-}
-
-if(item.name == "Energy Pistol"){
-  console.log("FOUND Juicebox")
-  let magazine = actor.items.find(i=> i.name==="Pistol Juicebox");
-
-  if(magazine === null) return
-
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING Juicebox")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("Small CARRY -",actor.system.smallcarry1.value)
-    actor.update({"data.smallcarry1.value": actor.system.smallcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
-      }
-    }
-  }
-
-}
-
-if(item.name == "Gearlock Shotgun"){
-  console.log("FOUND Shellcase")
-  let magazine = actor.items.find(i=> i.name==="Shell Case");
-
-  if(magazine === null) return
-
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING Shell Case")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("Small CARRY -",actor.system.smallcarry1.value)
-    actor.update({"data.smallcarry1.value": actor.system.smallcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
-      }
-    }
-  }
-
-}
-
-if(item.name == "Gearlock Revolver"){
-  console.log("FOUND Cylinder")
-  let magazine = actor.items.find(i=> i.name==="Spare Cylinder");
-
-  if(magazine === null) return
-
-  if (magazine.system.quantity < 1) {
-
-    ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
-} else {
-    console.log("DROPPING Shell Case")
-    magazine.update({"data.quantity": magazine.system.quantity - 1})
-    console.log("Small CARRY -",actor.system.smallcarry1.value)
-    actor.update({"data.smallcarry1.value": actor.system.smallcarry1.value - 1})
-    if(item.type == 'item'){
-      if(item.system.melee.check == false) {
-        item.update({"data.charges.value": item.system.charges.max})
-        actor.update({"data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2)})
-      }
-    }
-  }
-
-}
-
-
-
-}
-
-
-_onClickCoupdetat(event) {
-  event.preventDefault()
-  console.log("Coup d'Etat")
-  const actor = this.actor;
-    actor.update({"data.ap.value": 0})
-}
-
-_onClickDisarm(event) {
-  event.preventDefault()
-  console.log("Disarm")
-  const actor = this.actor;
-  actor.update({"data.ap.value": actor.system.ap.value - 3})
-
-  let quicknesstemp = actor.system.abilities.QCK.value
-  let palmingskill = actor.system.skills.palming.mod
-  let circumstancedicevalue = actor.system.circumstancedice.value
-
-  let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
-    console.log("ROLL FORMULA",rollformula)
+    let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -1254,25 +1256,25 @@ _onClickDisarm(event) {
       rollMode: game.settings.get('core', 'rollMode'),
     });
     return roll;
-}
+  }
 
-_onClickFeint(event) {
-  event.preventDefault()
-  console.log("Disarm")
-  const actor = this.actor;
-  actor.update({"data.ap.value": actor.system.ap.value - 1})
+  _onClickFeint(event) {
+    event.preventDefault()
+    console.log("Disarm")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": actor.system.ap.value - 1 })
 
-  let quicknesstemp = actor.system.abilities.QCK.value
-  let palmingskill = actor.system.skills.gymnastics.mod
-  let circumstancedicevalue = actor.system.circumstancedice.value
-  
-  let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
-    console.log("ROLL FORMULA",rollformula)
+    let quicknesstemp = actor.system.abilities.QCK.value
+    let palmingskill = actor.system.skills.gymnastics.mod
+    let circumstancedicevalue = actor.system.circumstancedice.value
+
+    let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -1280,25 +1282,25 @@ _onClickFeint(event) {
       rollMode: game.settings.get('core', 'rollMode'),
     });
     return roll;
-}
+  }
 
-_onClickGrapple(event) {
-  event.preventDefault()
-  console.log("Disarm")
-  const actor = this.actor;
-  actor.update({"data.ap.value": actor.system.ap.value - 3})
+  _onClickGrapple(event) {
+    event.preventDefault()
+    console.log("Disarm")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": actor.system.ap.value - 3 })
 
-  let quicknesstemp = actor.system.abilities.STR.value
-  let palmingskill = actor.system.skills.force.mod
-  let circumstancedicevalue = actor.system.circumstancedice.value
-  
-  let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
-    console.log("ROLL FORMULA",rollformula)
+    let quicknesstemp = actor.system.abilities.STR.value
+    let palmingskill = actor.system.skills.force.mod
+    let circumstancedicevalue = actor.system.circumstancedice.value
+
+    let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -1306,25 +1308,25 @@ _onClickGrapple(event) {
       rollMode: game.settings.get('core', 'rollMode'),
     });
     return roll;
-}
+  }
 
-_onClickShove(event) {
-  event.preventDefault()
-  console.log("Disarm")
-  const actor = this.actor;
-  actor.update({"data.ap.value": actor.system.ap.value - 2})
+  _onClickShove(event) {
+    event.preventDefault()
+    console.log("Disarm")
+    const actor = this.actor;
+    actor.update({ "data.ap.value": actor.system.ap.value - 2 })
 
-  let quicknesstemp = actor.system.abilities.STR.value
-  let palmingskill = actor.system.skills.force.mod
-  let circumstancedicevalue = actor.system.circumstancedice.value
-  
-  let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
-    console.log("ROLL FORMULA",rollformula)
+    let quicknesstemp = actor.system.abilities.STR.value
+    let palmingskill = actor.system.skills.force.mod
+    let circumstancedicevalue = actor.system.circumstancedice.value
+
+    let rollformula = circumstancedicevalue + palmingskill + quicknesstemp
+    console.log("ROLL FORMULA", rollformula)
     rollformula = rollformula + 'd6x6cs>3'
 
     let roll = new Roll(rollformula, this.actor.getRollData());
     console.log(roll)
-    console.log("CIRCUMSTANCE DICE -",actor.system.circumstancedice.value)
+    console.log("CIRCUMSTANCE DICE -", actor.system.circumstancedice.value)
 
     roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -1332,19 +1334,19 @@ _onClickShove(event) {
       rollMode: game.settings.get('core', 'rollMode'),
     });
     return roll;
-}
+  }
 
 
-_onClickTargettest(event) {
-  event.preventDefault()
-  const actor = this.actor;
+  _onClickTargettest(event) {
+    event.preventDefault()
+    const actor = this.actor;
 
-  Hook.once("userTargetID", async function(){
-    console.log(userTargetID)
+    Hook.once("userTargetID", async function () {
+      console.log(userTargetID)
 
-  });
+    });
 
 
-}
+  }
 
 }
