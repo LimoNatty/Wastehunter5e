@@ -2,10 +2,9 @@
 {{!-- Generally, you'll want to make more specific templates when possible. --}}
 <form class="{{cssClass}}" autocomplete="off">
   <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc" />
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" style="color:#03e8fc"/>
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name"
-          style="color:#03e8fc" /></h1>
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" style="color:#03e8fc"/></h1>
     </div>
   </header>
 
@@ -21,8 +20,7 @@
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
 
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner
-      editable=editable}}
+      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
@@ -30,102 +28,101 @@
       {{!-- As you add new fields, add them in here! --}}
 
       <label class="resource-label" style="color:#03e8fc">Number:</label>
-      <input type="text" name="data.sinnumber" value="{{data.sinnumber}}" data-dtype="Number" style="color:#03e8fc" />
+      <input type="text" name="data.sinnumber" value="{{data.sinnumber}}" data-dtype="Number" style="color:#03e8fc"/>
 
       <label class="resource-label" style="color:#03e8fc">Listed Name:</label>
-      <input type="text" name="data.listedname" value="{{data.listedname}}" style="color:#03e8fc" />
+      <input type="text" name="data.listedname" value="{{data.listedname}}" style="color:#03e8fc"/>
 
       <label class="resource-label" style="color:#03e8fc">Listed Employment:</label>
-      <input type="text" name="data.listedemployment" value="{{data.listedemployment}}" style="color:#03e8fc" />
+      <input type="text" name="data.listedemployment" value="{{data.listedemployment}}" style="color:#03e8fc"/>
 
-      <div class="resource flex-group-center">
+        <div class="resource flex-group-center">
         <label class="resource-label" style="color:#03e8fc">Vehicle License:</label>
         <select name="data.vehiclelicense" style="color: #03e8fc;">
-          {{#select data.vehiclelicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
-          <option value="Commercial" style="font: Bios;color: #03e8fc; background: #1e2424">Commercial</option>
-          <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
-          {{/select}}
-        </select>
-      </div>
+            {{#select data.vehiclelicense}}
+            <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+            <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
+            <option value="Commercial" style="font: Bios;color: #03e8fc; background: #1e2424">Commercial</option>
+            <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
+            {{/select}}
+          </select>
+        </div>
 
-      <div class="resource flex-group-center">
-        <label class="resource-label" style="color:#03e8fc">Weapons License:</label>
-        <select name="data.weaponslicense" style="color: #03e8fc;">
-          {{#select data.weaponslicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
-          <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
-          <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
-          {{/select}}
-        </select>
-      </div>
+        <div class="resource flex-group-center">
+            <label class="resource-label" style="color:#03e8fc">Weapons License:</label>
+            <select name="data.weaponslicense" style="color: #03e8fc;">
+                {{#select data.weaponslicense}}
+                <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+                <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
+                <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
+                <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
+                {{/select}}
+              </select>
+            </div>
 
-      <div class="resource flex-group-center">
-        <label class="resource-label" style="color:#03e8fc">Firearms License:</label>
-        <select name="data.firearmslicense" style="color: #03e8fc;">
-          {{#select data.firearmslicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
-          <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
-          <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
-          {{/select}}
-        </select>
-      </div>
+        <div class="resource flex-group-center">
+            <label class="resource-label" style="color:#03e8fc">Firearms License:</label>
+            <select name="data.firearmslisence" style="color: #03e8fc;">
+                {{#select data.firearmslicense}}
+                <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+                <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
+                <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
+                <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
+                {{/select}}
+                </select>
+            </div>
 
-      <div class="resource flex-group-center">
-        <label class="resource-label" style="color:#03e8fc">Magicka License:</label>
-        <select name="data.magickalicense" style="color: #03e8fc;">
-          {{#select data.magickalicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Adept" style="font: Bios;color: #03e8fc; background: #1e2424">Adept</option>
-          <option value="Mage" style="font: Bios;color: #03e8fc; background: #1e2424">Mage</option>
-          <option value="Archmage" style="font: Bios;color: #03e8fc; background: #1e2424">Archmage</option>
-          {{/select}}
-        </select>
-      </div>
-
-
-      <div class="resource flex-group-center">
-        <label class="resource-label" style="color:#03e8fc">Cybernetics License:</label>
-        <select name="data.cyberneticslicense" style="color: #03e8fc;">
-          {{#select data.cyberneticslicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
-          <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
-          <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
-          {{/select}}
-        </select>
-      </div>
-
-      <div class="resource flex-group-center">
-        <label class="resource-label" style="color:#03e8fc">Decking License:</label>
-        <select name="data.deckinglicense" style="color: #03e8fc;">
-          {{#select data.deckinglicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Corporate" style="font: Bios;color: #03e8fc; background: #1e2424">Corporate</option>
-          <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
-          <option value="Government" style="font: Bios;color: #03e8fc; background: #1e2424">Government</option>
-          {{/select}}
-        </select>
-      </div>
+        <div class="resource flex-group-center">
+            <label class="resource-label" style="color:#03e8fc">Magicka License:</label>
+            <select name="data.magickalicense" style="color: #03e8fc;">
+                {{#select data.magickalicense}}
+                <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+                <option value="Adept" style="font: Bios;color: #03e8fc; background: #1e2424">Adept</option>
+                <option value="Mage" style="font: Bios;color: #03e8fc; background: #1e2424">Mage</option>
+                <option value="Archmage" style="font: Bios;color: #03e8fc; background: #1e2424">Archmage</option>
+                {{/select}}
+                </select>
+            </div>
 
 
-      <div class="resource flex-group-center">
-        <label class="resource-label" style="color:#03e8fc">Operations License:</label>
-        <select name="data.oeprationslicense" style="color: #03e8fc;">
-          {{#select data.oeprationslicense}}
-          <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
-          <option value="Security" style="font: Bios;color: #03e8fc; background: #1e2424">Security</option>
-          <option value="Auditor" style="font: Bios;color: #03e8fc; background: #1e2424">Auditor</option>
-          <option value="Enforcer" style="font: Bios;color: #03e8fc; background: #1e2424">Enforcer</option>
-          {{/select}}
-        </select>
-      </div>
-      <label for="criminalhistory" style="color:#03e8fc;">Criminal Record:</label>
-      <textarea name="data.details.criminalrecord" rows="5" cols="40"
-        style="color:#03e8fc;">{{data.details.criminalrecord}}</textarea>
+        <div class="resource flex-group-center">
+            <label class="resource-label" style="color:#03e8fc">Cybernetics License:</label>
+            <select name="data.cyberneticslicense" style="color: #03e8fc;">
+                {{#select data.cyberneticslicense}}
+                <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+                <option value="Civilian" style="font: Bios;color: #03e8fc; background: #1e2424">Civilian</option>
+                <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
+                <option value="Dealer" style="font: Bios;color: #03e8fc; background: #1e2424">Dealer</option>
+                {{/select}}
+                </select>
+            </div>
+
+        <div class="resource flex-group-center">
+            <label class="resource-label" style="color:#03e8fc">Decking License:</label>
+            <select name="data.deckinglicense" style="color: #03e8fc;">
+                {{#select data.deckinglicense}}
+                <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+                <option value="Corporate" style="font: Bios;color: #03e8fc; background: #1e2424">Corporate</option>
+                <option value="Military" style="font: Bios;color: #03e8fc; background: #1e2424">Military</option>
+                <option value="Government" style="font: Bios;color: #03e8fc; background: #1e2424">Government</option>
+                {{/select}}
+                </select>
+            </div>
+
+
+        <div class="resource flex-group-center">
+            <label class="resource-label" style="color:#03e8fc">Operations License:</label>
+            <select name="data.oeprationslicense" style="color: #03e8fc;">
+                {{#select data.oeprationslicense}}
+                <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
+                <option value="Security" style="font: Bios;color: #03e8fc; background: #1e2424">Security</option>
+                <option value="Auditor" style="font: Bios;color: #03e8fc; background: #1e2424">Auditor</option>
+                <option value="Enforcer" style="font: Bios;color: #03e8fc; background: #1e2424">Enforcer</option>
+                {{/select}}
+                </select>
+            </div>
+            <label for="criminalhistory" style="color:#03e8fc;">Criminal Record:</label>
+            <textarea name="data.details.criminalrecord" rows="5" cols="40" style="color:#03e8fc;">{{data.details.criminalrecord}}</textarea>
 
   </section>
 </form>
