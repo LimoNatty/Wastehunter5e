@@ -68,9 +68,9 @@ export class WastehunterActor extends Actor {
     if (actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.data;
+    const data = actorData.system;
     data.xp = (data.cr * data.cr) * 100;
-
+  
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
       ability.mod = ability.value - 6.0
