@@ -43,7 +43,7 @@
   "primaryTokenAttribute": "data.totalhealth",
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/LimoNatty/Wastehunter5e",
-  "manifest": "https://raw.githubusercontent.com/LimoNatty/Wastehunter5e/08x-best-practices/system.json",
-  "download": "https://github.com/LimoNatty/Wastehunter5e/archive/refs/heads/08x-best-practices.zip",
+  "manifest": "https://raw.githubusercontent.com/LimoNatty/Wastehunter5e/Mass-Error-Fix/system.json",
+  "download": "https://github.com/LimoNatty/Wastehunter5e/archive/refs/heads/Mass-Error-Fix.zip",
   "license": "LICENSE.txt"
 }
