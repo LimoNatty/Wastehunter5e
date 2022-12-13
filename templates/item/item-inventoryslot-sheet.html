@@ -28,7 +28,7 @@
       {{!-- As you add new fields, add them in here! --}}
         <div class="resource flex-group-center">
         <label class="resource-label" style="color:#03e8fc">Item Type:</label>
-        <select name="data.itemtype" style="color: #03e8fc;">
+        <select name="system.itemtype" style="color: #03e8fc;">
             {{#select data.itemtype}}
             <option value="Weapon" style="font: Bios;color: #03e8fc; background: #1e2424">Weapon</option>
             <option value="Kit" style="font: Bios;color: #03e8fc; background: #1e2424">Kit</option>
@@ -43,7 +43,7 @@
 
         <div class="resource flex-group-center">
         <label class="resource-label" style="color:#03e8fc">Condition:</label>
-        <select name="data.condition" style="color: #03e8fc;">
+        <select name="system.condition" style="color: #03e8fc;">
             {{#select data.condition}}
             <option value="Flawless" style="font: Bios;color: #03e8fc; background: #1e2424">Flawless</option>
             <option value="Good" style="font: Bios;color: #03e8fc; background: #1e2424">Good</option>
