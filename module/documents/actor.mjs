@@ -29,13 +29,14 @@ export class WastehunterActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const data = this.system;
-    const flags = this.flags.wastehunter || {};
+    const actorData = this.data;
+    const data = actorData.data;
+    const flags = actorData.flags.wastehunter || {};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    this._prepareCharacterData(this);
-    this._prepareNpcData(this);
+    this._prepareCharacterData(actorData);
+    this._prepareNpcData(actorData);
   }
 
   /**
@@ -45,7 +46,7 @@ export class WastehunterActor extends Actor {
     if (actorData.type !== 'character') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.system;
+    const data = actorData.data;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (let [key, ability] of Object.entries(data.abilities)) {
@@ -95,7 +96,7 @@ export class WastehunterActor extends Actor {
    * Prepare character roll data.
    */
   _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
+    if (this.data.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
@@ -117,7 +118,7 @@ export class WastehunterActor extends Actor {
    * Prepare NPC roll data.
    */
   _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
+    if (this.data.type !== 'npc') return;
 
     // Process additional NPC data here.
   }

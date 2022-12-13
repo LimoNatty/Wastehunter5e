@@ -20,7 +20,7 @@ export class WastehunterItem extends Item {
     // If present, return the actor's roll data.
     if ( !this.actor ) return null;
     const rollData = this.actor.getRollData();
-    rollData.item = foundry.utils.deepClone(this.system);
+    rollData.item = foundry.utils.deepClone(this.data.data);
 
     return rollData;
   }
@@ -31,7 +31,7 @@ export class WastehunterItem extends Item {
  * @private
  */
  async roll(options = {}) {
-  const item = this;
+  const item = this.data;
   
   // Initialize chat data.
   const speaker = ChatMessage.getSpeaker({ actor: this.actor });
@@ -39,12 +39,12 @@ export class WastehunterItem extends Item {
   const label = `[${item.type}] ${item.name}`;
   
   // If there's no roll data, send a chat message.
-  if (!this.system.formula) {
+  if (!this.data.data.formula) {
     ChatMessage.create({
       speaker: speaker,
       rollMode: rollMode,
       flavor: label,
-      content: item.description ?? ''
+      content: item.data.description ?? ''
     });
   }
   // Otherwise, create a roll and send a chat message from it.
@@ -57,7 +57,7 @@ export class WastehunterItem extends Item {
   
     // If there's an alternate field passed in, try to retrieve it instead.
     if (options?.roll) {
-      formula = getProperty(item, options.roll) ?? formula;
+      formula = getProperty(item.data, options.roll) ?? formula;
     }
   
     // Invoke the roll and submit it to chat.
