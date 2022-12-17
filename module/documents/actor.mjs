@@ -45,19 +45,19 @@ export class WastehunterActor extends Actor {
     if (actorData.type !== 'character') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.system;
+    const system = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(data.abilities)) {
+    for (let [key, ability] of Object.entries(system.abilities)) {
       ability.mod = ability.value - 6.0
     }
-    data.totalhealth.value = data.shield.value + data.stamina.value + data.luck.value + data.vitality.value,
-    data.totalhealth.max = data.shield.max + data.stamina.max + data.luck.max + data.vitality.max
+    system.totalhealth.value = system.shield.value + system.stamina.value + system.luck.value + system.vitality.value,
+    system.totalhealth.max = system.shield.max + system.stamina.max + system.luck.max + system.vitality.max
 
 
 
-    data.resources.perkbonus.value = 2 + Math.floor((data.resources.ascension.value - 1)/5)
-    data.increment = Math.floor((data.resources.ascension.value - 1)/5)
+    system.resources.perkbonus.value = 2 + Math.floor((system.resources.ascension.value - 1)/5)
+    system.increment = Math.floor((system.resources.ascension.value - 1)/5)
     
   }
 
@@ -82,32 +82,32 @@ export class WastehunterActor extends Actor {
    * Override getRollData() that's supplied to rolls.
    */
   getRollData() {
-    const data = super.getRollData();
+    const system = super.getRollData();
 
     // Prepare character roll data.
-    this._getCharacterRollData(data);
-    this._getNpcRollData(data);
+    this._getCharacterRollData(system);
+    this._getNpcRollData(system);
 
-    return data;
+    return system;
   }
 
   /**
    * Prepare character roll data.
    */
-  _getCharacterRollData(data) {
+  _getCharacterRollData(system) {
     if (this.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.abilities) {
-      for (let [k, v] of Object.entries(data.abilities)) {
-        data[k] = foundry.utils.deepClone(v);
+    if (system.abilities) {
+      for (let [k, v] of Object.entries(system.abilities)) {
+        system[k] = foundry.utils.deepClone(v);
       }
     }
 
     // Add level for easier access, or fall back to 0.
-    if (data.attributes.level) {
-      data.lvl = data.attributes.level.value ?? 0;
+    if (system.attributes.level) {
+      system.lvl = system.attributes.level.value ?? 0;
     }
   }
 
@@ -116,7 +116,7 @@ export class WastehunterActor extends Actor {
   /**
    * Prepare NPC roll data.
    */
-  _getNpcRollData(data) {
+  _getNpcRollData(system) {
     if (this.type !== 'npc') return;
 
     // Process additional NPC data here.
