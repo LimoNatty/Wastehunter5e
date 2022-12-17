@@ -15,14 +15,14 @@
     {{#each section.effects as |effect|}}
       <li class="item effect flexrow" data-effect-id="{{effect.id}}" style="color:#03e8fc">
         <div class="item-name effect-name flexrow" style="color:#03e8fc">
-          <img class="item-image" src="{{effect.data.icon}}"/>
-          <h4 style="color:#03e8fc;">{{effect.data.label}}</h4>
+          <img class="item-image" src="{{effect.system.icon}}"/>
+          <h4 style="color:#03e8fc;">{{effect.system.label}}</h4>
         </div>
         <div class="effect-source" style="color:#03e8fc;">{{effect.sourceName}}</div>
         <div class="effect-duration" style="color:#03e8fc;">{{effect.duration.label}}</div>
         <div class="item-controls effect-controls flexrow">
           <a class="effect-control" data-action="toggle" title="{{localize 'WASTEHUNTER.EffectToggle'}}" style="color:#03e8fc;">
-            <i class="fas {{#if effect.data.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
+            <i class="fas {{#if effect.system.disabled}}fa-check{{else}}fa-times{{/if}}"></i>
           </a>
           <a class="effect-control" data-action="edit" title="{{localize 'WASTEHUNTER.EffectEdit'}}" style="color:#03e8fc;">
             <i class="fas fa-edit"></i>
