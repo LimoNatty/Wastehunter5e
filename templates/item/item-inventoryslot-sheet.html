@@ -20,7 +20,7 @@
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
 
-      {{editor data.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
@@ -29,7 +29,7 @@
         <div class="resource flex-group-center">
         <label class="resource-label" style="color:#03e8fc">Item Type:</label>
         <select name="system.itemtype" style="color: #03e8fc;">
-            {{#select data.itemtype}}
+            {{#select system.itemtype}}
             <option value="Weapon" style="font: Bios;color: #03e8fc; background: #1e2424">Weapon</option>
             <option value="Kit" style="font: Bios;color: #03e8fc; background: #1e2424">Kit</option>
             <option value="Consumable" style="font: Bios;color: #03e8fc; background: #1e2424">Consumable</option>
@@ -44,7 +44,7 @@
         <div class="resource flex-group-center">
         <label class="resource-label" style="color:#03e8fc">Condition:</label>
         <select name="system.condition" style="color: #03e8fc;">
-            {{#select data.condition}}
+            {{#select system.condition}}
             <option value="Flawless" style="font: Bios;color: #03e8fc; background: #1e2424">Flawless</option>
             <option value="Good" style="font: Bios;color: #03e8fc; background: #1e2424">Good</option>
             <option value="Used" style="font: Bios;color: #03e8fc; background: #1e2424">Used</option>
@@ -54,6 +54,6 @@
           </select>
     </div>
     <label class="resource-label" style="color:#03e8fc">Quantity:</label>
-      <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" style="width:110px;color:#03e8fc"/>
+      <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number" style="width:110px;color:#03e8fc"/>
   </section>
 </form>

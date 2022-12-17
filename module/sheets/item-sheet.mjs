@@ -43,7 +43,7 @@ export class WastehunterItemSheet extends ItemSheet {
     }
 
     // Add the actor's data to context.data for easier access, as well as flags.
-    context.data = itemData.system;
+    context.system = itemData.system;
     context.flags = itemData.flags;
 
     return context;
