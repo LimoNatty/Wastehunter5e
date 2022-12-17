@@ -401,7 +401,7 @@ export class WastehunterActorSheet extends ActorSheet {
       }
 
       // Getting roll total
-      roll.roll({async:true})
+      await roll.roll({async:true})
       let roll_total = roll.total
       console.log("ROLL TEST")
 
