@@ -19,7 +19,7 @@
 
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
@@ -27,21 +27,21 @@
       {{!-- As you add new fields, add them in here! --}}
       <div class="resource flex-group-center">
       <label class="resource-label" style="color:#03e8fc">Pronouns:</label>
-        <input type="text" name="data.pronouns" value="{{data.pronouns}}" style="width:150px;color:#03e8fc"/> </div>
+        <input type="text" name="system.pronouns" value="{{system.pronouns}}" style="width:150px;color:#03e8fc"/> </div>
         <div class="resource flex-group-center">
           <label class="resource-label" style="color:#03e8fc">Metatype:</label>
-            <input type="text" name="data.metatype" value="{{data.metatype}}" style="width:150px;color:#03e8fc"/> </div>
+            <input type="text" name="system.metatype" value="{{system.metatype}}" style="width:150px;color:#03e8fc"/> </div>
             <div class="resource flex-group-center">
               <label class="resource-label" style="color:#03e8fc">Age:</label>
-                <input type="text" name="data.age" value="{{data.age}}" style="width:150px;color:#03e8fc"/> </div>
+                <input type="text" name="system.age" value="{{system.age}}" style="width:150px;color:#03e8fc"/> </div>
                     <div class="resource flex-group-center">
                       <label class="resource-label" style="color:#03e8fc">Favours:</label>
-                        <input type="text" name="data.favours" value="{{data.favours}}" style="width:150px;color:#03e8fc"/> </div>
+                        <input type="text" name="system.favours" value="{{system.favours}}" style="width:150px;color:#03e8fc"/> </div>
 
                         <div class="resource flex-group-center">
-                        <label for="data.contacttype" class="resource-label" style="color:#03e8fc;">Type:</label>
-        <select name="data.contacttype"style="color: #03e8fc;">
-          {{#select data.contacttype}}
+                        <label for="system.contacttype" class="resource-label" style="color:#03e8fc;">Type:</label>
+        <select name="system.contacttype"style="color: #03e8fc;">
+          {{#select system.contacttype}}
           <option value="Sector" style="font: Bios;color: #03e8fc; background: #1e2424;">Sector</option>
           <option value="Friend" style="font: Bios;color: #03e8fc; background: #1e2424;">Friend</option>
           <option value="Partner"  style="font: Bios;color: #03e8fc; background: #1e2424;">Partner</option>
@@ -65,7 +65,7 @@
 
         <div class="resource flex-group-center">
         <label class="resource-label" style="color:#03e8fc">Relationship:</label>
-        <input type="text" name="data.relationship" value="{{data.relationship}}" style="width:150px;color:#03e8fc"/> </div></div>
+        <input type="text" name="system.relationship" value="{{system.relationship}}" style="width:150px;color:#03e8fc"/> </div></div>
 
   </section>
 </form>

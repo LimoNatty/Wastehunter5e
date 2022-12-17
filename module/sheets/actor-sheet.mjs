@@ -401,7 +401,7 @@ export class WastehunterActorSheet extends ActorSheet {
       }
 
       // Getting roll total
-      await roll.roll()
+      roll.roll({async:true})
       let roll_total = roll.total
       console.log("ROLL TEST")
 
@@ -730,7 +730,7 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("CHARGES -", item.system.charges.value)
 
     if (item.type == 'item') {
-      if (item.system.melee.check == false) {
+      if (item.system.weapontype !== "Melee") {
         item.update({ "data.charges.value": item.system.charges.value - 1 })
       }
     }

@@ -6,11 +6,11 @@
       <div class="grid grid-2col">
         <div class="resource">
           <label class="resource-label" style="color:#03e8fc">Quantity</label>
-          <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" style="color:#03e8fc"/>
+          <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number" style="color:#03e8fc"/>
         </div>
         <div class="resource">
           <label class="resource-label" style="color:#03e8fc">Weight</label>
-          <input type="text" name="data.weight" value="{{data.weight}}" data-dtype="Number" style="color:#03e8fc"/>
+          <input type="text" name="system.weight" value="{{system.weight}}" data-dtype="Number" style="color:#03e8fc"/>
         </div>
       </div>
     </div>
@@ -28,7 +28,7 @@
     {{!-- Description Tab --}}
     <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
       {{!-- To render inline rolls in a TinyMCE editor, you need to pass the parent actor's (if any) roll data to the rollData prop. --}}
-      {{editor content=data.description target="data.description" rollData=rollData button=true owner=owner editable=editable}}
+      {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
 
     {{!-- Attributes Tab --}}
@@ -39,34 +39,34 @@
 
         <div class="resource flex-group-center">
           <label class="resource-label" style="color:#03e8fc">Weapon Type:</label>
-            <input type="text" name="data.weapontype" value="{{data.weapontype}}" style="width:150px;color:#03e8fc"/> </div> 
+            <input type="text" name="system.weapontype" value="{{system.weapontype}}" style="width:150px;color:#03e8fc"/> </div> 
         <div class="resource flex-group-center">
           <label class="resource-label" style="color:#03e8fc">Hands:</label>
-            <input type="text" name="data.hands" value="{{data.hands}}" style="width:75px;color:#03e8fc"/> </div> 
+            <input type="text" name="system.hands" value="{{system.hands}}" style="width:75px;color:#03e8fc"/> </div> 
 
         <div class="resource flex-group-center">
-          <label style="color:#03e8fc;">Range:</label><input type="text" name="data.range" value="{{data.range}}" data-dtype="String" style="width:100px;color:#03e8fc"/></div>
+          <label style="color:#03e8fc;">Range:</label><input type="text" name="system.range" value="{{system.range}}" data-dtype="String" style="width:100px;color:#03e8fc"/></div>
 
 
           <div class="resource flex-group-center">
-          <label for="data.APcost.value" class="resource-label" style="color:#03e8fc">AP Cost:</label>
-            <input type="text" name="data.APcost.value" value="{{data.APcost.value}}" data-dtype="Number" style="width:110px;color:#03e8fc"/></div>
+          <label for="system.APcost.value" class="resource-label" style="color:#03e8fc">AP Cost:</label>
+            <input type="text" name="system.APcost.value" value="{{system.APcost.value}}" data-dtype="Number" style="width:110px;color:#03e8fc"/></div>
 
 
 
           <div class="resource flex-group-center">
           <label class="resource-label" style="color:#03e8fc">Attack Roll Formula:</label>
-          <input type="text" name="data.formula2" value="{{data.formula2}}" data-dtype="String" style="color:#03e8fc"/> </div>
+          <input type="text" name="system.formula2" value="{{system.formula2}}" data-dtype="String" style="color:#03e8fc"/> </div>
           <div class="resource flex-group-center">
             <label class="resource-label" style="color:#03e8fc">Damage:</label>
-            <input type="text" name="data.formula" value="{{data.formula}}" data-dtype="String" style="color:#03e8fc"/></div>
+            <input type="text" name="system.formula" value="{{system.formula}}" data-dtype="String" style="color:#03e8fc"/></div>
 
           <div class="resource flex-group-center">
-            <label for="data.charges.value" class="resource-label" style="color:#03e8fc">Charges:</label>
+            <label for="system.charges.value" class="resource-label" style="color:#03e8fc">Charges:</label>
             <div class="resource-content">
-            <input type="text" name="data.charges.value" value="{{data.charges.value}}" data-dtype="Number" style="width:50px;color: #03e8fc;"/>
+            <input type="text" name="system.charges.value" value="{{system.charges.value}}" data-dtype="Number" style="width:50px;color: #03e8fc;"/>
             <span style="color:#03e8fc"> / </span>
-            <input type="text" name="data.charges.max" value="{{data.charges.max}}" data-dtype="Number"style="width:50px;color: #03e8fc;"/>
+            <input type="text" name="system.charges.max" value="{{system.charges.max}}" data-dtype="Number"style="width:50px;color: #03e8fc;"/>
 
         </div>
 
@@ -81,8 +81,8 @@
 
         <div class="resource flex-group-center">
         <label style="color:#03e8fc;">Damage Type:</label>
-        <select name="data.damagetype" style="color: #03e8fc;">
-          {{#select data.damagetype}}
+        <select name="system.damagetype" style="color: #03e8fc;">
+          {{#select system.damagetype}}
           <option value="None" style="font: Bios;color: #03e8fc; background: #1e2424">None</option>
           <option value="Physical" style="font: Bios;color: #03e8fc; background: #1e2424">Physical</option>
           <option value="Elemental" style="font: Bios;color: #03e8fc; background: #1e2424">Elemental</option>
@@ -95,8 +95,8 @@
 
         
         <div class="column" style="background-color:transparent;">
-          <label for="data.charges.value" class="resource-label" style="color:#03e8fc">Properties:</label>
-          <textarea name="data.details.other" rows="5" cols="40" style="color:#03e8fc;">{{data.details.other}}</textarea></div> <br>
+          <label for="system.charges.value" class="resource-label" style="color:#03e8fc">Properties:</label>
+          <textarea name="system.details.other" rows="5" cols="40" style="color:#03e8fc;">{{system.details.other}}</textarea></div> <br>
         {{!-- Third row --}}
 
 
