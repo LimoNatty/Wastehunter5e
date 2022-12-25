@@ -1,9 +1,9 @@
 <ol class="items-list">
   <li class="item flexrow items-header" style="background-color:#1e2424">
     <div class="item-name" style="color:#03e8fc;">Weapons:</div>
-    <div  style="color: #03e8fc;">Range</div>
+    <div class="item-formula" style="color: #03e8fc;">Range</div>
     <div class="item-formula" style="color:#03e8fc;">Attack Roll Formula</div>
-    <div class="item-formula" style="color:#03e8fc;">Damage Roll Formula</div>
+    <div class="item-formula" style="color:#03e8fc;">Base Damage</div>
 
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="item" style="color:#03e8fc;"><i class="fas fa-plus"></i> Add item</a>
@@ -17,8 +17,7 @@
         </div>
         <h4>{{item.name}}</h4>
       </div>
-      <div class = "magazinedrop" style="color: #03e8fc;">Reload</div>
-      <div style="color: #03e8fc;">{{system.range}}</div>
+      <div class="item-formula item-prop" style="color: #03e8fc;">{{system.range}}</div>
       <div class="item-formula item-prop rollable chargemod" data-label="Formula 2 Roll" data-roll="{{system.formula2}}" style="color:#03e8fc;">{{system.formula2}}</div>
       <div class="item-formula item-prop rollable" data-roll-type="item" roll-value="{{system.formula}}" style="color:#03e8fc;">{{system.formula}}</div>
       <div class="item-controls">
