@@ -69,6 +69,17 @@ Handlebars.registerHelper('toLowerCase', function(str) {
   return str.toLowerCase();
 });
 
+Handlebars.registerHelper('addValues', function() {
+  var outVal = 0;
+  for (var arg in arguments) {
+    if (typeof arguments[arg] != 'object') {
+      let currentArg = parseInt(arguments[arg]);
+      if(!isNaN(currentArg)) outVal += currentArg;
+    }
+  }
+  return outVal.toString();
+});
+
 /* -------------------------------------------- */
 /*  Ready Hook                                  */
 /* -------------------------------------------- */

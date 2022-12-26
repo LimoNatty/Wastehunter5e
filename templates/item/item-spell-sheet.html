@@ -16,7 +16,7 @@
   <section class="sheet-body">
 
     {{!-- Description Tab --}}
-    <div class="tab" data-group="primary" data-tab="description">
+    <div class="tab" data-group="primary" data-tab="description" style="color:#03e8fc">
       
       {{editor system.description target="system.description" rollData=rollData button=true owner=owner editable=editable}}
     </div>
@@ -35,7 +35,7 @@
         <input type="text" name="system.spellLevel" value="{{system.spellLevel}}" data-dtype="Number" style="color:#03e8fc"/>
         <label class="resource-label" style="color:#03e8fc">Attack Roll Formula</label>
         <input type="text" name="system.formula2" value="{{system.formula2}}" data-dtype="String" style="color:#03e8fc"/>
-        <label class="resource-label" style="color:#03e8fc">Damage Roll Formula</label>
+        <label class="resource-label" style="color:#03e8fc">Base Damage</label>
         <input type="text" name="system.formula" value="{{system.formula}}" data-dtype="String" style="color:#03e8fc"/>
       </div>
     </div>

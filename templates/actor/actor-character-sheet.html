@@ -556,128 +556,156 @@
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.biology.mod" value="{{system.skills.biology.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.biology.base" value="{{system.skills.biology.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.biology.mod" value="{{system.skills.biology.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.biology.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Biology">{{numberFormat system.skills.biology.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.biology.mod + (@skills.biology.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Biology">{{numberFormat (addValues system.skills.biology.base system.skills.biology.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Chemistry:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.chemistry.base" value="{{system.skills.chemistry.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.chemistry.mod" value="{{system.skills.chemistry.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.chemistry.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Chemistry">{{numberFormat system.skills.chemistry.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.chemistry.mod + (@skills.chemistry.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Chemistry">{{numberFormat (addValues system.skills.chemistry.base system.skills.chemistry.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Matrix:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.matrix.mod" value="{{system.skills.matrix.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.matrix.base" value="{{system.skills.matrix.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.matrix.mod" value="{{system.skills.matrix.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.matrix.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Matrix">{{numberFormat system.skills.matrix.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.matrix.mod + (@skills.matrix.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Matrix">{{numberFormat (addValues system.skills.matrix.base system.skills.matrix.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Politics:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.politics.base" value="{{system.skills.politics.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.politics.mod" value="{{system.skills.politics.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.politics.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Politics">{{numberFormat system.skills.politics.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.politics.mod + (@skills.politics.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Politics">{{numberFormat (addValues system.skills.politics.base system.skills.politics.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Street:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.street.mod" value="{{system.skills.street.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.street.base" value="{{system.skills.street.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.street.mod" value="{{system.skills.street.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.street.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Street">{{numberFormat system.skills.street.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.street.mod + (@skills.street.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Street">{{numberFormat (addValues system.skills.street.base system.skills.street.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Wasteland:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.wasteland.base" value="{{system.skills.wasteland.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.wasteland.mod" value="{{system.skills.wasteland.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.wasteland.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Wasteland">{{numberFormat system.skills.wasteland.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.wasteland.mod + (@skills.wasteland.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Wasteland">{{numberFormat (addValues system.skills.wasteland.base system.skills.wasteland.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Metaplanes:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.metaplane.base" value="{{system.skills.metaplane.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.metaplane.mod" value="{{system.skills.metaplane.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.metaplane.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Metaplanes">{{numberFormat system.skills.metaplane.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.metaplane.mod + (@skills.metaplane.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Metaplanes">{{numberFormat (addValues system.skills.metaplane.base system.skills.metaplane.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Media:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.media.mod" value="{{system.skills.media.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.media.base" value="{{system.skills.media.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.media.mod" value="{{system.skills.media.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.media.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Media">{{numberFormat system.skills.media.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.media.mod + (@skills.media.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Media">{{numberFormat (addValues system.skills.media.base system.skills.media.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Medical:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.medical.mod" value="{{system.skills.medical.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.medical.base" value="{{system.skills.medical.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.medical.mod" value="{{system.skills.medical.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.medical.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Medical">{{numberFormat system.skills.medical.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.medical.mod + (@skills.medical.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Medical">{{numberFormat (addValues system.skills.medical.base system.skills.medical.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Economics:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.economics.base" value="{{system.skills.economics.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.economics.mod" value="{{system.skills.economics.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.economics.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Economics">{{numberFormat system.skills.economics.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.economics.mod + (@skills.economics.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Economics">{{numberFormat (addValues system.skills.economics.base system.skills.economics.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             History:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.history.mod" value="{{system.skills.history.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.history.base" value="{{system.skills.history.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.history.mod" value="{{system.skills.history.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.history.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="History">{{numberFormat system.skills.history.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.history.mod + (@skills.history.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="History">{{numberFormat (addValues system.skills.history.base system.skills.history.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Magicka:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.magicka.mod" value="{{system.skills.magicka.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.magicka.base" value="{{system.skills.magicka.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.magicka.mod" value="{{system.skills.magicka.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.magicka.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Magicka">{{numberFormat system.skills.magicka.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.magicka.mod + (@skills.magicka.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Magicka">{{numberFormat (addValues system.skills.magicka.base system.skills.magicka.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Theology:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.theology.base" value="{{system.skills.theology.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.theology.mod" value="{{system.skills.theology.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.theology.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Theology">{{numberFormat system.skills.theology.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.theology.mod + (@skills.theology.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Theology">{{numberFormat (addValues system.skills.theology.base system.skills.theology.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Occult:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.occult.mod" value="{{system.skills.occult.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.occult.base" value="{{system.skills.occult.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.occult.mod" value="{{system.skills.occult.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.occult.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Occult">{{numberFormat system.skills.occult.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.occult.mod + (@skills.occult.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Occult">{{numberFormat (addValues system.skills.occult.base system.skills.occult.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
         </div>
 
         <div class="resource flex-group-center">
@@ -687,130 +715,158 @@
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.driving.mod" value="{{system.skills.driving.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
-            <span class="ability-mod drivingroll"
-              data-roll="(@skills.driving.mod + (0.5*(@abilities.TEC.value) + 0.5*(@abilities.REA.value)) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Driving">{{numberFormat system.skills.driving.mod decimals=0 sign=true}}</span> <br>
+              name="system.skills.driving.base" value="{{system.skills.driving.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.driving.mod" value="{{system.skills.driving.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.driving.mod + (@skills.driving.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Driving">{{numberFormat (addValues system.skills.driving.base system.skills.driving.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Sailing:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.sailing.mod" value="{{system.skills.sailing.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.sailing.base" value="{{system.skills.sailing.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.sailing.mod" value="{{system.skills.sailing.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.sailing.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Sailing">{{numberFormat system.skills.sailing.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.sailing.mod + (@skills.sailing.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Sailing">{{numberFormat (addValues system.skills.sailing.base system.skills.sailing.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Piloting:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.piloting.base" value="{{system.skills.piloting.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.piloting.mod" value="{{system.skills.piloting.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.piloting.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Piloting">{{numberFormat system.skills.piloting.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.piloting.mod + (@skills.piloting.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Piloting">{{numberFormat (addValues system.skills.piloting.base system.skills.piloting.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Healing:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.healing.mod" value="{{system.skills.healing.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
-            <span class="ability-mod healingroll"
-              data-roll="(@skills.piloting.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Healing">{{numberFormat system.skills.healing.mod decimals=0 sign=true}}</span> <br>
+              name="system.skills.healing.base" value="{{system.skills.healing.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.healing.mod" value="{{system.skills.healing.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.healing.mod + (@skills.healingbase) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Healing">{{numberFormat (addValues system.skills.healing.base system.skills.healing.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Trickery:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.trickery.base" value="{{system.skills.trickery.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.trickery.mod" value="{{system.skills.trickery.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
-            <span class="ability-mod trickeryroll"
-              data-roll="(@skills.piloting.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Trickery">{{numberFormat system.skills.trickery.mod decimals=0 sign=true}}</span> <br>
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.trickery.mod + (@skills.trickery.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Trickery">{{numberFormat (addValues system.skills.trickery.base system.skills.trickery.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Bushcraft:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.bushcraft.base" value="{{system.skills.bushcraft.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.bushcraft.mod" value="{{system.skills.bushcraft.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
-            <span class="ability-mod bushcraftroll"
-              data-roll="(@skills.bushcraft.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Bushcraft">{{numberFormat system.skills.bushcraft.mod decimals=0 sign=true}}</span> <br>
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.bushcraft.mod + (@skills.bushcraft.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Bushcraft">{{numberFormat (addValues system.skills.bushcraft.base system.skills.bushcraft.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Engineering:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.engineering.base" value="{{system.skills.engineering.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.engineering.mod" value="{{system.skills.engineering.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.engineering.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Engineering">{{numberFormat system.skills.engineering.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.engineering.mod + (@skills.engineering.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Engineering">{{numberFormat (addValues system.skills.engineering.base system.skills.engineering.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Alchemy:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.alchemy.mod" value="{{system.skills.alchemy.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.alchemy.base" value="{{system.skills.alchemy.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.alchemy.mod" value="{{system.skills.alchemy.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.alchemy.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Alchemy">{{numberFormat system.skills.alchemy.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.alchemy.mod + (@skills.alchemy.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Alchemy">{{numberFormat (addValues system.skills.alchemy.base system.skills.alchemy.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Armoring:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.armoring.base" value="{{system.skills.armoring.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.armoring.mod" value="{{system.skills.armoring.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.armoring.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Armoring">{{numberFormat system.skills.armoring.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.armoring.mod + (@skills.armoring.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Armoring">{{numberFormat (addValues system.skills.armoring.base system.skills.armoring.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Tailoring:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.tailoring.base" value="{{system.skills.tailoring.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.tailoring.mod" value="{{system.skills.tailoring.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.tailoring.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Tailoring">{{numberFormat system.skills.tailoring.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.tailoring.mod + (@skills.tailoring.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Tailoring">{{numberFormat (addValues system.skills.tailoring.base system.skills.tailoring.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Physical Arts:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.physicalarts.base" value="{{system.skills.physicalarts.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.physicalarts.mod" value="{{system.skills.physicalarts.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.physicalarts.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Physical Arts">{{numberFormat system.skills.physicalarts.mod decimals=0 sign=true}}</span>
+              data-roll="(@skills.physicalarts.mod + (@skills.physicalarts.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Physical Arts">{{numberFormat (addValues system.skills.physicalarts.base system.skills.physicalarts.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             <br>
             Performing Arts:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.performingarts.base" value="{{system.skills.performingarts.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.performingarts.mod" value="{{system.skills.performingarts.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.performingarts.mod + (@abilities.CLN.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Performing Arts">{{numberFormat system.skills.performingarts.mod decimals=0 sign=true}}</span>
+              data-roll="(@skills.performingartsmod + (@skills.performingarts.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Performing Arts">{{numberFormat (addValues system.skills.performingarts.base system.skills.performingarts.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             <br>
             Construction:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.construction.base" value="{{system.skills.construction.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.construction.mod" value="{{system.skills.construction.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.construction.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Construction">{{numberFormat system.skills.construction.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.construction.mod + (@skills.construction.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Construction">{{numberFormat (addValues system.skills.construction.base system.skills.construction.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Psychiatry:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.psychiatry.base" value="{{system.skills.psychiatry.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.psychiatry.mod" value="{{system.skills.psychiatry.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
-            <span class="ability-mod psychiatryroll"
-              data-roll="(@skills.piloting.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Psychiatry">{{numberFormat system.skills.psychiatry.mod decimals=0 sign=true}}</span> <br>
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.psychiatry.mod + (@skills.psychiatry.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Psychiatry">{{numberFormat (addValues system.skills.psychiatry.base system.skills.psychiatry.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
           </p>
         </div>
 
@@ -821,96 +877,115 @@
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.blades.mod" value="{{system.skills.blades.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.blades.base" value="{{system.skills.blades.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.blades.mod" value="{{system.skills.blades.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.blades.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Blades">{{numberFormat system.skills.blades.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.blades.mod + (@skills.blades.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Blades">{{numberFormat (addValues system.skills.blades.base system.skills.blades.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Blunt:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.blunt.mod" value="{{system.skills.blunt.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.blunt.base" value="{{system.skills.blunt.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.blunt.mod" value="{{system.skills.blunt.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.blunt.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Blunt">{{numberFormat system.skills.blunt.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.blunt.mod + (@skills.blunt.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Blunt">{{numberFormat (addValues system.skills.blunt.base system.skills.blunt.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Pole Weapons:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{poleweapons.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.poleweapons.base" value="{{system.skills.poleweapons.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.poleweapons.mod" value="{{system.skills.poleweapons.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.poleweapons.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Pole Weapons">{{numberFormat system.skills.poleweapons.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.poleweapons.mod + (@skills.poleweapons.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Pole Weapons">{{numberFormat (addValues system.skills.poleweapons.base system.skills.poleweapons.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Martial Arts:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{martialarts.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.martialarts.base" value="{{system.skills.martialarts.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.martialarts.mod" value="{{system.skills.martialarts.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.martialarts.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label=" Martial Arts">{{numberFormat system.skills.martialarts.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.martialarts.mod + (@skills.martialarts.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Martial Arts">{{numberFormat (addValues system.skills.martialarts.base system.skills.martialarts.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Special Melee:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{specialmelee.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.specialmelee.base" value="{{system.skills.specialmelee.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.specialmelee.mod" value="{{system.skills.specialmelee.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.specialmelee.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Special Melee">{{numberFormat system.skills.specialmelee.mod decimals=0 sign=true}}</span>
+              data-roll="(@skills.specialmelee.mod + (@skills.specialmelee.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Special Melee">{{numberFormat (addValues system.skills.specialmelee.base system.skills.specialmelee.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             <br>
             Small Guns:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{smallguns.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.smallguns.base" value="{{system.skills.smallguns.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.smallguns.mod" value="{{system.skills.smallguns.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.smallguns.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Small Guns">{{numberFormat system.skills.smallguns.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.smallguns.mod + (@skills.smallguns.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Small Guns">{{numberFormat (addValues system.skills.smallguns.base system.skills.smallguns.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Big Guns:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{smallguns.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.bigguns.mod" value="{{system.skills.bigguns.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.bigguns.base" value="{{system.skills.bigguns.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.bigguns.mod" value="{{system.skills.bigguns.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.bigguns.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Big Guns">{{numberFormat system.skills.bigguns.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.bigguns.mod + (@skills.bigguns.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Big Guns">{{numberFormat (addValues system.skills.bigguns.base system.skills.bigguns.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Thrown Weapons:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{thrownweapons.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.thrownweapons.base" value="{{system.skills.thrownweapons.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.thrownweapons.mod" value="{{system.skills.thrownweapons.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.thrownweapons.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Thrown Weapons">{{numberFormat system.skills.thrownweapons.mod decimals=0 sign=true}}</span>
+              data-roll="(@skills.thrownweapons.mod + (@skills.thrownweapons.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Thrown Weapons">{{numberFormat (addValues system.skills.thrownweapons.base system.skills.thrownweapons.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             <br>
             Special Ranged:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{specialranged.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.specialranged.base" value="{{system.skills.specialranged.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.specialranged.mod" value="{{system.skills.specialranged.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.specialranged.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Special Ranged">{{numberFormat system.skills.specialranged.mod decimals=0 sign=true}}</span>
+              data-roll="(@skills.specialranged.mod + (@skills.specialranged.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Special Ranged">{{numberFormat (addValues system.skills.specialranged.base system.skills.specialranged.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             <br>
             Experimental Weapons:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{experimentalweapons.label}}">{{ability.label}}</label><input type="number"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.experimentalweapons.base" value="{{system.skills.experimentalweapons.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.experimentalweapons.mod" value="{{system.skills.experimentalweapons.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.experimentalweapons.mod + @abilities.INT.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Experimental Weapons">{{numberFormat system.skills.experimentalweapons.mod decimals=0
-              sign=true}}</span> <br>
+              data-roll="(@skills.experimentalweapons.mod + (@skills.experimentalweapons.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Experimental Weapons">{{numberFormat (addValues system.skills.experimentalweapons.base system.skills.experimentalweapons.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
           </p>
         </div>
 
@@ -920,44 +995,58 @@
             Resist Insanity:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{weights.label}}">{{ability.label}}</label>
-            <span class="ability-mod resistinsanityroll"
-              data-roll="(@skills.construction.mod + (@abilities.TEC.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Resist Insanity">{{numberFormat system.abilities.CLN.value decimals=0 sign=true}}</span> <br>
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.resistinsanity.base" value="{{system.skills.resistinsanity.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.resistinsanity.mod" value="{{system.skills.resistinsanity.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.resistinsanity.mod + (@skills.resistinsanity.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Resist Insanity">{{numberFormat (addValues system.skills.resistinsanity.base system.skills.resistinsanity.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Resolve:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{weights.label}}">{{ability.label}}</label>
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.resolve.base" value="{{system.skills.resolve.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.resolve.mod" value="{{system.skills.resolve.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="((@abilities.SPI.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Construction">{{numberFormat system.abilities.SPI.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.resolve.mod + (@skills.resolve.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Resolve">{{numberFormat (addValues system.skills.resolve.base system.skills.resolve.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Searching:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.searching.base" value="{{system.skills.searching.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.searching.mod" value="{{system.skills.searching.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="((@abilities.SPI.value) + @skills.searching.mod + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Searching">{{numberFormat system.skills.searching.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.searching.mod + (@skills.searching.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Searching">{{numberFormat (addValues system.skills.searching.base system.skills.searching.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Awareness:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.awareness.base" value="{{system.skills.awareness.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.awareness.mod" value="{{system.skills.awareness.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="((@abilities.SPI.value) + @skills.searching.mod + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Awareness">{{numberFormat system.skills.awareness.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.awareness.mod + (@skills.awareness.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Awareness">{{numberFormat (addValues system.skills.awareness.base system.skills.awareness.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Psychoanalysis:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.psychoanalysis.base" value="{{system.skills.psychoanalysis.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.psychoanalysis.mod" value="{{system.skills.psychoanalysis.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="((@abilities.SPI.value)  + @skills.searching.mod + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Psychoanalysis">{{numberFormat system.skills.psychoanalysis.mod decimals=0 sign=true}}</span>
+              data-roll="(@skills.psychoanalysis.mod + (@skills.psychoanalysis.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Psychoanalysis">{{numberFormat (addValues system.skills.psychoanalysis.base system.skills.psychoanalysis.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             <br>
           </p>
         </div>
@@ -974,44 +1063,52 @@
               name="system.skills.persuasion.mod" value="{{system.skills.persuasion.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.persuasion.mod + (@abilities.CLN.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Persuasion">{{numberFormat system.skills.persuasion.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.persuasion.mod + (@skills.persuasion.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Persuasion">{{numberFormat (addValues system.skills.persuasion.base system.skills.persuasion.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Deception:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.deception.base" value="{{system.skills.deception.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.deception.mod" value="{{system.skills.deception.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.deception.mod + (@abilities.CLN.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Deception">{{numberFormat system.skills.deception.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.deception.mod + (@skills.deception.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Deception">{{numberFormat (addValues system.skills.deception.base system.skills.deception.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Intimidation:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.intimidation.base" value="{{system.skills.intimidation.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.intimidation.mod" value="{{system.skills.intimidation.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
-            <span class="ability-mod intimidationroll"
-              data-roll="(@skills.intimidation.mod + (@abilities.CLN.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Intimidation">{{numberFormat system.skills.intimidation.mod decimals=0 sign=true}}</span> <br>
+            <span class="ability-mod otherroll"
+              data-roll="(@skills.intimidation.mod + (@skills.intimidation.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Intimidation">{{numberFormat (addValues system.skills.intimidation.base system.skills.intimidation.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Enthrall:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.enthrall.base" value="{{system.skills.enthrall.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.enthrall.mod" value="{{system.skills.enthrall.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.enthrall.mod + (@abilities.CLN.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Enthrall">{{numberFormat system.skills.enthrall.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.enthrall.mod + (@skills.enthrall.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Enthrall">{{numberFormat (addValues system.skills.enthrall.base system.skills.enthrall.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Taming:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.taming.mod" value="{{system.skills.taming.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.taming.base" value="{{system.skills.taming.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.taming.mod" value="{{system.skills.taming.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.taming.mod + (@abilities.CLN.value) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Taming">{{numberFormat system.skills.taming.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.taming.mod + (@skills.taming.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Taming">{{numberFormat (addValues system.skills.taming.base system.skills.taming.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
           </p>
         </div>
 
@@ -1022,87 +1119,112 @@
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
               data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.weights.mod" value="{{system.skills.weights.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+              name="system.skills.weights.base" value="{{system.skills.weights.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.weights.mod" value="{{system.skills.weights.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.weights.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Weights">{{numberFormat system.skills.weights.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.weights.mod + (@skills.weights.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Weights">{{numberFormat (addValues system.skills.weights.base system.skills.weights.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Parkour:
-            <label for="system.skills.parkour.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.STR.mod + @system.parkour.mod"
-              data-label="{{parkour.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.parkour.mod" value="{{system.skills.parkour.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.parkour.base" value="{{system.skills.parkour.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.parkour.mod" value="{{system.skills.parkour.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.parkour.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Parkour">{{numberFormat system.skills.parkour.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.parkour.mod + (@skills.parkour.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Parkour">{{numberFormat (addValues system.skills.parkour.base system.skills.parkour.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Endurance:
-            <label for="system.skills.endurance.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.STR.mod + @system.endurance.mod"
-              data-label="{{endurance.label}}">{{ability.label}}</label><input type="number"
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.endurance.base" value="{{system.skills.endurance.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.endurance.mod" value="{{system.skills.endurance.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.endurance.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Endurance">{{numberFormat system.skills.endurance.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.endurance.mod + (@skills.endurance.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Endurance">{{numberFormat (addValues system.skills.endurance.base system.skills.endurance.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Force:
-            <label for="system.skills.force.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.STR.mod + @system.force.mod"
-              data-label="{{force.label}}">{{ability.label}}</label><input type="number" name="system.skills.force.mod"
-              value="{{system.skills.force.mod}}" style="width:30px;color: #03e8fc;" data-dtype="Number">
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.force.base" value="{{system.skills.force.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.force.mod" value="{{system.skills.force.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.force.mod + @abilities.STR.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Force">{{numberFormat system.skills.force.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.force.mod + (@skills.force.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Force">{{numberFormat (addValues system.skills.force.base system.skills.force.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Gymnastics:
-            <label for="system.skills.gymnastics.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.QCK.mod + @system.gymnastics.mod"
-              data-label="{{gymnastics.label}}">{{ability.label}}</label><input type="number"
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.gymnastics.base" value="{{system.skills.gymnastics.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.gymnastics.mod" value="{{system.skills.gymnastics.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.gymnastics.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Gymnastics">{{numberFormat system.skills.gymnastics.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.gymnastics.mod + (@skills.gymnastics.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Gymnastics">{{numberFormat (addValues system.skills.gymnastics.base system.skills.gymnastics.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Palming:
-            <label for="system.skills.palming.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.QCK.mod + @system.palming.mod"
-              data-label="{{palming.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.palming.mod" value="{{system.skills.palming.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.palming.base" value="{{system.skills.palming.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.palming.mod" value="{{system.skills.palming.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.palming.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Palming">{{numberFormat system.skills.palming.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.palming.mod + (@skills.palming.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Palming">{{numberFormat (addValues system.skills.palming.base system.skills.palming.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Stealth:
-            <label for="system.skills.stealth.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.QCK.mod + @system.stealth.mod"
-              data-label="{{stealth.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.stealth.mod" value="{{system.skills.stealth.mod}}" style="width:30px;color: #03e8fc;"
-              data-dtype="Number">
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.stealth.base" value="{{system.skills.stealth.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.stealth.mod" value="{{system.skills.stealth.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.stealth.mod + @abilities.QCK.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Stealth">{{numberFormat system.skills.stealth.mod decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.stealth.mod + (@skills.stealth.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Stealth">{{numberFormat (addValues system.skills.stealth.base system.skills.stealth.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Combat Sequence:
-            <label for="system.skills.combatsequence.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.STR.mod + @system.combatsequence.mod"
-              data-label="{{combatsequence.label}}">{{ability.label}}</label><input type="number"
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.combatsequence.base" value="{{system.skills.combatsequence.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
               name="system.skills.combatsequence.mod" value="{{system.skills.combatsequence.mod}}"
               style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.combatsequence.mod + @abilities.REA.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Combat Sequence">{{numberFormat system.skills.combatsequence.mod decimals=0 sign=true}}</span>
-            <br>
+              data-roll="(@skills.combatsequence.mod + (@skills.combatsequence.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Combat Sequence">{{numberFormat (addValues system.skills.combatsequence.base system.skills.combatsequence.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Avoidance:
-            <label for="system.skills.avoidance.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.REA.mod" data-label="{{avoidance.label}}">{{ability.label}}</label>
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.avoidance.base" value="{{system.skills.avoidance.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.avoidance.mod" value="{{system.skills.avoidance.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@abilities.REA.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Avoidance">{{numberFormat system.abilities.REA.value decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.avoidance.mod + (@skills.avoidance.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Avoidance">{{numberFormat (addValues system.skills.avoidance.base system.skills.avoidance.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Resilience:
-            <label for="system.skills.resilience.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.STR.mod + @system.force.mod"
-              data-label="{{force.label}}">{{ability.label}}</label>
+            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
+              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
+              name="system.skills.resilience.base" value="{{system.skills.resilience.base}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
+              name="system.skills.resilience.mod" value="{{system.skills.resilience.mod}}"
+              style="width:30px;color: #03e8fc;" data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@abilities.BOD.value + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Resilience">{{numberFormat system.abilities.BOD.value decimals=0 sign=true}}</span> <br>
+              data-roll="(@skills.resilience.mod + (@skills.resilience.base) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-label="Resilience">{{numberFormat (addValues system.skills.resilience.base system.skills.resilience.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
           </p>
         </div>
         </p>
