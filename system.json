@@ -4,8 +4,8 @@
   "description": "The Wastehunter First Edition system for FoundryVTT!",
   "version": "5.1.0.1",
   "compatibility": {
-    "minimum": "9",
-    "verified": 9,
+    "minimum": "10",
+    "verified": 10,
     "maximum": 10
   },
   "authors": [
