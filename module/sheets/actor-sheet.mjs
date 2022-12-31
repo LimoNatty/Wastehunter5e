@@ -232,7 +232,7 @@ export class WastehunterActorSheet extends ActorSheet {
     html.find('.chargemod').click(this._onClickCharge.bind(this));
 
     // Charge Management.
-    html.find('.manamod').click(this._onClickMana.bind(this));
+    //html.find('.manamod').click(this._onClickMana.bind(this));
 
     // Spell AP Management.
     html.find('.spellapmod').click(this._onClickSpellAP.bind(this));

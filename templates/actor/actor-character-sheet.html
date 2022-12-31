@@ -9,7 +9,7 @@
       {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
       use both the "grid" and "grid-Ncol" class where "N" can be any number
       from 1 to 12 and will create that number of columns. --}}
-      <div class="resources grid grid-6col">
+      <div class="resources grid grid-5col">
 
         {{!-- "flex-group-center" is also defined in the _grid.scss file
         and it will add a small amount of padding, a border, and will
@@ -56,15 +56,14 @@
           </div>
         </div>
 
-
         <div class="resource flex-group-center">
-          <label for="AP" class="resource-label apreset" style="color:#03e8fc;">AP</label>
+          <label for="AP" class="resource-label willreset" style="color:#03e8fc;">Will Points:</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.ap.value" value="{{system.ap.value}}" style="width: 50px;color: #03e8fc;"
-              data-dtype="Number">
+            <input type="text" name="system.willpoints.value" value="{{system.willpoints.value}}"
+              style="width: 50px;color: #03e8fc;" data-dtype="Number">
             <span style="color:#03e8fc;"> / </span>
-            <input type="text" name="system.ap.max" value="{{system.ap.max}}" style="width: 50px;color: #03e8fc;"
-              data-dtype="Number"><br>
+            <input type="text" name="system.willpoints.max" value="{{system.willpoints.max}}"
+              style="width: 50px;color: #03e8fc;" data-dtype="Number">
           </div>
         </div>
 
@@ -90,49 +89,27 @@
             style="width: 50px;color: #03e8fc;" data-dtype="Number">
         </div>
 
-
-        <div class="resource flex-group-center">
-          <label for="system.mana1.value" class="resource-label" style="color:#03e8fc;">Mana</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.mana1.value" value="{{system.mana1.value}}" data-dtype="Number"
-              style="color:#03e8fc;" />
-            <span style="color:#03e8fc;"> / </span>
-            <input type="text" name="system.mana1.max" value="{{system.mana1.max}}" data-dtype="Number"
-              style="color:#03e8fc;" />
-          </div>
-        </div>
-
         <div class="resource flex-group-center">
           <label for="Edge" class="resource-label" style="color:#03e8fc;">Edge</label>
           <div class="resource-content flexrow flex-center flex-between">
             <input type="text" name="system.edge.value" value="{{system.edge.value}}"
               style="width: 50px;color: #03e8fc;" data-dtype="Number">
+            <span style="color:#03e8fc;"> / </span>
+            <input type="text" name="system.edge.max" value="{{system.edge.max}}" style="width: 50px;color: #03e8fc;"
+              data-dtype="Number"><br>
           </div>
         </div>
 
         <div class="resource flex-group-center">
-          <label for="AP" class="resource-label willreset" style="color:#03e8fc;">Will Points:</label>
+          <label for="AP" class="resource-label apreset" style="color:#03e8fc;">AP</label>
           <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.willpoints.value" value="{{system.willpoints.value}}"
-              style="width: 50px;color: #03e8fc;" data-dtype="Number">
+            <input type="text" name="system.ap.value" value="{{system.ap.value}}" style="width: 50px;color: #03e8fc;"
+              data-dtype="Number">
             <span style="color:#03e8fc;"> / </span>
-            <input type="text" name="system.willpoints.max" value="{{system.willpoints.max}}"
-              style="width: 50px;color: #03e8fc;" data-dtype="Number">
+            <input type="text" name="system.ap.max" value="{{system.ap.max}}" style="width: 50px;color: #03e8fc;"
+              data-dtype="Number"><br>
           </div>
         </div>
-
-        <div class="resource flex-group-center">
-          <label for="system.attunement.value" class="resource-label" style="color:#03e8fc;">Essence</label>
-          <div class="resource-content flexrow flex-center flex-between">
-            <input type="text" name="system.attunement.value" value="{{system.attunement.value}}"
-              style="width:50px;color: #03e8fc;" />
-            <span style="color:#03e8fc;"> / </span>
-            <input type="text" name="system.attunement.max" value="{{system.attunement.max}}"
-              style="width:50px;color: #03e8fc;" />
-          </div>
-        </div>
-
-
 
       </div>
   </header>
@@ -1505,13 +1482,30 @@
     <div class="tab Inventory" data-group="primary" data-tab="Inventory">
 
       <div class="resource flex-group-center">
-        <label for="system.currentload.value" class="resource-label" style="color:#03e8fc;">Current Load:</label>
-        <div class="resource-content">
-          <input type="text" name="system.currentload.value" value="{{system.currentload.value}}"
-            style="width:50px;color: #03e8fc;" />
-          <span style="color:#03e8fc;"> / </span>
-          <input type="text" name="system.maximumload.max" value="{{system.maximumload.max}}"
-            style="width:50px;color: #03e8fc;" />
+
+
+        <div class="row">
+          <div class="column">
+            <label for="system.currentload.value" class="resource-label" style="color:#03e8fc;">Current Load:</label>
+            <div class="resource-content">
+              <input type="text" name="system.currentload.value" value="{{system.currentload.value}}"
+                style="width:50px;color: #03e8fc;" />
+              <span style="color:#03e8fc;"> / </span>
+              <input type="text" name="system.maximumload.max" value="{{system.maximumload.max}}"
+                style="width:50px;color: #03e8fc;" />
+            </div>
+          </div>
+
+          <div class="column">
+            <label for="system.attunement.value" class="resource-label" style="color:#03e8fc;">Essence</label>
+            <div class="resource-content">
+              <input type="text" name="system.attunement.value" value="{{system.attunement.value}}"
+                style="width:50px;color: #03e8fc;" />
+              <span style="color:#03e8fc;"> / </span>
+              <input type="text" name="system.attunement.max" value="{{system.attunement.max}}"
+                style="width:50px;color: #03e8fc;" />
+            </div>
+          </div>
         </div>
       </div>
 
