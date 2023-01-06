@@ -1295,18 +1295,6 @@
               data-roll="(@skills.force.mod + (@skills.force.base) + {{system.circumstancedice.value}} )d6x6cs>3"
               data-label="Force">{{numberFormat (addValues system.skills.force.base system.skills.force.mod
               system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
-            Gymnastics:
-            <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
-              data-roll="d20+@abilities.STR.mod + @system.weights.mod"
-              data-label="{{weights.label}}">{{ability.label}}</label><input type="number"
-              name="system.skills.gymnastics.base" value="{{system.skills.gymnastics.base}}"
-              style="width:30px;color: #03e8fc;" data-dtype="Number"><input type="number"
-              name="system.skills.gymnastics.mod" value="{{system.skills.gymnastics.mod}}"
-              style="width:30px;color: #03e8fc;" data-dtype="Number">
-            <span class="ability-mod otherroll"
-              data-roll="(@skills.gymnastics.mod + (@skills.gymnastics.base) + {{system.circumstancedice.value}} )d6x6cs>3"
-              data-label="Gymnastics">{{numberFormat (addValues system.skills.gymnastics.base
-              system.skills.gymnastics.mod system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Palming:
             <label for="system.skills.weights.value" class="resource-label rollable flexlarge align-left"
               data-roll="d20+@abilities.STR.mod + @system.weights.mod"
