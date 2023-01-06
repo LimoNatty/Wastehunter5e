@@ -6,8 +6,8 @@ export class TestDialog extends Application {
     constructor(data={}, options={}) {
         super(options);
 
-        this._testData = data;
-        this._defaultTestData = data;
+        this._testData = foundry.utils.deepClone(data);
+        this._defaultTestData = foundry.utils.deepClone(data);
     }
 
     /**
@@ -40,6 +40,6 @@ export class TestDialog extends Application {
      * @param {MouseEvent} event
      */
     _onClickReset(event) {
-        this._testData = this._defaultTestData;
+        this._testData = foundry.utils.deepClone(this._defaultTestData);
     }
 }
