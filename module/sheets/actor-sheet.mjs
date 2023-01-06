@@ -309,6 +309,8 @@ export class WastehunterActorSheet extends ActorSheet {
 
     html.find('.shove').click(this._onClickShove.bind(this));
 
+    html.find('.item-roll').click(this._onClickItemRoll.bind(this));
+
 
     // Drag events for macros.
     if (this.actor.owner) {
@@ -1347,6 +1349,14 @@ export class WastehunterActorSheet extends ActorSheet {
     });
 
 
+  }
+
+  _onClickItemRoll(event) {
+    event.preventDefault();
+    const actor = this.actor;
+    const itemId = event.currentTarget.closest(".item").dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    item.rollDialog();
   }
 
 }

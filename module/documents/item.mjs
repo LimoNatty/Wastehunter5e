@@ -1,3 +1,5 @@
+import { TestDialog } from "../dialogs/test-dialog.mjs";
+
 /**
  * Extend the basic Item with some very simple modifications.
  * @extends {Item}
@@ -72,5 +74,21 @@ export class WastehunterItem extends Item {
     });
     return result;
   }
+  }
+
+  rollDialog() {
+    const testOptions = {
+      classes: ["wastehunter", "roll-dialog"], 
+      template: "systems/wastehunter/templates/testdialogs/item-dialog.html", 
+      width: 520, 
+      height: 300, 
+    };
+    const test = new TestDialog({}, {
+      classes: ["wastehunter", "roll-dialog"], 
+      template: "systems/wastehunter/templates/testdialogs/item-dialog.html", 
+      width: 520, 
+      height: 300, 
+    });
+    test.render(true);
   }
 }
