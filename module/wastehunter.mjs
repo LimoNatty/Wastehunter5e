@@ -32,7 +32,7 @@ Hooks.once('init', async function() {
    * @type {String}
    */
   CONFIG.Combat.initiative = {
-    formula: "(@resources.combatsequence.value)d6x6cs>3",
+    formula: "(@skills.combatsequence.base + @skills.combatsequence.mod)d6x6cs>3",
     decimals: 2
   };
 
