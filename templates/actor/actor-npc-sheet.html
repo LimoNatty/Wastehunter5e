@@ -123,11 +123,11 @@
     {{!-- Description Tab --}}
     <div class="tab NPC Description" data-group="primary" data-tab="NPC Description"
       style="color:#03e8fc; padding: 5px;">
-      <div class="grid grid-4col" style="grid-template-rows: repeat(3, 1fr) 2fr;">
-        <div class="grid-span-2" style="grid-row: span 2; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+      <div class="grid grid-3col" style="grid-template-rows: 4fr 1fr 1fr repeat(3, 4fr);">
+        <div class="grid-span-3" style=" display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 7fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Physical Description</h3>
           <textarea name="system.physdesc" rows="5" cols="40"
-        style="grid-row: span 2; color:#03e8fc; height: 100%; width: 100%;">{{system.physdesc}}</textarea>
+        style="color:#03e8fc; height: 100%; width: 100%;">{{system.physdesc}}</textarea>
         </div>
         <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Size</h3>
@@ -145,26 +145,26 @@
           <h3 style="color:#03e8fc; border-style: none;">Faith</h3>
             <input type="text" name="system.faith" value="{{system.faith}}" size="5" style="color:#03e8fc;" />
         </div>
-        <div class="grid-span-2" style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; justify-items: center; align-items: center;">
+        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Age and Birthday</h3>
           <input type="text" name="system.dob" value="{{system.dob}}" size="5" style="color:#03e8fc;" />
         </div>
-        <div class="grid-span-2" style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; justify-items: center; align-items: center;">
+        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Metatype and Metavariant</h3>
             <input type="text" name="system.details.metatype" value="{{system.details.metatype}}" size="5"
               style="color:#03e8fc;" />
         </div>
-        <div class="grid-span-2" style="grid-row: span 2; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div class="grid-span-3" style=" display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 7fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Personality</h3>
           <textarea name="system.personality" rows="5" cols="40"
         style="grid-row: span 2; color:#03e8fc; height: 100%; width: 100%;">{{system.personality}}</textarea>
         </div>
-        <div style="grid-row: span 2; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div class="grid-span-3" style=" display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 7fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Voice</h3>
           <textarea name="system.voice" rows="5" cols="40"
         style="grid-row: span 2; color:#03e8fc; height: 100%; width: 100%;">{{system.voice}}</textarea>
         </div>
-        <div style="grid-row: span 2; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div class="grid-span-3" style=" display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 7fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Languages</h3>
           <textarea name="system.details.languages" rows="5" cols="40"
         style="grid-row: span 2; color:#03e8fc; height: 100%; width: 100%;">{{system.details.languages}}</textarea>
@@ -174,8 +174,8 @@
 
     {{!-- Properties Tab --}}
     <div class="tab NPC Properties" data-group="primary" data-tab="NPC Properties" style="color:#03e8fc; padding: 5px;">
-      <div class="grid grid-col2" style="grid-template-rows: repeat(3, 1fr);">
-        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: repeat(6, 1fr); justify-items: center; align-items: center;">
+      <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr repeat(5, 2fr); justify-items: center; align-items: center;">
+        <div style="height: 100%; width: 100%; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: repeat(6, 1fr); justify-items: center; align-items: center;">
           <label class="resource-label" style="color:#03e8fc;">NPC Type:</label>
           <select name="system.npctype" style="color: #03e8fc;">
             {{#select system.npctype}}
@@ -203,27 +203,27 @@
             {{/select}}
           </select>
         </div>
-        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div style="height: 100%; width: 100%; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 5fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Organizational Affiliations</h3>
           <textarea name="system.details.affiliations" rows="5" cols="40"
         style="color:#03e8fc; height: 100%; width: 100%;">{{system.details.affiliations}}</textarea>
         </div>
-        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div style="height: 100%; width: 100%; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 5fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Backstory</h3>
           <textarea name="system.details.backstory" rows="5" cols="40"
         style="color:#03e8fc; height: 100%; width: 100%;">{{system.details.backstory}}</textarea>
         </div>
-        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div style="height: 100%; width: 100%; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 5fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Qualifications</h3>
           <textarea name="system.details.education" rows="5" cols="40"
         style="color:#03e8fc; height: 100%; width: 100%;">{{system.details.education}}</textarea>
         </div>
-        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div style="height: 100%; width: 100%; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 5fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Goals and Motivations</h3>
           <textarea name="system.details.goals" rows="5" cols="40"
         style="color:#03e8fc; height: 100%; width: 100%;">{{system.details.goals}}</textarea>
         </div>
-        <div style="display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 2fr; justify-items: center; align-items: center;">
+        <div style="height: 100%; width: 100%; display: grid; padding: 10px; grid-template-columns: 1fr; grid-template-rows: 1fr 5fr; justify-items: center; align-items: center;">
           <h3 style="color:#03e8fc; border-style: none;">Relationships and Connections</h3>
           <textarea name="system.details.connections" rows="5" cols="40"
         style="color:#03e8fc; height: 100%; width: 100%;">{{system.details.connections}}</textarea>
