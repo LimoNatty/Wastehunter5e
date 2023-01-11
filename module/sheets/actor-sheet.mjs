@@ -392,14 +392,14 @@ export class WastehunterActorSheet extends ActorSheet {
       if (actor.system.combatswitch.check == true) {
         // AP Reduction
         console.log("AP Cost - ", item.system.APcost.value);
-        actor.update({ "data.ap.value": actor.system.ap.value - item.system.APcost.value });
+        actor.update({ "system.ap.value": actor.system.ap.value - item.system.APcost.value });
 
         // Checking if weapon is automatic and an 'item'
         console.log("Checking for Automatic");
         console.log("Item Type -", item.type)
         if (item.type == 'item') {
           if (item.system.automatic.check == true) {
-            item.update({ "data.APcost.value": 2 });
+            item.update({ "system.APcost.value": 2 });
           };
         }
       }
@@ -690,13 +690,13 @@ export class WastehunterActorSheet extends ActorSheet {
     }
 
     console.log("AP COST -", item.system.APcost.value);
-    actor.update({ "data.ap.value": actor.system.ap.value - item.system.APcost.value });
+    actor.update({ "system.ap.value": actor.system.ap.value - item.system.APcost.value });
 
     console.log("Checking for Automatic");
     console.log("ITEM TYPE -", item.type)
     if (item.type == 'item') {
       if (item.system.automatic.check == true) {
-        item.update({ "data.APcost.value": 2 });
+        item.update({ "system.APcost.value": 2 });
       };
     }
 
@@ -718,7 +718,7 @@ export class WastehunterActorSheet extends ActorSheet {
 
     console.log("ITEM AP -", item.system.APcost.value);
     if (actor.system.combatswitch.check == true) {
-      actor.update({ "data.ap.value": actor.system.ap.value - item.system.APcost.value });
+      actor.update({ "system.ap.value": actor.system.ap.value - item.system.APcost.value });
     }
 
   }
@@ -735,12 +735,12 @@ export class WastehunterActorSheet extends ActorSheet {
 
     if (item.type == 'item') {
       if (item.system.weapontype !== "Melee") {
-        item.update({ "data.charges.value": item.system.charges.value - 1 })
+        item.update({ "system.charges.value": item.system.charges.value - 1 })
       }
     }
 
     if (item.type == 'feature' && item.system.charges.max > 0) {
-      item.update({ "data.charges.value": item.system.charges.value - 1 })
+      item.update({ "system.charges.value": item.system.charges.value - 1 })
     }
 
 
@@ -768,12 +768,12 @@ export class WastehunterActorSheet extends ActorSheet {
 
     if (item.type == 'item') {
       if (item.system.melee.check == false) {
-        item.update({ "data.charges.value": item.system.charges.max })
-        actor.update({ "data.ap.value": 0 })
+        item.update({ "system.charges.value": item.system.charges.max })
+        actor.update({ "system.ap.value": 0 })
       }
     }
     if (item.type == 'feature') {
-      item.update({ "data.charges.value": item.system.charges.max })
+      item.update({ "system.charges.value": item.system.charges.max })
     }
 
   }
@@ -784,10 +784,10 @@ export class WastehunterActorSheet extends ActorSheet {
     const actor = this.actor;
     if (actor.system.ap.value < 0) {
       console.log("negative AP detected")
-      actor.update({ "data.ap.value": actor.system.ap.max })
+      actor.update({ "system.ap.value": actor.system.ap.max })
     }
     else {
-      actor.update({ "data.ap.value": actor.system.ap.max + Math.ceil(actor.system.ap.value / 2) });
+      actor.update({ "system.ap.value": actor.system.ap.max + Math.ceil(actor.system.ap.value / 2) });
     }
 
   }
@@ -805,7 +805,7 @@ export class WastehunterActorSheet extends ActorSheet {
 
     console.log(item.system.automatic.check)
     if (item.system.automatic.check == true) {
-      item.update({ "data.APcost.value": 4 })
+      item.update({ "system.APcost.value": 4 })
     }
 
   }
@@ -823,7 +823,7 @@ export class WastehunterActorSheet extends ActorSheet {
 
     console.log(item.system.automatic.check)
     if (item.system.automatic.check == true) {
-      item.update({ "data.APcost.value": 4 })
+      item.update({ "system.APcost.value": 4 })
     }
 
   }
@@ -842,7 +842,7 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("Reducing Mana");
     console.log(item.system.manacost.value)
     console.log(actor.system.mana1.value)
-    actor.update({ "data.mana1.value": actor.system.mana1.value - item.system.manacost.value })
+    actor.update({ "system.mana1.value": actor.system.mana1.value - item.system.manacost.value })
   }
 
   _onClickRestsys(event) {
@@ -852,21 +852,21 @@ export class WastehunterActorSheet extends ActorSheet {
     const element = event.currentTarget;
 
     console.log("HP Resets")
-    actor.update({ "data.stamina.value": actor.system.stamina.max })
+    actor.update({ "system.stamina.value": actor.system.stamina.max })
 
 
     console.log("Exhaustion & Hazard Reduction")
     if (actor.system.exhaustion.value >= 1) {
-      actor.update({ "data.exhaustion.value": actor.system.exhaustion.value - 1 })
+      actor.update({ "system.exhaustion.value": actor.system.exhaustion.value - 1 })
     }
     if (actor.system.bloodtoxin.value >= 1) {
-      actor.update({ "data.bloodtoxin.value": actor.system.bloodtoxin.value - 1 })
+      actor.update({ "system.bloodtoxin.value": actor.system.bloodtoxin.value - 1 })
     }
     if (actor.system.intoxication.value == 1) {
-      actor.update({ "data.intoxication.value": actor.system.intoxication.value - 1 })
+      actor.update({ "system.intoxication.value": actor.system.intoxication.value - 1 })
     }
     if (actor.system.intoxication.value >= 2) {
-      actor.update({ "data.intoxication.value": actor.system.intoxication.value - 2 })
+      actor.update({ "system.intoxication.value": actor.system.intoxication.value - 2 })
     }
 
   }
@@ -878,14 +878,14 @@ export class WastehunterActorSheet extends ActorSheet {
     const element = event.currentTarget;
 
     console.log("HP Resets")
-    actor.update({ "data.stamina.value": actor.system.stamina.max })
+    actor.update({ "system.stamina.value": actor.system.stamina.max })
 
-    actor.update({ "data.mana1.value": actor.system.mana1.max })
+    actor.update({ "system.mana1.value": actor.system.mana1.max })
 
     console.log("Exhaustion & Hazard Reduction")
-    actor.update({ "data.exhaustion.value": 0 })
-    actor.update({ "data.intoxication.value": 0 })
-    actor.update({ "data.bloodtoxin.value": actor.system.bloodtoxin.value - 3 })
+    actor.update({ "system.exhaustion.value": 0 })
+    actor.update({ "system.intoxication.value": 0 })
+    actor.update({ "system.bloodtoxin.value": actor.system.bloodtoxin.value - 3 })
   }
 
   _onClickSneaksys(event) {
@@ -894,7 +894,7 @@ export class WastehunterActorSheet extends ActorSheet {
     const actor = this.actor;
     const sneakcost = Math.floor(actor.system.ap.max / 2)
 
-    actor.update({ "data.ap.value": actor.system.ap.value - sneakcost })
+    actor.update({ "system.ap.value": actor.system.ap.value - sneakcost })
 
     const element = event.currentTarget;
     const dataset = element.dataset;
@@ -916,7 +916,7 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("Repositioning")
     const actor = this.actor;
 
-    actor.update({ "data.ap.value": actor.system.ap.value - 1 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 1 })
 
   }
 
@@ -925,7 +925,7 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("Moving")
     const actor = this.actor;
     const movecost = Math.floor(actor.system.ap.max / 2)
-    actor.update({ "data.ap.value": actor.system.ap.value - movecost })
+    actor.update({ "system.ap.value": actor.system.ap.value - movecost })
 
   }
 
@@ -934,28 +934,28 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("Sprinting")
     const actor = this.actor;
     const sprintcost = Math.floor((actor.system.ap.max / 4) * 3)
-    actor.update({ "data.ap.value": actor.system.ap.value - sprintcost })
+    actor.update({ "system.ap.value": actor.system.ap.value - sprintcost })
   }
 
   _onClickWristwatch(event) {
     event.preventDefault()
     console.log("Checking Wristwatch")
     const actor = this.actor;
-    actor.update({ "data.ap.value": actor.system.ap.value - 4 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 4 })
   }
 
   _onClickSimpleobject(event) {
     event.preventDefault()
     console.log("Using a simple object")
     const actor = this.actor;
-    actor.update({ "data.ap.value": actor.system.ap.value - 2 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 2 })
   }
 
   _onClickComplexobject(event) {
     event.preventDefault()
     console.log("Using a complex object")
     const actor = this.actor;
-    actor.update({ "data.ap.value": 0 })
+    actor.update({ "system.ap.value": 0 })
   }
 
   _onClickTargettingtest(event) {
@@ -997,7 +997,7 @@ export class WastehunterActorSheet extends ActorSheet {
     event.preventDefault()
     console.log("Resetting Stamina")
     const actor = this.actor;
-    actor.update({ "data.stamina.value": actor.system.stamina.max })
+    actor.update({ "system.stamina.value": actor.system.stamina.max })
 
   }
 
@@ -1006,7 +1006,7 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("Resetting Vitality")
     const actor = this.actor;
     if (actor.system.vitality.value < actor.system.vitality.max) {
-      actor.update({ "data.vitality.value": actor.system.vitality.value + 1 })
+      actor.update({ "system.vitality.value": actor.system.vitality.value + 1 })
     }
   }
 
@@ -1016,7 +1016,7 @@ export class WastehunterActorSheet extends ActorSheet {
     console.log("Resetting Will")
     const actor = this.actor;
     if (actor.system.willpoints.value < actor.system.willpoints.max) {
-      actor.update({ "data.willpoints.value": actor.system.willpoints.value + 1 })
+      actor.update({ "system.willpoints.value": actor.system.willpoints.value + 1 })
     }
   }
 
@@ -1043,13 +1043,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING MCR")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("COMPACT CARRY -", actor.system.compactcarry1.value)
-        actor.update({ "data.compactcarry1.value": actor.system.compactcarry1.value - 1 })
+        actor.update({ "system.compactcarry1.value": actor.system.compactcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1067,13 +1067,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING AP-RIFLE")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("COMPACT CARRY -", actor.system.compactcarry1.value)
-        actor.update({ "data.compactcarry1.value": actor.system.compactcarry1.value - 1 })
+        actor.update({ "system.compactcarry1.value": actor.system.compactcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1091,13 +1091,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING High Capacity Handgun Magazine")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("Small CARRY -", actor.system.smallcarry1.value)
-        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        actor.update({ "system.smallcarry1.value": actor.system.smallcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1115,7 +1115,7 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING Heavy Cannon Magazine")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("Medium  CARRY -", actor.system.mediumcarry1.value)
         actor.update({ "data.mediumcarry1.value": actor.system.mediumcarry1.value - 1 })
         if (item.type == 'item') {
@@ -1139,13 +1139,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING Glock Magazine")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("Small CARRY -", actor.system.smallcarry1.value)
-        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        actor.update({ "system.smallcarry1.value": actor.system.smallcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1163,13 +1163,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING Juicebox")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("Small CARRY -", actor.system.smallcarry1.value)
-        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        actor.update({ "system.smallcarry1.value": actor.system.smallcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1187,13 +1187,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING Shell Case")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("Small CARRY -", actor.system.smallcarry1.value)
-        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        actor.update({ "system.smallcarry1.value": actor.system.smallcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1211,13 +1211,13 @@ export class WastehunterActorSheet extends ActorSheet {
         ui.notifications.warn(actor.name + ` does not have enough magazines remaining.`);
       } else {
         console.log("DROPPING Shell Case")
-        magazine.update({ "data.quantity": magazine.system.quantity - 1 })
+        magazine.update({ "system.quantity": magazine.system.quantity - 1 })
         console.log("Small CARRY -", actor.system.smallcarry1.value)
-        actor.update({ "data.smallcarry1.value": actor.system.smallcarry1.value - 1 })
+        actor.update({ "system.smallcarry1.value": actor.system.smallcarry1.value - 1 })
         if (item.type == 'item') {
           if (item.system.melee.check == false) {
-            item.update({ "data.charges.value": item.system.charges.max })
-            actor.update({ "data.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
+            item.update({ "system.charges.value": item.system.charges.max })
+            actor.update({ "system.ap.value": actor.system.ap.value - (item.system.APcost.value + 2) })
           }
         }
       }
@@ -1233,14 +1233,14 @@ export class WastehunterActorSheet extends ActorSheet {
     event.preventDefault()
     console.log("Coup d'Etat")
     const actor = this.actor;
-    actor.update({ "data.ap.value": 0 })
+    actor.update({ "system.ap.value": 0 })
   }
 
   _onClickDisarm(event) {
     event.preventDefault()
     console.log("Disarm")
     const actor = this.actor;
-    actor.update({ "data.ap.value": actor.system.ap.value - 3 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 3 })
 
     let quicknesstemp = actor.system.abilities.QCK.value
     let palmingskill = actor.system.skills.palming.mod
@@ -1266,7 +1266,7 @@ export class WastehunterActorSheet extends ActorSheet {
     event.preventDefault()
     console.log("Disarm")
     const actor = this.actor;
-    actor.update({ "data.ap.value": actor.system.ap.value - 1 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 1 })
 
     let quicknesstemp = actor.system.abilities.QCK.value
     let palmingskill = actor.system.skills.gymnastics.mod
@@ -1292,7 +1292,7 @@ export class WastehunterActorSheet extends ActorSheet {
     event.preventDefault()
     console.log("Disarm")
     const actor = this.actor;
-    actor.update({ "data.ap.value": actor.system.ap.value - 3 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 3 })
 
     let quicknesstemp = actor.system.abilities.STR.value
     let palmingskill = actor.system.skills.force.mod
@@ -1318,7 +1318,7 @@ export class WastehunterActorSheet extends ActorSheet {
     event.preventDefault()
     console.log("Disarm")
     const actor = this.actor;
-    actor.update({ "data.ap.value": actor.system.ap.value - 2 })
+    actor.update({ "system.ap.value": actor.system.ap.value - 2 })
 
     let quicknesstemp = actor.system.abilities.STR.value
     let palmingskill = actor.system.skills.force.mod
@@ -1360,7 +1360,7 @@ export class WastehunterActorSheet extends ActorSheet {
     for (let item of actor.items) {
       total += item.system.weight ?? 0;
     }
-    actor.update({"data.currentload.value": total.toFixed(2)});
+    actor.update({"system.currentload.value": total.toFixed(2)});
   }
 
 }
