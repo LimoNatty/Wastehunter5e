@@ -309,6 +309,10 @@ export class WastehunterActorSheet extends ActorSheet {
 
     html.find('.shove').click(this._onClickShove.bind(this));
 
+    // Update load
+
+    html.find('.updateload').click(this._onClickUpdateLoad.bind(this));
+
 
     // Drag events for macros.
     if (this.actor.owner) {
@@ -1347,6 +1351,16 @@ export class WastehunterActorSheet extends ActorSheet {
     });
 
 
+  }
+
+  _onClickUpdateLoad(event) {
+    event.preventDefault();
+    const actor = this.actor;
+    let total = 0;
+    for (let item of actor.items) {
+      total += item.system.weight ?? 0;
+    }
+    actor.update({"data.currentload.value": total});
   }
 
 }
