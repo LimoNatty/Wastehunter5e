@@ -1360,7 +1360,7 @@ export class WastehunterActorSheet extends ActorSheet {
     for (let item of actor.items) {
       total += item.system.weight ?? 0;
     }
-    actor.update({"system.currentload.value": total.toFixed(2)});
+    actor.update({"system.currentload.value": parseFloat(total.toFixed(2))});
   }
 
 }
