@@ -874,7 +874,7 @@
               name="system.skills.healing.mod" value="{{system.skills.healing.mod}}" style="width:30px;color: #03e8fc;"
               data-dtype="Number">
             <span class="ability-mod otherroll"
-              data-roll="(@skills.healing.mod + (@skills.healingbase) + {{system.circumstancedice.value}} )d6x6cs>3"
+              data-roll="(@skills.healing.mod + (@skills.healing.base) + {{system.circumstancedice.value}} )d6x6cs>3"
               data-label="Healing">{{numberFormat (addValues system.skills.healing.base system.skills.healing.mod
               system.circumstancedice.value) decimals=0 sign=false}}</span> <br>
             Trickery:
