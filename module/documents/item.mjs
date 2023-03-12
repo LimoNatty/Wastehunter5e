@@ -73,4 +73,14 @@ export class WastehunterItem extends Item {
     return result;
   }
   }
+
+  async testDialog() {
+    const test = new TestDialog({}, {
+      classes: ["wastehunter", "roll-dialog"], 
+      template: "systems/wastehunter/templates/testdialogs/item-dialog.html", 
+      width: 520, 
+      height: 300, 
+    });
+    test.render(true);
+  }
 }
