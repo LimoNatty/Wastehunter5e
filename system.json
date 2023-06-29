@@ -47,6 +47,6 @@
   "secondaryTokenAttribute": "power",
   "url": "https://github.com/LimoNatty/Wastehunter5e",
   "manifest": "https://raw.githubusercontent.com/LimoNatty/Wastehunter5e/alistestwork/system.json",
-  "download": "https://github.com/LimoNatty/Wastehunter5e/archive/refs/heads/master.zip",
+  "download": "https://github.com/LimoNatty/Wastehunter5e/archive/refs/heads/alistestwork.zip",
   "license": "LICENSE.txt"
 }
