@@ -505,8 +505,29 @@
 
           <div class="innerLarge" style="background-color:transparent;">
             <h3 style="color:#03e8fc; border-style: none;">Qualifications</h3>
-            <textarea name="system.details.education" rows="5" cols="40"
-              style="color:#03e8fc; height: 100%;">{{system.details.education}}</textarea>
+            <select name="system.details.education" style="color: #03e8fc;">
+              {{#select system.details.lifepath}}
+                <option value="lifepath.razor" style="font: Bios;color: #03e8fc; background: #1e2424;">Razor</option>
+                <option value="lifepath.nobility" style="font: Bios;color: #03e8fc; background: #1e2424;">Nobility</option>
+                <option value="lifepath.corpo" style="font: Bios;color: #03e8fc; background: #1e2424;">Corpo</option>
+                <option value="lifepath.lawman" style="font: Bios;color: #03e8fc; background: #1e2424;">Lawman</option>
+                <option value="lifepath.vendor" style="font: Bios;color: #03e8fc; background: #1e2424;">Vendor</option>
+                <option value="lifepath.servoid" style="font: Bios;color: #03e8fc; background: #1e2424;">Servoid</option>
+                <option value="lifepath.netrunner" style="font: Bios;color: #03e8fc; background: #1e2424;">Netrunner</option>
+                <option value="lifepath.scholar" style="font: Bios;color: #03e8fc; background: #1e2424;">Scholar</option>
+                <option value="lifepath.artisan" style="font: Bios;color: #03e8fc; background: #1e2424;">Artisan</option>
+                <option value="lifepath.media" style="font: Bios;color: #03e8fc; background: #1e2424;">Media</option>
+                <option value="lifepath.rainsinger" style="font: Bios;color: #03e8fc; background: #1e2424;">Rainsinger</option>
+                <option value="lifepath.clergy" style="font: Bios;color: #03e8fc; background: #1e2424;">Clergy</option>
+                <option value="lifepath.nomad" style="font: Bios;color: #03e8fc; background: #1e2424;">Nomad</option>
+                <option value="lifepath.merc" style="font: Bios;color: #03e8fc; background: #1e2424;">Merc</option>
+                <option value="lifepath.ganger" style="font: Bios;color: #03e8fc; background: #1e2424;">Ganger</option>
+                <option value="lifepath.syndy" style="font: Bios;color: #03e8fc; background: #1e2424;">Syndy</option>
+                <option value="lifepath.dealer" style="font: Bios;color: #03e8fc; background: #1e2424;">Dealer</option>
+                <option value="lifepath.fixer" style="font: Bios;color: #03e8fc; background: #1e2424;">Fixer</option>
+                <option value="lifepath.joytoy" style="font: Bios;color: #03e8fc; background: #1e2424;">Joytoy</option>
+                <option value="lifepath.ripperdoc" style="font: Bios;color: #03e8fc; background: #1e2424;">Ripperdoc</option>
+            {{/select}}</select>
           </div>
 
           <div class="inner1" style="background-color:transparent;">
