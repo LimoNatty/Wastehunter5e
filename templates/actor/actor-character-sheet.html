@@ -387,7 +387,7 @@
             margin: 5px;
             border: 1px solid #03e8fc;
             grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr 3fr 1fr 3fr repeat(6, 3fr);
+            grid-template-rows: repeat(5, 1fr) 3fr repeat(6, 3fr);
           }
 
           .inner1 {
@@ -406,6 +406,17 @@
             border: 1px solid #03e8fc;
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 5fr;
+            justify-items: center;
+            align-items: center;
+          }
+
+          .inner3 {
+            grid-row: span 2
+            grid;
+            padding: 10px;
+            border: 1px solid #03e8fc;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 3fr;
             justify-items: center;
             align-items: center;
           }
@@ -472,13 +483,14 @@
             <input type="text" name="system.faith" value="{{system.faith}}" size="5" style="color:#03e8fc;" />
           </div>
 
-          <div class="inner2" style="background-color:transparent;">
+          <div class="inner2" style="background-color:transparent; grid-row:span 3">
             <h3 style="color:#03e8fc; border-style: none;">Languages</h3>
             <textarea name="system.details.languages" rows="5" cols="40"
               style="color:#03e8fc; height: 100%;">{{system.details.languages}}</textarea>
           </div>
 
-          <div class="innerHazards" style="background-color:transparent;">
+          <!--this where the code for the hazards will go-->
+          <div class="innerHazards" style="background-color:transparent; grid-row:span 3">
             <h3 style="color:#03e8fc;  border-style: none; grid-column: 1/3;">Hazards</h3>
             <h4 style="color:#03e8fc; border-bottom: 2px solid #03e8fc;">Hazard Types</h4>
             <h4 style="color:#03e8fc; border-bottom: 2px solid #03e8fc;">Level</h4>
@@ -497,25 +509,27 @@
             <label for="system.intoxic" style="color:#03e8fc; justify-self: left;">Intoxication (0-V)</label><input
               type="text" name="system.intoxication.value" value="{{system.intoxication.value}}"
               style="width: 50px;color: #03e8fc;" data-dtype="Number">
-
             <label for="arcdif" style="color:#03e8fc; justify-self: left;">Arcane Diffusion</label>
             <input type="number" name="system.arcanediffusion.percent" value="{{system.arcanediffusion.percent}}"
               style="width: 50px;color: #03e8fc;" data-dtype="Number">
           </div>
 
-          <div class="innerLarge" style="background-color:transparent;">
+          <div class="inner1" style="background-color:transparent;">
             <h3 style="color:#03e8fc; border-style: none;">Lifepath</h3>
-            <select name="system.details.education" style="color: #03e8fc;">
+            <select name="system.details.lifepath" style="color: #03e8fc;">
               {{#select system.details.lifepath}}
                 <option value="lifepath.razor" style="font: Bios;color: #03e8fc; background: #1e2424;">Razor</option>
                 <option value="lifepath.nobility" style="font: Bios;color: #03e8fc; background: #1e2424;">Nobility</option>
                 <option value="lifepath.corpo" style="font: Bios;color: #03e8fc; background: #1e2424;">Corpo</option>
                 <option value="lifepath.lawman" style="font: Bios;color: #03e8fc; background: #1e2424;">Lawman</option>
+                <option value="lifepath.stalker" style="font: Bios;color: #03e8fc; background: #1e2424;">Stalker</option>
                 <option value="lifepath.vendor" style="font: Bios;color: #03e8fc; background: #1e2424;">Vendor</option>
                 <option value="lifepath.servoid" style="font: Bios;color: #03e8fc; background: #1e2424;">Servoid</option>
                 <option value="lifepath.netrunner" style="font: Bios;color: #03e8fc; background: #1e2424;">Netrunner</option>
                 <option value="lifepath.scholar" style="font: Bios;color: #03e8fc; background: #1e2424;">Scholar</option>
                 <option value="lifepath.artisan" style="font: Bios;color: #03e8fc; background: #1e2424;">Artisan</option>
+                <option value="lifepath.technician" style="font: Bios;color: #03e8fc; background: #1e2424;">Technician</option>
+                <option value="lifepath.paramedic" style="font: Bios;color: #03e8fc; background: #1e2424;">Paramedic</option>
                 <option value="lifepath.media" style="font: Bios;color: #03e8fc; background: #1e2424;">Media</option>
                 <option value="lifepath.rainsinger" style="font: Bios;color: #03e8fc; background: #1e2424;">Rainsinger</option>
                 <option value="lifepath.clergy" style="font: Bios;color: #03e8fc; background: #1e2424;">Clergy</option>
@@ -526,8 +540,25 @@
                 <option value="lifepath.dealer" style="font: Bios;color: #03e8fc; background: #1e2424;">Dealer</option>
                 <option value="lifepath.fixer" style="font: Bios;color: #03e8fc; background: #1e2424;">Fixer</option>
                 <option value="lifepath.joytoy" style="font: Bios;color: #03e8fc; background: #1e2424;">Joytoy</option>
-                <option value="lifepath.ripperdoc" style="font: Bios;color: #03e8fc; background: #1e2424;">Ripperdoc</option>
+                <option value="lifepath.rebel" style="font: Bios;color: #03e8fc; background: #1e2424;">Rebel</option>
             {{/select}}</select>
+          </div>
+
+          <div class="inner1" style="background-color:transparent;">
+            <h3 style="color:#03e8fc; border-style: none;">Pronouns</h3>
+            <input type="text" name="system.pronouns" value="{{system.pronouns}}" size="5" style="color:#03e8fc;" />
+          </div>
+
+          <div class="inner3" style="background-color:transparent;">
+            <h3 style="color:#03e8fc; border-style: none;">Criminal Notice</h3>
+            <textarea name="system.details.notice" rows="3" cols="40"
+              style="color:#03e8fc; height: 100%;">{{system.details.notice}}</textarea>
+          </div>
+
+          <div class="inner2" style="background-color:transparent;">
+            <h3 style="color:#03e8fc; border-style: none;">Employment</h3>
+            <textarea name="system.details.employment" rows="3" cols="40"
+              style="color:#03e8fc; height: 100%;">{{system.details.employment}}</textarea>
           </div>
 
           <div class="inner1" style="background-color:transparent;">
