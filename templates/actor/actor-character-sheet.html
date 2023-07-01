@@ -411,8 +411,8 @@
           }
 
           .inner3 {
-            grid-row: span 2
-            grid;
+            display: grid;
+            grid-row: span 2;
             padding: 10px;
             border: 1px solid #03e8fc;
             grid-template-columns: 1fr;
@@ -561,13 +561,13 @@
               style="color:#03e8fc; height: 100%;">{{system.details.employment}}</textarea>
           </div>
 
-          <div class="inner1" style="background-color:transparent;">
+          <div class="inner1" style="background-color:transparent; grid-row-start: 5">
             <h3 style="color:#03e8fc; border-style: none;">Vision Types</h3>
             <input type="text" name="system.visiontypes" value="{{system.visiontypes}}" size="5"
               style="color:#03e8fc;" />
           </div>
 
-          <div class="inner1" style="background-color:transparent;">
+          <div class="inner1" style="background-color:transparent; grid-row-start: 5">
             <h3 style="color:#03e8fc; border-style: none;">Lifestyle</h3>
             <select name="system.lifestyle" style="color: #03e8fc;">
               {{#select system.lifestyle}}
@@ -580,12 +580,12 @@
             </select>
           </div>
 
-          <div class="inner1" style="background-color:transparent;">
+          <div class="inner1" style="background-color:transparent; grid-row-start: 5">
             <h3 style="color:#03e8fc; border-style: none;">Date of Birth</h3>
             <input type="text" name="system.dob" value="{{system.dob}}" size="5" style="color:#03e8fc;" />
           </div>
 
-          <div class="inner1" style="background-color:transparent;">
+          <div class="inner1" style="background-color:transparent; grid-row-start: 5">
             <h3 style="color:#03e8fc; border-style: none;">Sexuality</h3>
             <input type="text" name="system.sexuality" value="{{system.sexuality}}" size="5" style="color:#03e8fc;" />
           </div>
