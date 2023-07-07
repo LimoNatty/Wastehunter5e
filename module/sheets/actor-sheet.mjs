@@ -84,6 +84,7 @@ export class WastehunterActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
+    const skills = [];
     const spells = {
       0: [],
       1: [],
@@ -109,7 +110,6 @@ export class WastehunterActorSheet extends ActorSheet {
     const decker = [];
     const sins = [];
 
-
     // Iterate through items, allocating to containers
     for (let i of context.items) {
       i.img = i.img || DEFAULT_TOKEN;
@@ -120,6 +120,10 @@ export class WastehunterActorSheet extends ActorSheet {
       // Append to features.
       else if (i.type === 'feature') {
         features.push(i);
+      }
+      // Append to skills.
+      else if (i.type === 'skill') {
+        skills.push(i);
       }
       // Append to spells.
       else if (i.type === 'spell') {
@@ -167,6 +171,7 @@ export class WastehunterActorSheet extends ActorSheet {
     //Assign and return
     context.gear = gear;
     context.features = features;
+    context.skills = skills;
     context.spells = spells;
     context.contact = contact;
     context.language = language;
