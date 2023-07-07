@@ -84,7 +84,7 @@ export class WastehunterActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
-    const skills = [];
+    const characterskills = [];
     const spells = {
       0: [],
       1: [],
@@ -122,8 +122,8 @@ export class WastehunterActorSheet extends ActorSheet {
         features.push(i);
       }
       // Append to skills.
-      else if (i.type === 'skill') {
-        skills.push(i);
+      else if (i.type === 'characterskill') {
+        characterskills.push(i);
       }
       // Append to spells.
       else if (i.type === 'spell') {
@@ -171,7 +171,7 @@ export class WastehunterActorSheet extends ActorSheet {
     //Assign and return
     context.gear = gear;
     context.features = features;
-    context.skills = skills;
+    context.characterskills = characterskills;
     context.spells = spells;
     context.contact = contact;
     context.language = language;
