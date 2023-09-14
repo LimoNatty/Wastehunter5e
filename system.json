@@ -1,18 +1,37 @@
 {
-  "id": "boilerplate",
-  "title": "Boilerplate",
-  "description": "The Boilerplate system for FoundryVTT!",
-  "version": "1.2.0",
+  "name": "wastehunter",
+  "title": "Wastehunter First Edition",
+  "description": "The Wastehunter First Edition system for FoundryVTT!",
+  "version": "5.1.0.2",
   "compatibility": {
-    "minimum": 10,
-    "verified": "10.287",
-    "maximum": 10
+    "minimum": "10",
+    "verified": 10,
+    "maximum": 11
   },
-  "authors": [{
-    "name": "Asacolips"
-  }],
-  "esmodules": ["module/boilerplate.mjs"],
-  "styles": ["css/boilerplate.css"],
+  "authors": [
+    {
+      "name": "Dan Miller (he/him)"
+    },
+    {
+      "name": "Nat Guedes (she/they)"
+    },
+    {
+      "name": "Winter LaVey (they/them)"
+    },
+    {
+      "name": "Alis Ramona (she/it)",
+      "url": "https://amrsetsunai.carrd.co/",
+      "discord": "AMR_Setsunai#0064"
+    },
+    {
+      "name": "Mia Merelo (she/her)"
+    },
+    {
+      "name": "Resi Dent (she/they)"
+    }
+  ],
+  "esmodules": ["module/wastehunter.mjs"],
+  "styles": ["css/wastehunter.css"],
   "scripts": [],
   "packs": [],
   "languages": [
@@ -23,12 +42,12 @@
     }
   ],
   "gridDistance": 5,
-  "gridUnits": "ft",
+  "gridUnits": "Unit",
   "primaryTokenAttribute": "health",
   "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/LimoNatty/Wastehunter5e",
+  "manifest": "https://raw.githubusercontent.com/LimoNatty/Wastehunter5e/master/system.json",
+  "download": "https://github.com/LimoNatty/Wastehunter5e/archive/refs/heads/master.zip",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md"
 }
