@@ -2,7 +2,7 @@
  * Extend the base Actor document by defining a custom roll data structure which is ideal for the Simple system.
  * @extends {Actor}
  */
-export class WastehunterActor extends Actor {
+export class BoilerplateActor extends Actor {
 
   /** @override */
   prepareData() {
@@ -29,13 +29,14 @@ export class WastehunterActor extends Actor {
    * is queried and has a roll executed directly from it).
    */
   prepareDerivedData() {
-    const data = this.system;
-    const flags = this.flags.wastehunter || {};
+    const actorData = this;
+    const systemData = actorData.system;
+    const flags = actorData.flags.boilerplate || {};
 
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
-    this._prepareCharacterData(this);
-    this._prepareNpcData(this);
+    this._prepareCharacterData(actorData);
+    this._prepareNpcData(actorData);
   }
 
   /**
@@ -45,20 +46,13 @@ export class WastehunterActor extends Actor {
     if (actorData.type !== 'character') return;
 
     // Make modifications to data here. For example:
-    const system = actorData.system;
+    const systemData = actorData.system;
 
     // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(system.abilities)) {
-      ability.mod = ability.value - 6.0
+    for (let [key, ability] of Object.entries(systemData.abilities)) {
+      // Calculate the modifier using d20 rules.
+      ability.mod = Math.floor((ability.value - 10) / 2);
     }
-    system.totalhealth.value = system.shield.value + system.stamina.value + system.luck.value + system.vitality.value,
-    system.totalhealth.max = system.shield.max + system.stamina.max + system.luck.max + system.vitality.max
-
-
-
-    system.resources.perkbonus.value = 2 + Math.floor((system.resources.ascension.value - 1)/5)
-    system.increment = Math.floor((system.resources.ascension.value - 1)/5)
-    
   }
 
   /**
@@ -68,55 +62,47 @@ export class WastehunterActor extends Actor {
     if (actorData.type !== 'npc') return;
 
     // Make modifications to data here. For example:
-    const data = actorData.system;
-    data.xp = (data.cr * data.cr) * 100;
-
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(data.abilities)) {
-      ability.mod = ability.value - 6.0
-    }
-
+    const systemData = actorData.system;
+    systemData.xp = (systemData.cr * systemData.cr) * 100;
   }
 
   /**
    * Override getRollData() that's supplied to rolls.
    */
   getRollData() {
-    const system = super.getRollData();
+    const data = super.getRollData();
 
     // Prepare character roll data.
-    this._getCharacterRollData(system);
-    this._getNpcRollData(system);
+    this._getCharacterRollData(data);
+    this._getNpcRollData(data);
 
-    return system;
+    return data;
   }
 
   /**
    * Prepare character roll data.
    */
-  _getCharacterRollData(system) {
+  _getCharacterRollData(data) {
     if (this.type !== 'character') return;
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (system.abilities) {
-      for (let [k, v] of Object.entries(system.abilities)) {
-        system[k] = foundry.utils.deepClone(v);
+    if (data.abilities) {
+      for (let [k, v] of Object.entries(data.abilities)) {
+        data[k] = foundry.utils.deepClone(v);
       }
     }
 
     // Add level for easier access, or fall back to 0.
-    if (system.attributes.level) {
-      system.lvl = system.attributes.level.value ?? 0;
+    if (data.attributes.level) {
+      data.lvl = data.attributes.level.value ?? 0;
     }
   }
 
-
-  
   /**
    * Prepare NPC roll data.
    */
-  _getNpcRollData(system) {
+  _getNpcRollData(data) {
     if (this.type !== 'npc') return;
 
     // Process additional NPC data here.

@@ -3,16 +3,17 @@
     "types": ["character", "npc"],
     "templates": {
       "base": {
-        "totalhealth": {
-          "value": 0,
+        "health": {
+          "value": 10,
           "min": 0,
-          "max": 0
+          "max": 10
         },
         "power": {
-          "value": 0,
+          "value": 5,
           "min": 0,
-          "max": 0
-        }
+          "max": 5
+        },
+        "biography": ""
       }
     },
     "character": {
@@ -23,250 +24,33 @@
         }
       },
       "abilities": {
-        "BOD": {
-          "value": 6.0
+        "str": {
+          "value": 10
         },
-        "STR": {
-          "value": 6.0
+        "dex": {
+          "value": 10
         },
-        "QCK": {
-          "value": 6.0
+        "con": {
+          "value": 10
         },
-        "REA": {
-          "value": 6.0
+        "int": {
+          "value": 10
         },
-        "INT": {
-          "value": 6.0
+        "wis": {
+          "value": 10
         },
-        "TEC": {
-          "value": 6.0
-        },
-        "SPI": {
-          "value": 6.0
-        },
-        "CLN": {
-          "value": 6.0
-        }
-      },
-      "skills":{
-        "Weights": {
-          "value": 0.0
-        },
-        "Parkour": {
-          "value": 0.0
-        },
-        "Endurance": {
-          "value": 0.0
-        },
-        "Force": {
-          "value": 0.0
-        },
-        "Gymnastics": {
-          "value": 0.0
-        },
-        "Palming": {
-          "value": 0.0
-        },
-        "Stealth": {
-          "value": 0.0
-        },
-        "Combat Sequence": {
-          "value": 0.0
-        },
-        "Avoidance": {
-          "value": 0.0
-        },
-        "Resiliance": {
-          "value": 0.0
-        },
-        "Blades": {
-          "value": 0.0
-        },
-        "Blunt": {
-          "value": 0.0
-        },
-        "Pole Weapons": {
-          "value": 0.0
-        },
-        "Martial Arts": {
-          "value": 0.0
-        },
-        "Special Melee": {
-          "value": 0.0
-        },
-        "Small Guns": {
-          "value": 0.0
-        },
-        "Big Guns": {
-          "value": 0.0
-        },
-        "Thrown Weapons": {
-          "value": 0.0
-        },
-        "Special Ranged": {
-          "value": 0.0
-        },
-        "Experimental Weapons": {
-          "value": 0.0
-        },
-        "Chemistry": {
-          "value": 0.0
-        },
-        "Biology": {
-          "value": 0.0
-        },
-        "Matrix": {
-          "value": 0.0
-        },
-        "Politics": {
-          "value": 0.0
-        },
-        "Street": {
-          "value": 0.0
-        },
-        "Wasteland": {
-          "value": 0.0
-        },
-        "Metaplanes": {
-          "value": 0.0
-        },
-        "Media": {
-          "value": 0.0
-        },
-        "Medical": {
-          "value": 0.0
-        },
-        "Economics": {
-          "value": 0.0
-        },
-        "History": {
-          "value": 0.0
-        },
-        "Magicka": {
-          "value": 0.0
-        },
-        "Theology": {
-          "value": 0.0
-        },
-        "Occult": {
-          "value": 0.0
-        },
-        "Driving": {
-          "value": 0.0
-        },
-        "Sailing": {
-          "value": 0.0
-        },
-        "Piloting": {
-          "value": 0.0
-        },
-        "Healing": {
-          "value": 0.0
-        },
-        "Trickery": {
-          "value": 0.0
-        },
-        "Bushcraft": {
-          "value": 0.0
-        },
-        "Engineering": {
-          "value": 0.0
-        },
-        "Alchemy": {
-          "value": 0.0
-        },
-        "Armoring": {
-          "value": 0.0
-        },
-        "Tailoring": {
-          "value": 0.0
-        },
-        "Physical Arts": {
-          "value": 0.0
-        },
-        "Performing Arts": {
-          "value": 0.0
-        },
-        "Construction": {
-          "value": 0.0
-        },
-        "Psychiatry": {
-          "value": 0.0
-        },
-        "Resist Insanity": {
-          "value": 0.0
-        },
-        "Resolve": {
-          "value": 0.0
-        },
-        "Searching": {
-          "value": 0.0
-        },
-        "Awareness": {
-          "value": 0.0
-        },
-        "Psychoanalysis": {
-          "value": 0.0
-        },
-        "Persuasion": {
-          "value": 0.0
-        },
-        "Deception": {
-          "value": 0.0
-        },
-        "Intimidation": {
-          "value": 0.0
-        },
-        "Enthrall": {
-          "value": 0.0
-        },
-        "Taming": {
-          "value": 0.0
-        }
-      },
-      "resources":{
-        "combatsequence":{
-          "value": 0.0
-        },
-        "ascension":{
-          "value": 1
-        },
-        "perkbonus":{
-          "value": 2
+        "cha": {
+          "value": 10
         }
       }
     },
     "npc": {
       "templates": ["base"],
-      "cr": 0,
-      "data.totalhealth.value":0,
-      "abilities": {
-        "STR": {
-          "value": 6.0
-        },
-        "PER": {
-          "value": 6.0
-        },
-        "END": {
-          "value": 6.0
-        },
-        "CHA": {
-          "value": 6.0
-        },
-        "INT": {
-          "value": 6.0
-        },
-        "AGL": {
-          "value": 6.0
-        },
-        "LCK": {
-          "value": 6.0
-        }
-      }
+      "cr": 0
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell", "effect", "characternote", "contact", "language", "faction", "inventoryslot", "currency", "clothes","personalitems","consumables", "vehicles", "safehouse","decker","sins"],
+    "types": ["item", "feature", "spell"],
     "templates": {
       "base": {
         "description": ""
@@ -276,29 +60,14 @@
       "templates": ["base"],
       "quantity": 1,
       "weight": 0,
-      "formula": "d20 + @abilities.STR.mod",
-      "formula2": "d20 + @abilities.INT.mod"
+      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
     },
     "feature": {
       "templates": ["base"]
     },
     "spell": {
       "templates": ["base"],
-      "spellLevel": 1,
-      "formula": "d20 + @abilities.STR.mod",
-      "formula2": "d20 + @abilities.INT.mod"
-    },
-    "effect": {
-      "templates": ["base"]
-    },
-    "contact": {
-      "templates": ["base"]
-    },
-    "language": {
-      "templates": ["base"]
-    },
-    "inventoryslot":{
-      "templates": ["base"]
-    }
+      "spellLevel": 1
     }
   }
+}

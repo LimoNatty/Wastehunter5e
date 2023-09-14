@@ -1,8 +1,5 @@
-//Import fonts.
-@font-face {
-  font-family: "SourceCodePro";
-  src: url(fonts/SourceCodePro-VariableFont_wght.ttf)
-}
+// Add custom fonts by visiting and search https://fonts.google.com
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 // Import utilities.
 @import 'utils/typography';
@@ -15,8 +12,8 @@
 @import 'global/grid';
 @import 'global/flex';
 
-/* Styles limited to wastehunter sheets */
-.wastehunter {
+/* Styles limited to boilerplate sheets */
+.boilerplate {
   @import 'components/forms';
   @import 'components/resource';
   @import 'components/items';

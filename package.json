@@ -1,7 +1,7 @@
 {
-  "name": "wastehunter",
-  "version": "2.14.0.0",
-  "description": "CSS compiler for the Wastehunter First Edition system",
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "CSS compiler for the Boilerplate system",
   "scripts": {
     "build": "gulp build",
     "compile": "gulp css",
@@ -11,13 +11,14 @@
   "browserslist": [
     "last 3 versions"
   ],
-  "author": "Alis Ramona",
+  "author": "John Doe",
   "license": "MIT",
   "private": true,
-  "dependencies": {
-    "gulp": "^4",
-    "gulp-autoprefixer": "^8",
-    "gulp-sass": "^4",
-    "gulp-sourcemaps": "^3"
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "sass": "^1.53.0"
   }
 }

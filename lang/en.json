@@ -1,22 +1,22 @@
 {
-  "WASTEHUNTER.AbilityStr": "Strength",
-  "WASTEHUNTER.AbilityCon": "Constitution",
-  "WASTEHUNTER.AbilityDex": "Dexterity",
-  "WASTEHUNTER.AbilityInt": "Intelligence",
-  "WASTEHUNTER.AbilityWis": "Wisdom",
-  "WASTEHUNTER.AbilityCha": "Charisma",
+  "BOILERPLATE.AbilityStr": "Strength",
+  "BOILERPLATE.AbilityCon": "Constitution",
+  "BOILERPLATE.AbilityDex": "Dexterity",
+  "BOILERPLATE.AbilityInt": "Intelligence",
+  "BOILERPLATE.AbilityWis": "Wisdom",
+  "BOILERPLATE.AbilityCha": "Charisma",
 
-  "WASTEHUNTER.AbilityStrAbbr": "str",
-  "WASTEHUNTER.AbilityConAbbr": "con",
-  "WASTEHUNTER.AbilityDexAbbr": "dex",
-  "WASTEHUNTER.AbilityIntAbbr": "int",
-  "WASTEHUNTER.AbilityWisAbbr": "wis",
-  "WASTEHUNTER.AbilityChaAbbr": "cha",
+  "BOILERPLATE.AbilityStrAbbr": "str",
+  "BOILERPLATE.AbilityConAbbr": "con",
+  "BOILERPLATE.AbilityDexAbbr": "dex",
+  "BOILERPLATE.AbilityIntAbbr": "int",
+  "BOILERPLATE.AbilityWisAbbr": "wis",
+  "BOILERPLATE.AbilityChaAbbr": "cha",
 
-  "WASTEHUNTER.EffectCreate": "Create Effect",
-  "WASTEHUNTER.EffectToggle": "Toggle Effect",
-  "WASTEHUNTER.EffectEdit": "Edit Effect",
-  "WASTEHUNTER.EffectDelete": "Delete Effect",
+  "BOILERPLATE.EffectCreate": "Create Effect",
+  "BOILERPLATE.EffectToggle": "Toggle Effect",
+  "BOILERPLATE.EffectEdit": "Edit Effect",
+  "BOILERPLATE.EffectDelete": "Delete Effect",
 
-  "WASTEHUNTER.Add": "Add"
+  "BOILERPLATE.Add": "Add"
 }

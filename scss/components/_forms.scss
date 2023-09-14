@@ -1,5 +1,5 @@
 .item-form {
-  font-family: "SourceCodePro";
+  font-family: $font-primary;
 }
 
 .sheet-header {
@@ -9,9 +9,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
-  padding: 5px;
   margin-bottom: 10px;
-  background-color: #8cf2ff;
 
   .profile-img {
     flex: 0 0 100px;
@@ -32,7 +30,6 @@
       width: 100%;
       height: 100%;
       margin: 0;
-      color: #03e8fc;
     }
   }
 }
@@ -45,17 +42,14 @@
 .sheet-body .tab,
 .sheet-body .tab .editor {
   height: 100%;
-  color: #03e8fc;
 }
 
 .tox {
   .tox-editor-container {
-    background: $c-beige;
-    color: #03e8fc;
+    background: $c-white;
   }
 
   .tox-edit-area {
     padding: 0 8px;
-    color: #03e8fc;
   }
 }

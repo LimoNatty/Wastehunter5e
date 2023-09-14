@@ -1,31 +1,23 @@
-export const WASTEHUNTER = {};
-
-// Define constants here, such as:
-WASTEHUNTER.foobar = {
-  'bas': 'WASTEHUNTER.bas',
-  'bar': 'WASTEHUNTER.bar'
-};
+export const BOILERPLATE = {};
 
 /**
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- WASTEHUNTER.abilities = {
-  "str": "WASTEHUNTER.AbilityStr",
-  "per": "WASTEHUNTER.AbilityPer",
-  "end": "WASTEHUNTER.AbilityEnd",
-  "cha": "WASTEHUNTER.AbilityCha",
-  "int": "WASTEHUNTER.AbilityInt",
-  "agl": "WASTEHUNTER.AbilityAgl",
-  "lck": "WASTEHUNTER.AbilityLck"
+ BOILERPLATE.abilities = {
+  "str": "BOILERPLATE.AbilityStr",
+  "dex": "BOILERPLATE.AbilityDex",
+  "con": "BOILERPLATE.AbilityCon",
+  "int": "BOILERPLATE.AbilityInt",
+  "wis": "BOILERPLATE.AbilityWis",
+  "cha": "BOILERPLATE.AbilityCha"
 };
 
-WASTEHUNTER.abilityAbbreviations = {
-  "str": "WASTEHUNTER.AbilityStrAbbr",
-  "per": "WASTEHUNTER.AbilityPerAbbr",
-  "end": "WASTEHUNTER.AbilityEndAbbr",
-  "cha": "WASTEHUNTER.AbilityChaAbbr",
-  "int": "WASTEHUNTER.AbilityIntAbbr",
-  "agl": "WASTEHUNTER.AbilityAglAbbr",
-  "lck": "WASTEHUNTER.AbilityLckAbbr"
+BOILERPLATE.abilityAbbreviations = {
+  "str": "BOILERPLATE.AbilityStrAbbr",
+  "dex": "BOILERPLATE.AbilityDexAbbr",
+  "con": "BOILERPLATE.AbilityConAbbr",
+  "int": "BOILERPLATE.AbilityIntAbbr",
+  "wis": "BOILERPLATE.AbilityWisAbbr",
+  "cha": "BOILERPLATE.AbilityChaAbbr"
 };
