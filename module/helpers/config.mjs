@@ -1,23 +1,23 @@
-export const BOILERPLATE = {};
+export const WASTEHUNTER = {};
 
 /**
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- BOILERPLATE.abilities = {
-  "str": "BOILERPLATE.AbilityStr",
-  "dex": "BOILERPLATE.AbilityDex",
-  "con": "BOILERPLATE.AbilityCon",
-  "int": "BOILERPLATE.AbilityInt",
-  "wis": "BOILERPLATE.AbilityWis",
-  "cha": "BOILERPLATE.AbilityCha"
+ WASTEHUNTER.abilities = {
+  "str": "WASTEHUNTER.AbilityStr",
+  "dex": "WASTEHUNTER.AbilityDex",
+  "con": "WASTEHUNTER.AbilityCon",
+  "int": "WASTEHUNTER.AbilityInt",
+  "wis": "WASTEHUNTER.AbilityWis",
+  "cha": "WASTEHUNTER.AbilityCha"
 };
 
-BOILERPLATE.abilityAbbreviations = {
-  "str": "BOILERPLATE.AbilityStrAbbr",
-  "dex": "BOILERPLATE.AbilityDexAbbr",
-  "con": "BOILERPLATE.AbilityConAbbr",
-  "int": "BOILERPLATE.AbilityIntAbbr",
-  "wis": "BOILERPLATE.AbilityWisAbbr",
-  "cha": "BOILERPLATE.AbilityChaAbbr"
+WASTEHUNTER.abilityAbbreviations = {
+  "str": "WASTEHUNTER.AbilityStrAbbr",
+  "dex": "WASTEHUNTER.AbilityDexAbbr",
+  "con": "WASTEHUNTER.AbilityConAbbr",
+  "int": "WASTEHUNTER.AbilityIntAbbr",
+  "wis": "WASTEHUNTER.AbilityWisAbbr",
+  "cha": "WASTEHUNTER.AbilityChaAbbr"
 };
